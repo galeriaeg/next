@@ -1,0 +1,22 @@
+meu-projeto-web/
+│
+├── config/                  # Configurações internas (PHP/MySQL)
+│   └── database.php         
+│
+├── includes/                # Partes reutilizáveis de HTML/PHP
+│   ├── header.php           
+│   └── footer.php           
+│
+├── pages/                   # Páginas internas do site
+│   ├── sobre.php
+│   └── contato.php
+│
+├── public/                  # <--- Tudo que o navegador acessa diretamente
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   └── images/              
+│       └── logo.png
+│
+└── index.php                # Porta de entrada principal na raiz

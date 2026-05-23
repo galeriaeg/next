@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /next/
+
+# Se for um arquivo ou diretório real, não faz nada
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# A mudança está aqui: removemos os caracteres especiais do padrão da rota
+# O [QSA] (Query String Append) garante que o ?id=10 seja repassado para o index.php
+RewriteRule ^([a-zA-Z0-9-_]+)$ index.php?url=$1 [QSA,L]

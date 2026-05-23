@@ -1,0 +1,18 @@
+ul {
+  display: flex;
+}
+
+li {
+  margin: 0 35px 0 0;
+}
+
+.amenu {
+  color: #bcf5ee;
+  text-decoration: none;
+  transition: 0.3s;
+  padding: 5px 6px;
+}
+.amenu:hover {
+  color: #fff;
+  text-shadow: 0 1px 3px #31665e;
+}
