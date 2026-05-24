@@ -3,7 +3,7 @@ input[type="text"] {
   width: 100%;
   box-sizing: border-box;
   color: #555;
-  border: #777 1px solid;
+  border: #999 1px solid;
   border-radius: 5px 0 0 5px;
   box-shadow: 0 2px 6px #ccc;
 }
@@ -21,7 +21,7 @@ input[type="text"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #757575;
+  background-color: #999;
   border: 0;
   cursor: pointer;
   border-radius: 0 5px 5px 0;

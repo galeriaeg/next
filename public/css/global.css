@@ -130,15 +130,19 @@ table {
 }
 
 h6 {
+  font-size: 0.7rem;
 }
 h5 {
   font-size: 0.8rem;
 }
 h4 {
+  font-size: 0.9rem;
 }
 h3 {
+  font-size: 1rem;
 }
 h2 {
+  font-size: 1.1rem;
 }
 h1 {
   font-size: 1.6rem;
@@ -146,8 +150,19 @@ h1 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 40px 0;
+  line-height: 25px;
+}
+
+.col12 {
+  width: 100%;
+}
+.col6 {
+  width: 50%;
+}
+.col3 {
+  width: 25%;
 }
 
 header {
@@ -169,7 +184,7 @@ nav {
 }
 
 main {
-  border: 1px solid #ccc;
+  border: 0 solid #ccc;
   width: 90%;
   display: block;
   margin: 0 auto;
@@ -204,17 +219,29 @@ a:hover {
   border: 0 solid blue;
   margin: 30px 0;
 }
-.label-page h4 {
-  color: #30655e;
-  border-left: 4px solid #5fbcb0;
+.label-page h3 {
+  color: #5fbcb0;
+  border-left: 4px solid #b2d9c6;
   padding-left: 10px;
 }
 
 .title-page {
+  color: #777;
   border: 0 solid green;
   margin-bottom: 30px;
 }
 
 .text-page {
   border: 0 solid blue;
+  color: #555;
+}
+
+.input {
+  padding: 10px;
+}
+.select {
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  color: #555;
 }

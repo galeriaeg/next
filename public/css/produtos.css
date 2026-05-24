@@ -1,0 +1,93 @@
+.box-filtro {
+  background-color: #eee;
+  padding: 12px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px #ddd;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  color: #777;
+  border: 1px solid #ccc;
+}
+.tag {
+  background: #e3e3e3;
+  font-size: 12px;
+  padding: 1px 12px;
+  border-radius: 25px;
+  margin-left: 20px;
+  box-shadow: 0 2px 5px #ccc;
+  transition: 0.3s;
+}
+.tag:hover {
+  background: #999;
+  color: #fff;
+  cursor: pointer;
+}
+.select {
+  margin: 0 8px;
+}
+.logo-produto {
+  width: 130px;
+  border: 1px solid #e2e2e2;
+  margin-bottom: 20px;
+}
+.card-grupo {
+  border: 0 solid green;
+  display: flex;
+  margin-bottom: 40px;
+  flex-flow: wrap;
+}
+
+.card-produto {
+  width: 20%;
+}
+.card-first {
+  margin-right: 6.6%;
+  float: left;
+}
+.card-last {
+  float: right;
+}
+
+.card-produto h2 {
+  color: #60bdb2;
+  margin: 6px 0;
+}
+
+.card-produto div {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  width: 100%;
+  margin: 0;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+  border-radius: 6px;
+}
+
+.card-produto:hover div {
+  border: 1px solid #60bdb2;
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.card-produto img {
+  float: left;
+  width: 100%;
+  cursor: pointer;
+  max-width: 100%;
+  height: 100%;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.3s;
+}
+.card-produto:hover img {
+  transform: scale(1.1);
+}
+
+.hr {
+  height: 1px;
+  background: #e3e3e3;
+  margin: 30px 0;
+}

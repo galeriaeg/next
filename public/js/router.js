@@ -16,10 +16,11 @@ const carregar = async (caminhoCompleto) => {
 
     document.getElementById("conteudo-principal").innerHTML = await res.text();
   } catch {
-    document.getElementById("conteudo-principal").innerHTML = `
-            <h2>Erro 404</h2>
-            <p>A página que você procura não foi encontrada.</p>
-        `;
+    window.location.href = "./erro404";
+    // document.getElementById("conteudo-principal").innerHTML = `
+    //         <h2>Erro 404</h2>
+    //         <p>A página que você procura não foi encontrada.</p>
+    //     `;
   }
 };
 

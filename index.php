@@ -22,6 +22,8 @@ if (!file_exists($arquivo_conteudo)) {
   <link rel="shortcut icon" href="./public/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="./public/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="./public/favicon/site.webmanifest" />
+  <!-- Font Awesome 4.7.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -31,6 +33,7 @@ if (!file_exists($arquivo_conteudo)) {
   <footer><?php require_once "includes/footer.php" ?></footer>
   <!-- controla as rotas-->
   <script src="public/js/router.js"></script>
+
 </body>
 
 </html>
