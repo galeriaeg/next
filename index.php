@@ -27,6 +27,7 @@ if (!file_exists($arquivo_conteudo)) {
 </head>
 
 <body>
+
   <header><?php require_once "includes/header.php" ?></header>
   <nav><?php require_once "includes/menu.php" ?></nav>
   <main id="conteudo-principal"><?php include($arquivo_conteudo); ?></main>

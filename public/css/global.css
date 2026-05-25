@@ -155,14 +155,20 @@ p {
   line-height: 25px;
 }
 
+/* Colunas responsivas */
 .col12 {
   width: 100%;
+}
+.col9 {
+  width: 75%;
+  border: 0 solid red;
 }
 .col6 {
   width: 50%;
 }
 .col3 {
   width: 25%;
+  border: 0 solid blue;
 }
 
 header {
@@ -211,6 +217,11 @@ a:hover {
   align-items: center;
 }
 
+.box-conteudo {
+  display: flex;
+  margin-bottom: 40px;
+}
+
 .logo {
   width: 160px;
 }
@@ -228,12 +239,12 @@ a:hover {
 .title-page {
   color: #777;
   border: 0 solid green;
-  margin-bottom: 30px;
 }
 
 .text-page {
   border: 0 solid blue;
   color: #555;
+  display: inline-block;
 }
 
 .input {
@@ -242,6 +253,6 @@ a:hover {
 .select {
   padding: 7px 10px;
   border-radius: 5px;
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   color: #555;
 }
