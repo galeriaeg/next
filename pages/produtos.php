@@ -1,16 +1,34 @@
+<?php
+@$idMarca_selecionada = $_GET['m'];
+@$idLinha_selecionada = $_GET['l'];
+
+include($_SERVER['DOCUMENT_ROOT'] . '/next/config/conecta.php');
+
+$sql = "SELECT * FROM tb_conteudo WHERE tipo ='1' ";
+$res = mysqli_query($conexao, $sql);
+$qtd = mysqli_num_rows($res);
+while ($row = mysqli_fetch_array($res)) {
+  $id = $row['id'];
+  $pagina = $row['pagina'];
+  $titulo = $row['titulo'];
+  $texto = $row['texto'];
+  $mapa = $row['add'];
+  $tipo = $row['tipo'];
+}
+?>
+
 <section>
   <div class="label-page">
-    <h3>Produtos</h3>
+    <h3><?php echo $pagina; ?></h3>
   </div>
 
   <h1 class="title-page">
-    Nossas linhas de produtos
+    <?php echo $titulo; ?>
   </h1>
 
   <p class="text-page">
-    A Next possui uma linha completa de produtos capazes de atender as mais variadas necessidades. Com constantes investimentos em tecnologia e em atenção aos nossos clientes, buscamos oferecer as melhores soluções do mercado.
+    <?php echo $texto; ?>
   </p>
-
 
   <!-- filtro -->
   <div class="box-filtro col12">
@@ -18,57 +36,164 @@
       <i class="fa fa-filter" aria-hidden="true"></i>
       &nbsp;Filtro:
     </h3>
-    <select class="select">
+    <!-- filtro Marca -->
+    <select id="marca" onchange="setarMarca();" class="select">
       <option selected disabled>Marca</option>
-      <option>Konika Minota</option>
-      <option>Philips</option>
+      <?php
+      $sql = "SELECT * FROM tb_marca where status= 1";
+      $res = mysqli_query($conexao, $sql);
+      $qtd = mysqli_num_rows($res);
+      while ($row = mysqli_fetch_array($res)) {
+        $id_marca = $row['id'];
+        $nome_marca = $row['nome'];
+        $logomarca_marca = $row['logomarca'];
+        echo "<option " . ($idMarca_selecionada == $id_marca ? "selected" : "") . " value='$id_marca'>$nome_marca</option>";
+      }
+      ?>
     </select>
-    <select class="select">
+
+    <!-- filtro Linha -->
+    <select disabled onchange="setarLinha(this)" id="linha" class="select">
       <option selected disabled>Linha</option>
-      <option>Linha 1</option>
-      <option>Linha 2</option>
-      <option>Linha 3</option>
+      <?php
+      if (!empty($idMarca_selecionada)) {
+        $sql = "SELECT id,titulo FROM tb_linha where idmarca = $idMarca_selecionada";
+        $res = mysqli_query($conexao, $sql);
+        $qtd = mysqli_num_rows($res);
+        while ($row = mysqli_fetch_array($res)) {
+          $id_linha = $row['id'];
+          $titulo_linha = $row['titulo'];
+          $marca_linha = $idMarca_selecionada . "-" . $id_linha;
+          echo "<option " . ($idLinha_selecionada == $id_linha ? "selected" : "") . " value='$marca_linha'>$titulo_linha</option>";
+        }
+      }
+      ?>
     </select>
-    <span class="tag">&#10006;&nbsp;&nbsp;Philips</span>
+
+    <span style="display:none" class="tag" id="tag">0</span>
+
   </div>
+
 
   <!-- Logo Marca parceira -->
   <div>
-    <img src="public/imgs/logo-philips.png" class="logo-produto" alt="logo">
+    <?php
+    $idMarca_selecionada = isset($idMarca_selecionada) ? (int)$idMarca_selecionada : 0;
+    $sql = "SELECT nome,logomarca 
+    FROM tb_marca 
+    WHERE id=$idMarca_selecionada
+    LIMIT 1 ";
+    $res = mysqli_query($conexao, $sql);
+    $qtd = mysqli_num_rows($res);
+    while ($row = mysqli_fetch_array($res)) {
+      $nome_marca = $row['nome'];
+      $logo_marca = $row['logomarca'];
+    }
+    if ($qtd > 0) {
+      // Mostra Marca do produto
+      echo "<img src='controlg/files/$logo_marca' class='logo-produto' alt='logomarca'>";
+      echo "<script>document.getElementById('linha').disabled = false;</script>";
+    } else {
+      echo "<h4 class='alert-info'><i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;Selecione uma Marca</h4>";
+    }
+    ?>
   </div>
 
 
   <!-- Lista de registros/produtos  -->
   <div class="col12 card-grupo">
     <?php
-    $limit = 1;
-    while ($limit < 10) {
+    if ((!empty($idMarca_selecionada)) && (empty($idLinha_selecionada))) {
+      //echo "busca pela marca";
+      $i = 1;
+      $sql = "
+      SELECT tp.id,tp.foto,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
+      FROM tb_produto tp, tb_marca tm, tb_linha tl
+      WHERE tp.idmarca = $idMarca_selecionada
+      AND tp.idmarca = tm.id
+      AND tp.idlinha = tl.id
+      AND tp.status = 1;";
+      $re = mysqli_query($conexao, $sql);
+      $qtd = mysqli_num_rows($re);
+      while ($row = mysqli_fetch_array($re)) {
+        $idProduto = $row['id'];
+        $tituloProduto = $row['titulo'];
+        $fotoProduto = $row['foto'];
+        $nomeMarca = $row['nomeMarca'];
+        $nomeLinha = $row['nomeLinha'];
 
-      if ($limit % 4 == 0) {
-        echo "<div class='card-produto card-last'>
-        <a href='/next/produto?p=$limit'>
+        if ($i % 4 == 0) {
+          echo "<div class='card-produto card-last'>
+        <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='public/imgs/aerodrx10.jpg' alt='prod' />
+            <img src='controlg/files/$fotoProduto' alt='prod' />
           </div>
          </a>
-        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> Ingenia Elition 3.0T FIM </h2>
-        <h4>Philips - Ressonância Magnética final $limit</h4>
+        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i>$tituloProduto</h2>
+        <h4>$nomeMarca</h4>
         </div>";
-        echo "<div class='col12 hr'></div>";
-      } else {
-        echo "<div class='card-produto card-first'>
-        <a href='/next/produto?p=$limit'>
+        } else {
+          echo "<div class='card-produto card-first'>
+        <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='public/imgs/rosem.jpg' alt='prod' />
+            <img src='controlg/files/$fotoProduto' alt='prod' />
           </div>
         </a>
-        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> Ingenia Elition 3.0T</h2>
-        <h4>Philips - Ressonância Magnética $limit</h4>
+        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
+        <h4>$nomeMarca - $nomeLinha</h4>
         </div>";
+        }
+        $i++;
       }
-      $limit++;
+    } else if ((!empty($idMarca_selecionada)) && (!empty($idLinha_selecionada))) {
+
+      //echo "busca por marca e linha";
+
+      $j = 1;
+      $sql = "
+      SELECT tp.id,tp.foto,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
+      FROM tb_produto tp, tb_marca tm, tb_linha tl
+      WHERE tp.idmarca = $idMarca_selecionada
+      AND tp.idlinha = $idLinha_selecionada
+      AND tp.idmarca = tm.id
+      AND tp.idlinha = tl.id
+      AND tp.status = 1;";
+      $re = mysqli_query($conexao, $sql);
+      $qtd = mysqli_num_rows($re);
+      while ($row = mysqli_fetch_array($re)) {
+        $idProduto = $row['id'];
+        $tituloProduto = $row['titulo'];
+        $fotoProduto = $row['foto'];
+        $nomeMarca = $row['nomeMarca'];
+        $nomeLinha = $row['nomeLinha'];
+
+        if ($j % 4 == 0) {
+          echo "<div class='card-produto card-last'>
+        <a href='/next/produto?p=$idProduto'>
+          <div class='box-imagem'>
+            <img src='controlg/files/$fotoProduto' alt='prod' />
+          </div>
+         </a>
+        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i>$tituloProduto</h2>
+        <h4>$nomeMarca</h4>
+        </div>";
+        } else {
+          echo "<div class='card-produto card-first'>
+        <a href='/next/produto?p=$idProduto'>
+          <div class='box-imagem'>
+            <img src='controlg/files/$fotoProduto' alt='prod' />
+          </div>
+        </a>
+        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
+        <h4>$nomeMarca - $nomeLinha</h4>
+        </div>";
+        }
+        $j++;
+      }
     }
+
     ?>
   </div>
 </section>
+
 <script src="public/js/produtos.js"></script>

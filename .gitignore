@@ -1,0 +1,33 @@
+# Conteúdo do arquivo .gitignore atualizado para incluir a regra específica de conexão
+gitignore_with_db = """# ==============================================================================
+# .gitignore Simplificado para Projeto PHP (Conexão Ocultada)
+# ==============================================================================
+
+# --- Arquivos de Conexão e Dados Sensíveis ---
+config/conecta.php
+.env
+.env.local
+config.local.php
+
+
+# --- Logs e Cache ---
+*.log
+/logs/
+/cache/
+
+# --- IDEs e Editores de Código ---
+.vscode/
+.idea/
+*.swp
+
+# --- Arquivos do Sistema Operacional ---
+.DS_Store
+Thumbs.db
+"""
+
+file_name = ".gitignore"
+
+with open(file_name, "w", encoding="utf-8") as file:
+    file.write(gitignore_with_db)
+
+print("Arquivo .gitignore atualizado com sucesso.")

@@ -11,20 +11,7 @@
   color: #777;
   border: 1px solid #ccc;
 }
-.tag {
-  background: #e3e3e3;
-  font-size: 12px;
-  padding: 1px 12px;
-  border-radius: 25px;
-  margin-left: 20px;
-  box-shadow: 0 2px 5px #ccc;
-  transition: 0.3s;
-}
-.tag:hover {
-  background: #999;
-  color: #fff;
-  cursor: pointer;
-}
+
 .select {
   margin: 0 8px;
 }
@@ -131,4 +118,28 @@ button.btn-whatsapp:hover {
 .btn-back {
   border-radius: 25px;
   padding: 5px;
+}
+
+.btn-zoom-mais {
+  margin-top: 10px;
+  width: 35px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: filter 0.2s;
+}
+img.btn-zoom-mais:hover {
+  content: url("../imgs/btn-mais-on.png");
+  filter: contrast(0.9);
+}
+
+.btn-zoom-menos {
+  margin-top: 10px;
+  width: 35px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: filter 0.2s;
+}
+img.btn-zoom-menos:hover {
+  content: url("../imgs/btn-menos-on.png");
+  filter: contrast(0.9);
 }

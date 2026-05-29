@@ -1,4 +1,34 @@
-<?php $idProduto = $_GET['p']; ?>
+<?php
+@$id_produto = $_GET['p'];
+
+include($_SERVER['DOCUMENT_ROOT'] . '/next/config/conecta.php');
+
+$sql = "
+SELECT 
+    p.*, 
+    m.nome AS nomemarca, 
+    m.logomarca AS logomarca, 
+    l.titulo AS nomelinha
+FROM tb_produto p
+INNER JOIN tb_marca m ON p.idmarca = m.id
+INNER JOIN tb_linha l ON p.idlinha = l.id
+WHERE p.id = $id_produto;
+";
+$res = mysqli_query($conexao, $sql);
+$qtd = mysqli_num_rows($res);
+while ($row = mysqli_fetch_array($res)) {
+  $id = $row['id'];
+  $titulo = $row['titulo'];
+  $descricao = $row['descricao'];
+  $foto = $row['foto'];
+  $idmarca = $row['idmarca'];
+  $idlinha = $row['idlinha'];
+  $status = $row['status'];
+  $nomemarca = $row['nomemarca'];
+  $nomelinha = $row['nomelinha'];
+  $logomarca = $row['logomarca'];
+}
+?>
 
 <!-- filtro -->
 <section>
@@ -8,41 +38,29 @@
 
   <div class="box-conteudo">
     <article class="col3" id="article" style="transition:0.3s;">
-      <img src="public/imgs/rosem.jpg" alt="foto do produto" class="img-produto" />
-      <i onclick="ampliarImagem();">ampliar</i>
-      <i onclick="reduzirImagem();">reduzir</i>
+      <img src="controlg/files/<?php echo $foto; ?>" alt="foto do produto" class="img-produto" />
+      <i onclick="ampliarImagem();"><img src="public/imgs/btn-mais-off.png" class="btn-zoom-mais" alt="Ampliar foto" /></i>
+      <i onclick="reduzirImagem();"><img src="public/imgs/btn-menos-off.png" class="btn-zoom-menos" alt="Reduzir foto" /></i>
     </article>
-
     <div class="col9 info-produto" id="main" style="transition:0.3s;">
       <div class="col12" style="margin-bottom:40px;display:inline-flex">
-        <img src="public/imgs/logo-philips.png" alt="foto do produto" class="img-logo-produto" />
+        <img src="controlg/files/<?php echo $logomarca; ?>" alt="marca" class="img-logo-produto" />
       </div>
-      <h1 class="title-page">Ingenia Elition 3.0T</h1>
-      <h3 class="marca-linha-produto">Marca/Linha <?php echo $idProduto; ?></h3>
-      <p class="text-page">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type
-        specimen book. It has survived not only five centuries, but also the leap into
-        electronic typesetting, remaining essentially unchanged. It was popularised
-        in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus PageMaker including
-        versions of Lorem Ipsum.
+      <h1 class="title-page"><?php echo $titulo; ?></h1>
+      <h3 class="marca-linha-produto"><?php echo $nomemarca; ?>/<?php echo $nomelinha; ?></h3>
+      <p class="text-page col12">
+        <?php echo $descricao; ?>
       </p>
-
       <button class="btn-whatsapp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Solicitar orçamento
       </button>
-
-
       <p>
-        <a href="produtos" style="text-decoration:none">
+        <a href="#" onclick="voltar()" style="text-decoration:none">
           <i class="fa fa-long-arrow-left btn-back" aria-hidden="true"></i>
           Voltar
         </a>
       </p>
-
     </div>
 
   </div>

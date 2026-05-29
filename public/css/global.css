@@ -194,6 +194,7 @@ main {
   width: 90%;
   display: block;
   margin: 0 auto;
+  margin-bottom: 80px;
 }
 
 footer {
@@ -255,4 +256,24 @@ a:hover {
   border-radius: 5px;
   border: 1px solid #ccc;
   color: #555;
+}
+
+.alert-info {
+  background-color: #ffef8b;
+  color: #99760f;
+  padding: 6px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.alert-erro {
+  background-color: chocolate;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.alert-sucesso {
+  background-color: aqua;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

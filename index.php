@@ -30,10 +30,8 @@ if (!file_exists($arquivo_conteudo)) {
 
   <header><?php require_once "includes/header.php" ?></header>
   <nav><?php require_once "includes/menu.php" ?></nav>
-  <main id="conteudo-principal"><?php include($arquivo_conteudo); ?></main>
+  <main><?php include($arquivo_conteudo); ?></main>
   <footer><?php require_once "includes/footer.php" ?></footer>
-  <!-- controla as rotas-->
-  <script src="public/js/router.js"></script>
 
 </body>
 
