@@ -1,7 +1,9 @@
 <?php
 @$id_produto = $_GET['p'];
 
-include($_SERVER['DOCUMENT_ROOT'] . '/next/config/conecta.php');
+$path_files = "controlg/painel/files/";
+
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 $sql = "
 SELECT 
@@ -12,7 +14,7 @@ SELECT
 FROM tb_produto p
 INNER JOIN tb_marca m ON p.idmarca = m.id
 INNER JOIN tb_linha l ON p.idlinha = l.id
-WHERE p.id = $id_produto;
+WHERE p.id = $id_produto LIMIT 1;
 ";
 $res = mysqli_query($conexao, $sql);
 $qtd = mysqli_num_rows($res);
@@ -38,13 +40,13 @@ while ($row = mysqli_fetch_array($res)) {
 
   <div class="box-conteudo">
     <article class="col3" id="article" style="transition:0.3s;">
-      <img src="controlg/files/<?php echo $foto; ?>" alt="foto do produto" class="img-produto" />
-      <i onclick="ampliarImagem();"><img src="public/imgs/btn-mais-off.png" class="btn-zoom-mais" alt="Ampliar foto" /></i>
-      <i onclick="reduzirImagem();"><img src="public/imgs/btn-menos-off.png" class="btn-zoom-menos" alt="Reduzir foto" /></i>
+      <img src="<?php echo $path_files . $foto; ?>" alt="foto do produto" class="img-produto" />
+      <span id="btnMais" onclick="ampliarImagem();"><img src="public/imgs/btn-mais-off.png" class="btn-zoom-mais" alt="Ampliar foto" /></span>
+      <span id="btnMenos" style="display: none;" onclick="reduzirImagem();"><img src="public/imgs/btn-menos-off.png" class="btn-zoom-menos" alt="Reduzir foto" /></span>
     </article>
     <div class="col9 info-produto" id="main" style="transition:0.3s;">
       <div class="col12" style="margin-bottom:40px;display:inline-flex">
-        <img src="controlg/files/<?php echo $logomarca; ?>" alt="marca" class="img-logo-produto" />
+        <img src="<?php echo $path_files . $logomarca; ?>" alt="marca" class="img-logo-produto" />
       </div>
       <h1 class="title-page"><?php echo $titulo; ?></h1>
       <h3 class="marca-linha-produto"><?php echo $nomemarca; ?>/<?php echo $nomelinha; ?></h3>
@@ -56,7 +58,7 @@ while ($row = mysqli_fetch_array($res)) {
         Solicitar orçamento
       </button>
       <p>
-        <a href="#" onclick="voltar()" style="text-decoration:none">
+        <a href="#" onclick="voltar(event)" class="a-voltar">
           <i class="fa fa-long-arrow-left btn-back" aria-hidden="true"></i>
           Voltar
         </a>

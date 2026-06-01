@@ -1,12 +1,5 @@
 <section>
-
-  <div class="label-page">
-    <h3>Erro</h3>
-  </div>
-
-  <p class="text-page" style="margin: 0 auto;
-    display: block;
-    text-align: center;">
+  <p class="text-page" style="margin: 0 auto; display: block;text-align: center;">
     <img src="./public/imgs/erro404.png" alt="Erro 404" /><br />
   <div style="color:#31665e;text-align:center" class="col12">Página não foi localizada</div>
   <div style="text-align:center;margin-top:20px">
@@ -15,5 +8,4 @@
     </a>
   </div>
   </p>
-
 </section>

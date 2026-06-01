@@ -16,9 +16,10 @@
   margin: 0 8px;
 }
 .logo-produto {
-  width: 130px;
+  width: 120px;
   border: 1px solid #e2e2e2;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border-radius: 5px;
 }
 .card-grupo {
   border: 0 solid green;
@@ -90,6 +91,7 @@
 .img-logo-produto {
   width: 120px;
   border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .info-produto {
@@ -103,7 +105,6 @@
 }
 
 .btn-whatsapp {
-  background-color: #1fb8a1;
   color: #fff;
   border: 0;
   cursor: pointer;
@@ -111,9 +112,13 @@
   border-radius: 5px;
   font-size: 1rem;
   box-shadow: 0 3px 8px #ccc;
+  background: linear-gradient(to left, #777 50%, #1fb8a1 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 0.3s ease-out;
 }
 button.btn-whatsapp:hover {
-  background-color: #777;
+  background-position: left bottom;
 }
 .btn-back {
   border-radius: 25px;
@@ -125,7 +130,6 @@ button.btn-whatsapp:hover {
   width: 35px;
   cursor: pointer;
   margin-right: 5px;
-  transition: filter 0.2s;
 }
 img.btn-zoom-mais:hover {
   content: url("../imgs/btn-mais-on.png");
@@ -137,7 +141,6 @@ img.btn-zoom-mais:hover {
   width: 35px;
   cursor: pointer;
   margin-right: 5px;
-  transition: filter 0.2s;
 }
 img.btn-zoom-menos:hover {
   content: url("../imgs/btn-menos-on.png");

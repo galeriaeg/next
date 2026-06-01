@@ -2,9 +2,11 @@
 @$idMarca_selecionada = $_GET['m'];
 @$idLinha_selecionada = $_GET['l'];
 
-include($_SERVER['DOCUMENT_ROOT'] . '/next/config/conecta.php');
+$path_files = "controlg/painel/files/";
 
-$sql = "SELECT * FROM tb_conteudo WHERE tipo ='1' ";
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+
+$sql = "SELECT * FROM tb_conteudo WHERE tipo ='2' LIMIT 1 ";
 $res = mysqli_query($conexao, $sql);
 $qtd = mysqli_num_rows($res);
 while ($row = mysqli_fetch_array($res)) {
@@ -12,7 +14,6 @@ while ($row = mysqli_fetch_array($res)) {
   $pagina = $row['pagina'];
   $titulo = $row['titulo'];
   $texto = $row['texto'];
-  $mapa = $row['add'];
   $tipo = $row['tipo'];
 }
 ?>
@@ -36,7 +37,7 @@ while ($row = mysqli_fetch_array($res)) {
       <i class="fa fa-filter" aria-hidden="true"></i>
       &nbsp;Filtro:
     </h3>
-    <!-- filtro Marca -->
+    <!-- Select Marca -->
     <select id="marca" onchange="setarMarca();" class="select">
       <option selected disabled>Marca</option>
       <?php
@@ -52,7 +53,7 @@ while ($row = mysqli_fetch_array($res)) {
       ?>
     </select>
 
-    <!-- filtro Linha -->
+    <!-- Select Linha -->
     <select disabled onchange="setarLinha(this)" id="linha" class="select">
       <option selected disabled>Linha</option>
       <?php
@@ -70,13 +71,11 @@ while ($row = mysqli_fetch_array($res)) {
       ?>
     </select>
 
-    <span style="display:none" class="tag" id="tag">0</span>
-
   </div>
 
 
   <!-- Logo Marca parceira -->
-  <div>
+  <div class="col12">
     <?php
     $idMarca_selecionada = isset($idMarca_selecionada) ? (int)$idMarca_selecionada : 0;
     $sql = "SELECT nome,logomarca 
@@ -91,10 +90,10 @@ while ($row = mysqli_fetch_array($res)) {
     }
     if ($qtd > 0) {
       // Mostra Marca do produto
-      echo "<img src='controlg/files/$logo_marca' class='logo-produto' alt='logomarca'>";
+      echo "<img src='$path_files$logo_marca' class='logo-produto' alt='logomarca'>";
       echo "<script>document.getElementById('linha').disabled = false;</script>";
     } else {
-      echo "<h4 class='alert-info'><i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;Selecione uma Marca</h4>";
+      echo "<h4 class='alert-info'><i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;&nbsp;Selecione uma Marca</h4>";
     }
     ?>
   </div>
@@ -126,7 +125,7 @@ while ($row = mysqli_fetch_array($res)) {
           echo "<div class='card-produto card-last'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='controlg/files/$fotoProduto' alt='prod' />
+            <img src='$path_files$fotoProduto' alt='prod' />
           </div>
          </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i>$tituloProduto</h2>
@@ -136,7 +135,7 @@ while ($row = mysqli_fetch_array($res)) {
           echo "<div class='card-produto card-first'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='controlg/files/$fotoProduto' alt='prod' />
+            <img src='$path_files$fotoProduto' alt='prod' />
           </div>
         </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
@@ -146,9 +145,7 @@ while ($row = mysqli_fetch_array($res)) {
         $i++;
       }
     } else if ((!empty($idMarca_selecionada)) && (!empty($idLinha_selecionada))) {
-
       //echo "busca por marca e linha";
-
       $j = 1;
       $sql = "
       SELECT tp.id,tp.foto,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
@@ -171,7 +168,7 @@ while ($row = mysqli_fetch_array($res)) {
           echo "<div class='card-produto card-last'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='controlg/files/$fotoProduto' alt='prod' />
+            <img src='$path_files$fotoProduto' alt='prod' />
           </div>
          </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i>$tituloProduto</h2>
@@ -181,7 +178,7 @@ while ($row = mysqli_fetch_array($res)) {
           echo "<div class='card-produto card-first'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='controlg/files/$fotoProduto' alt='prod' />
+            <img src='$path_files$fotoProduto' alt='prod' />
           </div>
         </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
@@ -191,7 +188,6 @@ while ($row = mysqli_fetch_array($res)) {
         $j++;
       }
     }
-
     ?>
   </div>
 </section>

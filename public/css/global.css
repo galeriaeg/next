@@ -178,20 +178,20 @@ header {
   background-image: url("../../public/imgs/icon-x.png");
   background-repeat: no-repeat;
   background-position: right;
-  padding: 25px 5%;
+  padding: 25px 10%; /*ajusta largura do site*/
   box-sizing: border-box;
 }
 
 nav {
   background-color: #60bdb2;
-  padding: 12px 5%;
+  padding: 12px 10%; /*ajusta largura do site*/
   box-sizing: border-box;
   color: #b4e9e3;
 }
 
 main {
   border: 0 solid #ccc;
-  width: 90%;
+  width: 80%;
   display: block;
   margin: 0 auto;
   margin-bottom: 80px;
@@ -207,9 +207,28 @@ footer {
 
 a {
   color: #555;
+  text-decoration: none;
 }
 a:hover {
   color: #5f9ea0;
+}
+
+.new {
+  line-height: 45px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.a-voltar {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  color: #999;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.a-voltar:hover {
+  border: 1px solid #5f9ea0;
+  background-color: #eee;
 }
 
 .box-topo {
