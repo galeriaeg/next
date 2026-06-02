@@ -1,18 +1,28 @@
 <?php
-	session_start();
+/*
+session_start();
+if (!isset($_SESSION['login']) || !isset($_SESSION['senha'])) {
+	unset($_SESSION['login']);
+	unset($_SESSION['senha']);
+	echo "<script>window.location.href='../index.php';</script>";
+	exit();
+} else {
+	//echo "<i style='background:#B8FF9C;'>SESSAO ATIVA</i>";
+}
+*/
 
-	//session_cache_expire(20);
-	
+// Cabeçalhos anti-cache (mesma abordagem do logout.php)
+header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 
-	if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-	{
-		unset($_SESSION['login']);
-		unset($_SESSION['senha']);
-		echo "<script>window.location.href='../index.php';</script>";
-		exit();
-	}
-	else{
-        //echo "<i style='background:#B8FF9C;'>SESSAO ATIVA</i>";
-	}
-	
-?>
+session_start();
+
+if (!isset($_SESSION['login']) || !isset($_SESSION['idu'])) {
+	session_unset();
+	session_destroy();
+	header("Location: ../index.php?err=sim");
+	exit();
+}

@@ -12,14 +12,11 @@
 
 	.mooeditable-container {
 		border: 1px solid #ccc !important;
-
 	}
 </style>
 <link rel="stylesheet" type="text/css" href="modulos/cheeaun-editor/Assets/MooEditable/MooEditable.css">
 <script type="text/javascript" src="modulos/cheeaun-editor/Demos/assets/mootools.js"></script>
 <script type="text/javascript" src="modulos/cheeaun-editor/Source/MooEditable/MooEditable.js"></script>
-
-
 <script type="text/javascript">
 	window.addEvent('domready', function() {
 		$('textarea-1').mooEditable();

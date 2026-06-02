@@ -23,26 +23,14 @@ if (empty($idNoticia)) {
     $fotoNoticia  =  $row['foto'];
   }
 
-  if ($qtde < 1) {
-    echo "nao tem foto";
-    $ativaInput = "block";
-    $displayImagem = "none";
-  } else {
-    echo "tem foto";
-    $ativaInput = "none";
-    $displayImagem = "block";
+  if ($qtde > 0) {
+    //echo "tem foto";
+    $file_delete = "files/" . $fotoNoticia; // apaga arquivo no servidor
+    $sql = "UPDATE tb_noticias SET foto='' WHERE id = '$idNoticia'"; // apaga anexo na base
+    $update = mysqli_query($conexao, $sql);
+    unlink($file_delete);
+    //echo "<script>alert('Imagem excluida com sucesso!');</script>";
+    echo "<script>window.location.href='index.php?id=3.2&not=$idNoticia'</script>";
   }
-
-
-  exit();
-
-  $file_delete = "files/" . $fotoNoticia;
-
-  $sql = "UPDATE tb_noticias SET foto='' WHERE id = '$idNoticia'";
-  $update = mysqli_query($conexao, $sql);
-  unlink($file_delete);
-
-  echo "<script>alert('Imagem excluida com sucesso!');</script>";
-  echo "<script>window.location.href='index.php?id=3.2&not=$idNoticia'</script>";
 }
 mysqli_close($conexao);

@@ -1,0 +1,22 @@
+.foto-novidade {
+  width: 450px;
+  float: left;
+  margin-right: 25px;
+  margin-bottom: 4px;
+  padding: 3px;
+  border: 1px solid #ccc;
+}
+
+.conteudo {
+  margin-top: 40px;
+  display: inline-block;
+}
+
+.tag-data {
+  background-color: #e8e8e8;
+  color: #888;
+  width: fit-content;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}

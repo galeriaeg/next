@@ -9,9 +9,8 @@ function cont()
 	switch (@$id) {
 
 		case "0":
-			echo "<script>
-			this.location = 'index.php';
-			</script>";
+			header("Location: logout.php");
+			//echo "<script>this.location = 'logout.php';</script>";
 			break;
 
 		case "2":
@@ -85,6 +84,11 @@ function cont()
 		case "3.4":
 			$titulo = "Excluir Foto";
 			include("modulos/noticias/resp_deleta_anexo.php");
+			break;
+
+		case "99":
+			$titulo = "Cad";
+			include("modulos/noticias/cad.php");
 			break;
 
 

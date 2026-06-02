@@ -12,6 +12,11 @@ while ($row = mysqli_fetch_array($res)) {
   $mapa = $row['plus'];
   $tipo = $row['tipo'];
 }
+// Se não existir conteúdo manda usuário pra Home
+if ($qtd < 1) {
+  echo "<script>window.location.href='home'</script>";
+  exit();
+}
 ?>
 <section>
   <div class="label-page">
@@ -22,7 +27,7 @@ while ($row = mysqli_fetch_array($res)) {
     <?php echo $titulo; ?>
   </h1>
 
-  <p class="text-page">
+  <p class="text-page p">
     <?php echo $texto; ?>
   </p>
 

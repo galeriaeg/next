@@ -43,7 +43,7 @@ form {
 #box-menu {
   width: 15%;
   background: #e5e5e5;
-  border-bottom: 6px solid #3c6eba;
+  border-bottom: 6px solid #0e7ec2;
   border-radius: 6px;
   float: left;
 }
@@ -54,7 +54,7 @@ form {
     Tahoma;
   color: #888;
   width: 90%;
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 5%;
 }
 
@@ -189,6 +189,7 @@ img.btn-fecha-pop:hover {
 .btnovo {
   float: right;
   margin-bottom: 0px;
+  border: 0;
 }
 img.btnovo:hover {
   filter: brightness(1.1);
@@ -204,6 +205,10 @@ img.btnovo:hover {
   width: 30px;
   height: 30px;
   float: right;
+}
+
+.btn-action:hover {
+  filter: brightness(1.2);
 }
 
 .btDelAnexo {
@@ -224,6 +229,7 @@ h3 {
   padding: 0;
   margin: 0;
   margin-bottom: 20px;
+  margin-top: 4px;
 }
 
 .th3 {
@@ -233,23 +239,6 @@ h3 {
   margin: 0;
   font-size: 20px;
 }
-
-/* .txt {
-  font-family: "Trebuchet MS", Tahoma;
-  font-size: 14px;
-  color: #666666;
-} */
-
-/* .txtk {
-  font-family: "Trebuchet MS", Tahoma;
-  font-size: 15px;
-  color: #0e7ec2;
-}
-a.txtk:hover {
-  font-family: "Trebuchet MS", Tahoma;
-  color: #444;
-  text-decoration: underline;
-} */
 
 .txtmenu {
   font-family: "Trebuchet MS", Tahoma;
@@ -283,7 +272,7 @@ label {
 }
 .campo_p {
   width: 20%;
-  padding: 6px;
+  padding: 8px;
   display: block;
   margin-bottom: 15px;
   border-radius: 4px;
@@ -297,7 +286,7 @@ label {
 
 .campo_m {
   width: 60%;
-  padding: 6px;
+  padding: 8px;
   display: block;
   margin-bottom: 15px;
   border-radius: 4px;
@@ -311,7 +300,7 @@ label {
 
 .campo_g {
   width: 100%;
-  padding: 6px;
+  padding: 8px;
   display: block;
   margin-bottom: 15px;
   border-radius: 4px;
@@ -334,14 +323,14 @@ label {
   padding: 10px 18px;
   font-size: 15px;
   color: #fff;
-  background: #3c6eba;
+  background: #0e7ec2;
   border: 0;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 3px 5px #ccc;
 }
 input.btn-submit:hover {
-  background: #1854b1;
+  background: #0768a4;
 }
 
 .btn-back {
@@ -375,6 +364,32 @@ input.btn-simples:hover {
 }
 
 /***** GRID *****/
+
+table {
+  width: 100%;
+  border: 1px solid #ddd;
+  color: #666 !important;
+  font:
+    normal 13px "Trebuchet MS",
+    Tahoma;
+}
+
+thead {
+  background-image: url("../imgs/bg_topo_grid.png");
+  height: 30px;
+  background-color: #e5e5e5;
+  color: #888;
+  margin-left: 6px;
+}
+
+th {
+  padding: 2px 7px;
+}
+
+tr {
+  text-align: left;
+}
+
 ul {
   list-style: none;
   list-style-type: none;
@@ -402,18 +417,6 @@ li i {
   margin-right: 7px;
 }
 
-table {
-  border: 1px solid #ddd;
-  color: #666 !important;
-  font:
-    normal 13px "Trebuchet MS",
-    Tahoma;
-}
-
-th {
-  padding: 2px 7px;
-}
-
 .titCliente {
   float: left;
   text-shadow: -1px 1px #fff;
@@ -424,19 +427,40 @@ th {
   color: #9fb6bd;
 }
 
-.tr {
+/* .tr {
   background-image: url("../imgs/bg_topo_grid.png");
   height: 30px;
   background-color: #e5e5e5;
   color: #888;
   margin-left: 6px;
-}
+} */
 
 tr.tupla {
   background-color: unset;
 }
 tr.tupla:hover {
   background-color: #f3ffb1;
+}
+
+/**** PAGINAÇÃO ****/
+.box-paginacao {
+  margin-top: 20px;
+  text-align: center;
+  color: #555;
+}
+.box-paginacao button {
+  background-color: #eee;
+  padding: 7px 10px;
+  border: 1px solid #999;
+  color: #555;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+.box-paginacao button:hover {
+  background-color: #3c6eba;
+  border: 1px solid #3c6eba;
+  color: #fff;
 }
 
 /**** DROPDOWN ******/

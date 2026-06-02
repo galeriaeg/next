@@ -2,7 +2,7 @@
 require "session.php";
 
 $idUserAtual = $_GET['u'];
-require_once "controle.php";
+//require_once "controle.php";
 
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
@@ -30,7 +30,6 @@ while ($row = $cons->fetch_array()) {
 	}
 	?>
 
-
 	<label>Nome:</label>
 	<input name="nome" type="text" class="campo_m" value="<?php echo $nome; ?>" size="45" />
 
@@ -51,8 +50,6 @@ while ($row = $cons->fetch_array()) {
 		<input type="button" value="Voltar" onClick="location.href='index.php?id=2'" class="btn-back" />
 		<input type="hidden" value="<?php echo $idUserAtual; ?>" name="u" />
 	</div>
-
-
 </form>
 
 

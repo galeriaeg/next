@@ -30,6 +30,11 @@ while ($row = mysqli_fetch_array($res)) {
   $nomelinha = $row['nomelinha'];
   $logomarca = $row['logomarca'];
 }
+// Se não existir produto manda usuário pra Home
+if ($qtd < 1) {
+  echo "<script>window.location.href='home'</script>";
+  exit();
+}
 ?>
 
 <!-- filtro -->
@@ -50,14 +55,14 @@ while ($row = mysqli_fetch_array($res)) {
       </div>
       <h1 class="title-page"><?php echo $titulo; ?></h1>
       <h3 class="marca-linha-produto"><?php echo $nomemarca; ?>/<?php echo $nomelinha; ?></h3>
-      <p class="text-page col12">
+      <p class="text-page col12 p">
         <?php echo $descricao; ?>
       </p>
       <button class="btn-whatsapp">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Solicitar orçamento
       </button>
-      <p>
+      <p class="p">
         <a href="#" onclick="voltar(event)" class="a-voltar">
           <i class="fa fa-long-arrow-left btn-back" aria-hidden="true"></i>
           Voltar

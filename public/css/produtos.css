@@ -4,7 +4,7 @@
   border-radius: 5px;
   box-sizing: border-box;
   box-shadow: 0 2px 8px #ddd;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -18,7 +18,7 @@
 .logo-produto {
   width: 120px;
   border: 1px solid #e2e2e2;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   border-radius: 5px;
 }
 .card-grupo {

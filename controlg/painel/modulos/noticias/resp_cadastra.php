@@ -7,7 +7,7 @@ $descricao	=	$_POST['texto'];
 $status	=	$_POST['status'];
 $nome_arquivo = basename($_FILES['arquivo']['name']);
 
-if (($titulo == "") or ($descricao == "") or ($status == "")) {
+if ((empty($titulo)) || (empty($descricao)) || (empty($status))) {
 	echo "<script>window.location = 'logout.php'</script>";
 	exit();
 }
@@ -15,11 +15,9 @@ if (($titulo == "") or ($descricao == "") or ($status == "")) {
 $ran = rand(10000, 99999);
 $nome_arquivo = $ran . "-" . $nome_arquivo;
 $valida = substr($nome_arquivo, -4);
-
-
-if (($valida <> ".jpg") and ($valida <> ".gif") and ($valida <> ".png")) {
+if (($valida != ".jpg") and ($valida != ".gif") and ($valida != ".png")) {
 	echo "
-			<script type='text/javascript'>
+			<script>
 			alert('Erro! O tipo de arquivo não é permitido! ');
 			window.history.back();
 			</script>
@@ -41,8 +39,6 @@ if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
 	'$titulo','$nome_arquivo','$descricao','$data','$status'
 	)";
 	$conf = $conexao->query($sql) or die($conexao->error);
-
-
 
 	if ($conf > 0) {
 		echo "

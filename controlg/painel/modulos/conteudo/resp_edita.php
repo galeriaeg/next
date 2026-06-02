@@ -6,18 +6,17 @@ $titulo	= $_POST['titulo'];
 $texto = $_POST['texto'];
 $texto = str_replace(['<p>', '</p>'], '', $texto);
 $pagina =	$_POST['pagina'];
-$mapaIframe = $_POST['mapa'] ?? '';
+$mapa = $_POST['mapa'] ?? '';
 
 //tratamento do Mapa: pega somente src
-$iniciaComIframe = (stripos(trim($mapaIframe), '<iframe') === 0);
+$iniciaComIframe = (stripos(trim($mapa), '<iframe') === 0);
 if ($iniciaComIframe) {
-	if (preg_match('/src=["\']([^"\']+)["\']/', $mapaIframe, $matches)) {
+	if (preg_match('/src=["\']([^"\']+)["\']/', $mapa, $matches)) {
 		$mapa = $matches[1];
 	}
 }
 
-
-if (($titulo == "") or ($texto == "") or ($pagina == "")) {
+if ((empty($titulo)) || (empty($texto)) || (empty($pagina))) {
 	echo "<script>window.location = 'logout.php'</script>";
 } else {
 

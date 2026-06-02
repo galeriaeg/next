@@ -149,7 +149,7 @@ h1 {
   font-weight: 600;
 }
 
-p {
+.p {
   font-size: 0.9rem;
   margin: 40px 0;
   line-height: 25px;
@@ -248,7 +248,7 @@ a:hover {
 
 .label-page {
   border: 0 solid blue;
-  margin: 30px 0;
+  margin: 40px 0;
 }
 .label-page h3 {
   color: #5fbcb0;
@@ -259,6 +259,7 @@ a:hover {
 .title-page {
   color: #777;
   border: 0 solid green;
+  line-height: 32px;
 }
 
 .text-page {

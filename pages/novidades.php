@@ -9,9 +9,15 @@ while ($row = mysqli_fetch_array($res)) {
   $pagina = $row['pagina'];
   $titulo = $row['titulo'];
   $texto = $row['texto'];
-  $tipo = $row['tipo'];
+}
+// Se não existir produto manda usuário pra Home
+if ($qtd < 1) {
+  echo "<script>window.location.href='home'</script>";
+  exit();
 }
 ?>
+
+
 <section>
   <div class="label-page">
     <h3><?php echo $pagina; ?></h3>
@@ -21,7 +27,7 @@ while ($row = mysqli_fetch_array($res)) {
     <?php echo $titulo; ?>
   </h1>
 
-  <p class="text-page">
+  <p class="text-page p">
     <?php echo $texto; ?>
   </p>
 
@@ -34,8 +40,19 @@ while ($row = mysqli_fetch_array($res)) {
       $id = $row['id'];
       $titulo = $row['titulo'];
       $data = $row['data'];
-      echo "<h4 class='new'><a href='novidade/$id' target='_top'><i class='fa fa-plus-circle' aria-hidden='true'></i>
-$data - $titulo</a></h4>";
+
+      $date = new DateTime($data);
+      $data_exibir = $date->format('d/m/Y');
+
+      echo "<h4 class='new'>
+      <a href='novidade?n=$id' target='_top'>
+        <i class='fa fa-plus-circle' aria-hidden='true'></i>&nbsp;&nbsp; $data_exibir - $titulo
+      </a></h4>";
+    }
+    // Se não existir conteúdo manda usuário pra Home
+    if ($qtd < 1) {
+      echo "<script>window.location.href='home'</script>";
+      exit();
     }
     ?>
   </div>

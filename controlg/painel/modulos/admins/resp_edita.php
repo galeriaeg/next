@@ -3,7 +3,7 @@ require "session.php";
 
 // CONTROLE DE ACESSO
 $idUserAtual = $_POST['u'];
-require_once("controle.php");
+//require_once("controle.php");
 // CONTROLE DE ACESSO
 
 $nome = $_POST['nome'];
