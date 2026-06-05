@@ -33,7 +33,7 @@ if ($qtd < 1) {
 
   <div class="col12" style="display:grid">
     <?php
-    $sql = "SELECT * FROM tb_noticias WHERE status = 1 ";
+    $sql = "SELECT * FROM tb_noticias WHERE status = 1 ORDER BY id DESC ";
     $res = mysqli_query($conexao, $sql);
     $qtd = mysqli_num_rows($res);
     while ($row = mysqli_fetch_array($res)) {
@@ -57,3 +57,9 @@ if ($qtd < 1) {
     ?>
   </div>
 </section>
+
+<button id="prev" onclick="mudarPagina(-1)">Anterior</button>
+<span id="label">Página 1</span>
+<button id="next" onclick="mudarPagina(1)">Próximo</button>
+
+<script src="public/js/pagination.js"></script>

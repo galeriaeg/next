@@ -75,3 +75,4 @@ if ($qtd < 1) {
 </section>
 
 <script src="public/js/produtos.js"></script>
+<script src="public/js/global.js"></script>

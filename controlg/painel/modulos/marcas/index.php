@@ -1,66 +1,66 @@
 <?php
-	require "session.php";
+require "session.php";
 ?>
 
 <a href="index.php?id=7.1" title="Novo">
-	<img src="imgs/novo.png"  class="btnovo" border="0" alt="Novo" />
+	<img src="imgs/novo.png" class="btnovo" border="0" alt="Novo" />
 </a>
 
 <h3><?php echo $titulo; ?></h3>
 
+<table id="minhaTabela">
+	<thead>
+		<tr>
+			<th width="10%" class="th">LOGOMARCA</th>
+			<th width="73%" class="th">NOME</th>
+			<th width="8%" class="th center">STATUS</th>
+			<th width="9%" class="th center">AÇÕES</th>
+		</tr>
+	</thead>
+	<tbody id="corpoTabela">
+		<?php
 
-<table width="100%" border="0">
-	<tr class="tr">
-		<th width="20%" align="left" class="th">LOGOMARCA</th>
-		<th width="62%" align="left" class="th">NOME</th>
-		<th width="9%" align="left" class="th">NOME</th>
-		<th width="9%" align="left" class="th">A&Ccedil;&Otilde;ES</th>
-	</tr>
-	
-	
-	<?php
+		include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-		include "../conecta.php";
-		
-		$sql = "SELECT * FROM marca ORDER BY id ASC";
-		$cons = $conexao->query($sql)or die($conexao->error);
-		while($row = $cons->fetch_array()){
+		$sql = "SELECT * FROM tb_marca ORDER BY id ASC";
+		$cons = $conexao->query($sql) or die($conexao->error);
+		while ($row = $cons->fetch_array()) {
 			$idMarca = 	$row['id'];
 			$nomeMarca	=	$row['nome'];
 			$logomarcaMarca	=	$row['logomarca'];
 			$statusMarca = $row['status'];
-			
-			if(empty($logomarcaMarca))
+
+			if (empty($logomarcaMarca))
 				$logomarca = "imgs/sem-logo.jpg";
 			else
-				$logomarca = "files/".$logomarcaMarca;
-			
-			
-			if(empty($statusMarca))
-				$status = "<img src='imgs/flegInativo.png' alt='Logo' />";
-			else
-				$status = "<img src='imgs/flegAtivo.png' alt='Logo' />";
-			
+				$logomarca = "files/" . $logomarcaMarca;
 
-			$btedita ="<a href='index.php?id=7.2&idMarca=$idMarca'><img src='imgs/btedita_off.png' border='0' class='bt-editar' /></a>";
-			$btexclui ="<a href='index.php?id=7.3&idMarca=$idMarca&nome=$nomeMarca&nome_arquivo=$logomarcaMarca&conf=0'><img  src='imgs/btexclui_off.png' border='0' class='bt-excluir' /></a>";
-			
-			
+			// Define Fleg Status
+			if ($statusMarca > 0)
+				$flegStatus = "<img src='imgs/fleg-ativo.png' class='center' />";
+			else
+				$flegStatus = "<img src='imgs/fleg-inativo.png' class='center' />";
+
+			$btedita = "<a href='index.php?id=7.2&idMarca=$idMarca'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
+			$btexclui = "<a href='index.php?id=7.3&idMarca=$idMarca&nome=$nomeMarca&nome_arquivo=$logomarcaMarca&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
+
 			echo "<tr class='tupla'>";
-			echo "<th width='20%' align='left' class='txt'><img src='$logomarca' width='85' /></th>";
-			echo "<th width='62%' align='left' class='txt'>$nomeMarca</th>";
-			echo "<th width='9%' align='left' class='txt'>$status</th>";
+			echo "<th width='10%' align='left' class='txt'><img src='$logomarca' width='85' /></th>";
+			echo "<th width='73%' align='left' class='txt'>$nomeMarca</th>";
+			echo "<th width='8%' align='left' class='txt'>$flegStatus</th>";
 			echo "<th width='9%' align='left' class='txt'>$btedita $btexclui</th>";
 			echo "</tr>";
-			
-		} 
-		
-		echo "</table>";
-		
-		echo "<br /><br />";
-		
-		
-		
-		mysql_close();
-		
-	?>
+		}
+
+		mysqli_close($conexao);
+		?>
+	</tbody>
+</table>
+
+
+<nav class="box-paginacao">
+	<button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
+	<span class="txtsimples" id="label">1</span>
+	<button id="next" onclick="mudarPagina(1)">&#129034;</button>
+</nav>
+<script src="./js/paginacao.js"></script>

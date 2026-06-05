@@ -5,8 +5,9 @@ $nome	=	$_POST['nome'];
 $email	=	$_POST['email'];
 $login	=	$_POST['login'];
 $senha	=	$_POST['senha'];
+$tipo = 2; //tipo para usuário comun
 
-if (($nome == "") or ($email == "") or ($login == "") or ($senha == "")) {
+if ((empty($nome)) || (empty($email)) || (empty($login)) || (empty($senha))) {
 	echo "<script type='text/javascript'>window.location = 'logout.php'</script>";
 	exit();
 } else {
@@ -28,7 +29,6 @@ if (($nome == "") or ($email == "") or ($login == "") or ($senha == "")) {
 		</script>";
 		exit;
 	} else {
-		// cadastra administrador
 		$sql = "INSERT INTO tb_usuarios (
 		nome,
 		email,
@@ -39,7 +39,7 @@ if (($nome == "") or ($email == "") or ($login == "") or ($senha == "")) {
 		VALUES (
 		'$nome',
 		'$email',
-		1,
+		$tipo,
 		'$login',
 		'$senha_crip'
 		)";

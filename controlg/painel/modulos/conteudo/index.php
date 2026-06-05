@@ -9,9 +9,10 @@ require "session.php";
 <table id="minhaTabela">
 	<thead>
 		<tr>
-			<th width="20%" align="left" class="th">P&Aacute;GINA</th>
-			<th width="71%" align="left" class="th">DESCRI&Ccedil;&Atilde;O</th>
-			<th width="9%" align="left" class="th">A&Ccedil;&Otilde;ES</th>
+			<th width="5%" align="left" class="th">TIPO</th>
+			<th width="15%" align="left" class="th">PÁGINA</th>
+			<th width="71%" align="left" class="th">DESCRIÇÃO</th>
+			<th width="9%" align="left" class="th center">AÇÕES</th>
 		</tr>
 	</thead>
 	<tbody id="corpoTabela">
@@ -32,11 +33,12 @@ require "session.php";
 
 			$texto = substr($texto, 0, 78);
 
-			$btedita = "<a href='index.php?id=8.2&idCont=$id&tipoCont=$tipo&pagina=$pagina'><img src='imgs/btn-editar.png' title='Editar' alt='Editar' border='0' class='bt-editar' /></a>";
-			$btexclui = "<a href='index.php?id=8.3&idCont=$id&pagina=$pagina&conf=0'><img  src='imgs/btn-excluir.png' title='Excluir' alt='Excluir' border='0' class='bt-excluir' /></a>";
+			$btedita = "<a href='index.php?id=8.2&idCont=$id&tipoCont=$tipo&pagina=$pagina'><img src='imgs/btn-editar.png' title='Editar' alt='Editar' border='0' class='bt-editar btn-action' /></a>";
+			$btexclui = "<a href='index.php?id=8.3&idCont=$id&pagina=$pagina&conf=0'><img  src='imgs/btn-excluir.png' title='Excluir' alt='Excluir' border='0' class='bt-excluir btn-action' /></a>";
 
 			echo "<tr class='tupla'>";
-			echo "<th width='20%' align='left' class='txt'>$tipo - $pagina</th>";
+			echo "<th width='5%' align='left' class='txt'>$tipo</th>";
+			echo "<th width='15%' align='left' class='txt'>$pagina</th>";
 			echo "<th width='71%' align='left' class='txt'>$texto...</th>";
 			echo "<th width='9%' align='left' class='txt'>$btedita $btexclui</th>";
 			echo "</tr>";
@@ -51,8 +53,8 @@ require "session.php";
 </table>
 
 <nav class="box-paginacao">
-	<button id="prev" onclick="mudarPagina(-1)">Anterior</button>
-	<span id="label">Página 1</span>
-	<button id="next" onclick="mudarPagina(1)">Próximo</button>
+	<button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
+	<span class="txtsimples" id="label">1</span>
+	<button id="next" onclick="mudarPagina(1)">&#129034;</button>
 </nav>
 <script src="./js/paginacao.js"></script>

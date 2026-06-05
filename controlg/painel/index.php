@@ -1,6 +1,6 @@
 <?php
 require_once "session.php";
-include_once "funcoes.php";
+include_once "routes.php";
 ?>
 
 <!DOCTYPE html>
@@ -29,14 +29,14 @@ include_once "funcoes.php";
 			<div id="userLogout">
 				<a href="#" style="float:right;color:#555; text-decoration:none;" onmouseover="aparece()" onmouseout="desaparece()">
 					<i class="fa fa-user-o" aria-hidden="true"></i>
-					<strong><?php echo  $_SESSION['nomeu']; ?><div class="setaUser"></div></strong>
+					<strong><?php echo  $_SESSION['nomeUsuarioLogado']; ?><div class="setaUser"></div></strong>
 				</a>
 
 				<div id="dropDownUsuario" style="visibility:hidden;" class="cxMenuUser" onmouseover="aparece()" onmouseout="desaparece()">
 					<a href="logout.php" class="menuuser">
 						<div style="margin-top:28px;">Sair</div>
 					</a>
-					<a href="index.php?id=2.2&u=<?php echo  $_SESSION['idu']; ?>" class="menuuser">
+					<a href="index.php?id=2.2&u=<?php echo  $_SESSION['idUsuarioLogado']; ?>" class="menuuser">
 						<div style="margin-top:0px;">Meus dados</div>
 					</a>
 				</div>

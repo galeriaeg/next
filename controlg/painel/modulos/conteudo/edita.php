@@ -67,7 +67,7 @@ if (
 		<h3><?php echo $tit; ?></h3>
 	</legend>
 
-	<span class="txt">&Aacute;rea: <?php echo $tipo . " - <b>" . $pagina; ?></b></span><br /><br />
+	<span class="txt">Tipo: <?php echo $tipo . " - <b>" . $pagina; ?></b></span><br /><br />
 
 	<label>T&iacute;tulo:</label>
 	<input name="titulo" type="text" class="campo_m" value="<?php echo $titulo; ?>" />

@@ -16,7 +16,7 @@ include "session.php";
 	<input name="nome" type="text" class="campo_m" size="45" />
 
 	<label>Email:</label>
-	<input name="email" type="text" class="campo_m" />
+	<input name="email" type="email" class="campo_m" />
 
 	<label>Login:</label>
 	<input name="login" type="text" class="campo_p" />

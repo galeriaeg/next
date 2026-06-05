@@ -2,7 +2,6 @@
 session_start();
 
 // TESTA SE O USUARIO CLICOU NO SUBMIT
-// FILTER_DEFAULT apenas recebe a string pura sem filtros perigosos
 $btnLogin = filter_input(INPUT_POST, 'btnLogin');
 
 if ($btnLogin) {
@@ -31,18 +30,18 @@ if ((empty($login)) or (empty($senha))) {
 	$total = mysqli_num_rows($res);
 	while ($row = mysqli_fetch_array($res)) {
 		$idu		= $row['id'];
-		$nome		= $row['nome'];
-		$email	= $row['email'];
-		$login	= $row['login'];
-		$tipo		= $row['tipo'];
+		$nomeu	= $row['nome'];
+		$emailu	= $row['email'];
+		$loginu	= $row['login'];
+		$tipou	= $row['tipo'];
 	}
 
 	if ($total > 0) {
 
-		$_SESSION["idu"]		= $idu;
-		$_SESSION["nomeu"]	= $nome;
-		$_SESSION["login"]	= $login;
-		$_SESSION["tipo"]		= $tipo;
+		$_SESSION["idUsuarioLogado"]		= $idu;
+		$_SESSION["nomeUsuarioLogado"]	= $nomeu;
+		$_SESSION["loginUsuarioLogado"]	= $loginu;
+		$_SESSION["tipoUsuarioLogado"]	= $tipou;
 
 		echo "<script>this.location = 'painel/index.php';</script>";
 	} else {

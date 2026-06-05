@@ -1,11 +1,9 @@
 <?php
 require "session.php";
 
-// CONTROLE DE ACESSO
-$idUserAtual = $_POST['u'];
-//require_once("controle.php");
-// CONTROLE DE ACESSO
+//$tipoUserSession =  $_SESSION['tipoUsuarioLogado'];
 
+echo $idUserAtual = $_POST['idUsuario'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $login = $_POST['login'];
@@ -26,7 +24,9 @@ if ($total > 0) {
 	exit();
 } else {
 
-	$sql = "UPDATE tb_usuarios SET nome='$nome', email='$email', login='$login' WHERE id = '$idUserAtual' ";
+	$sql = "UPDATE tb_usuarios 
+		SET nome='$nome', email='$email', login='$login'
+		WHERE id = '$idUserAtual' ";
 	$update = mysqli_query($conexao, $sql);
 
 	if ($update > 0) {

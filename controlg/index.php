@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
 	<form action="aut.php" method="post" name="form" onSubmit="return logon(this)">
 		<div class="box-center">
 			<div id="topo">

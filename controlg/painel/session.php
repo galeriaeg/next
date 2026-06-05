@@ -1,16 +1,4 @@
 <?php
-/*
-session_start();
-if (!isset($_SESSION['login']) || !isset($_SESSION['senha'])) {
-	unset($_SESSION['login']);
-	unset($_SESSION['senha']);
-	echo "<script>window.location.href='../index.php';</script>";
-	exit();
-} else {
-	//echo "<i style='background:#B8FF9C;'>SESSAO ATIVA</i>";
-}
-*/
-
 // Cabeçalhos anti-cache (mesma abordagem do logout.php)
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -20,7 +8,7 @@ header("Pragma: no-cache");
 
 session_start();
 
-if (!isset($_SESSION['login']) || !isset($_SESSION['idu'])) {
+if (!isset($_SESSION['loginUsuarioLogado']) || !isset($_SESSION['tipoUsuarioLogado'])) {
 	session_unset();
 	session_destroy();
 	header("Location: ../index.php?err=sim");

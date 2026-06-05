@@ -1,12 +1,13 @@
 <?php
 require "session.php";
 
-$idUserAtual = $_GET['u'];
-//require_once "controle.php";
+$idUserSetado = $_GET['u'];
+$idUserSession =  $_SESSION['idUsuarioLogado'];
+$tipoUserSession =  $_SESSION['tipoUsuarioLogado'];
 
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-$sql = "SELECT * FROM tb_usuarios WHERE id='$idUserAtual'";
+$sql = "SELECT * FROM tb_usuarios WHERE id='$idUserSetado'";
 $cons = $conexao->query($sql) or die($conexao->error);
 while ($row = $cons->fetch_array()) {
 	$id = $row['id'];
@@ -14,19 +15,26 @@ while ($row = $cons->fetch_array()) {
 	$email = $row['email'];
 	$login = $row['login'];
 	$tipo = $row['tipo'];
-	$senha = $row['senha'];
+	$status = $row['status'];
+}
+
+// Bloqueia acesso indevido
+if (($tipoUserSession != 1) && ($idUserSetado != $idUserSession)) {
+	echo "Sem acesso";
+	echo "<script type='text/javascript'>window.location = 'logout.php'</script>";
+	exit();
 }
 ?>
 
-<form action="index.php?id=2.2.1" method="post" onSubmit="return caduser(this)" name="formUser">
+<?php echo "<h3>$titulo</h3>"; ?>
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
+<form action="index.php?id=2.2.1" method="post" onSubmit="return caduser(this)" name="formUser">
 
 	<?php
 	if ($tipo == 1) {
 		echo "<img src='imgs/icon-user-master.png' alt='icone master' /><br />";
+	} else {
+		echo "<legend><h5 class='txtsimples'>Usuário $status</h5></legend>";
 	}
 	?>
 
@@ -48,7 +56,7 @@ while ($row = $cons->fetch_array()) {
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />
 		<input type="button" value="Voltar" onClick="location.href='index.php?id=2'" class="btn-back" />
-		<input type="hidden" value="<?php echo $idUserAtual; ?>" name="u" />
+		<input type="hidden" value="<?php echo $idUserSetado; ?>" name="idUsuario" />
 	</div>
 </form>
 
@@ -64,7 +72,7 @@ while ($row = $cons->fetch_array()) {
 			<input type="submit" value="Salvar" class="btn-submit" />
 		</div>
 		<div class="col12">
-			<input type="hidden" value="<?php echo $idUserAtual; ?>" name="u" />
+			<input type="hidden" value="<?php echo $idUserSetado; ?>" name="idUsuario" />
 		</div>
 	</form>
 </section>
@@ -72,7 +80,6 @@ while ($row = $cons->fetch_array()) {
 
 <script>
 	function checa_pass(email) {
-
 		if (email.senha.value == "") {
 			alert("Informe uma nova senha!");
 			email.senha.focus();

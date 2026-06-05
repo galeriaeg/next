@@ -7,6 +7,7 @@
 <input type="file" name="arquivo" id="anexo" class="campo_m" accept="image/*" onchange="abreAnexo(this)" />
 <input type="hidden" name="imagem_cropada" id="imagem_cropada" />
 
+<!-- Preview da imagem -->
 <span id="box-anexo" class="box-anexo" style="display:none;">
   <img src="imgs/btexclui.png" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
   <img id="view" class="anexo-noticia" />

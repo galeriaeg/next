@@ -51,3 +51,12 @@ if ($qtd < 1) {
     ?>
   </div>
 </section>
+
+<p class="p">
+  <a href="#" onclick="voltar(event)" class="a-voltar">
+    <i class="fa fa-long-arrow-left btn-back" aria-hidden="true"></i>
+    Voltar
+  </a>
+</p>
+
+<script src="public/js/global.js"></script>

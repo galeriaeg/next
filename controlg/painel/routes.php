@@ -10,43 +10,42 @@ function cont()
 
 		case "0":
 			header("Location: logout.php");
-			//echo "<script>this.location = 'logout.php';</script>";
 			break;
 
 		case "2":
 			$titulo = "Administradores";
-			include("modulos/admins/index.php");
+			include("modulos/usuario/index.php");
 			break;
 
 		case "2.1":
 			$titulo = "Cadastrar Administrador";
-			include("modulos/admins/cadastra.php");
+			include("modulos/usuario/cadastra.php");
 			break;
 
 		case "2.1.1":
 			$titulo = "Cadastrar Administrador";
-			include("modulos/admins/resp_cadastra.php");
+			include("modulos/usuario/resp_cadastra.php");
 			break;
 
 
 		case "2.2":
 			$titulo = "Editar Administrador";
-			include("modulos/admins/edita.php");
+			include("modulos/usuario/edita.php");
 			break;
 
 		case "2.2.1":
 			$titulo = "Meus dados";
-			include("modulos/admins/resp_edita.php");
+			include("modulos/usuario/resp_edita.php");
 			break;
 
 		case "2.3":
 			$titulo = "Meus dados";
-			include("modulos/admins/resp_edita_senha.php");
+			include("modulos/usuario/resp_edita_senha.php");
 			break;
 
 		case "2.4.1":
 			$titulo = "Excluir usuário";
-			include("modulos/admins/resp_excluir.php");
+			include("modulos/usuario/resp_excluir.php");
 			break;
 
 
@@ -95,40 +94,40 @@ function cont()
 
 
 
-		case "4":
-			$titulo = "Fontes";
-			include("modulos/noticias-fontes/index.php");
-			break;
+		// case "4":
+		// 	$titulo = "Fontes";
+		// 	include("modulos/noticias-fontes/index.php");
+		// 	break;
 
-		case "4.1":
-			$titulo = "Cadastrar Fonte";
-			include("modulos/noticias-fontes/cadastra.php");
-			break;
+		// case "4.1":
+		// 	$titulo = "Cadastrar Fonte";
+		// 	include("modulos/noticias-fontes/cadastra.php");
+		// 	break;
 
-		case "4.1.1":
-			$titulo = "Cadastrar Fonte";
-			include("modulos/noticias-fontes/resp_cadastra.php");
-			break;
+		// case "4.1.1":
+		// 	$titulo = "Cadastrar Fonte";
+		// 	include("modulos/noticias-fontes/resp_cadastra.php");
+		// 	break;
 
-		case "4.2":
-			$tit = "Editar Fonte";
-			include("modulos/noticias-fontes/edita.php");
-			break;
+		// case "4.2":
+		// 	$tit = "Editar Fonte";
+		// 	include("modulos/noticias-fontes/edita.php");
+		// 	break;
 
-		case "4.2.1":
-			$titulo = "Editar Fonte";
-			include("modulos/noticias-fontes/resp_edita.php");
-			break;
+		// case "4.2.1":
+		// 	$titulo = "Editar Fonte";
+		// 	include("modulos/noticias-fontes/resp_edita.php");
+		// 	break;
 
-		case "4.3":
-			$titulo = "Excluir Fonte";
-			include("modulos/noticias-fontes/resp_deleta.php");
-			break;
+		// case "4.3":
+		// 	$titulo = "Excluir Fonte";
+		// 	include("modulos/noticias-fontes/resp_deleta.php");
+		// 	break;
 
-		case "4.4":
-			$titulo = "Fonte/Excluir Anexo";
-			include("modulos/noticias-fontes/resp_deleta_upload.php");
-			break;
+		// case "4.4":
+		// 	$titulo = "Fonte/Excluir Anexo";
+		// 	include("modulos/noticias-fontes/resp_deleta_upload.php");
+		// 	break;
 
 
 

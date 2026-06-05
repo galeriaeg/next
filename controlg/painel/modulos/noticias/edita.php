@@ -82,18 +82,18 @@ $data_formatada = date('Y-m-d', strtotime($data));
 
 	<label>Texto:</label>
 	<textarea id="textarea-1" name="texto" class="campo_m" rows="8"><?php echo $descricao; ?></textarea>
-
+	<br />
 	<label>Anexo:</label>
-	<input type="file" name="arquivo" class="campo_m" <?php echo $ativaInput; ?> onchange="abreAnexo(this)" />
+	<input type="file" name="arquivo" class="campo_m" accept="image/*" <?php echo $ativaInput; ?> onchange="abreAnexo(this)" />
 	<!-- Visualização do anexo na base-->
 	<span class="box-anexo" style="display:<?php echo $displayImagem; ?>">
-		<a href="index.php?id=3.4&idn=<?php echo $idNoticia; ?>"><img src="imgs/btexclui.png" title="Excluir anexo" alt="anexo" style="position:absolute;cursor:pointer;" /></a>
+		<a href="index.php?id=3.4&idn=<?php echo $idNoticia; ?>"><img src="imgs/btn-excluir-axeno.png" title="Excluir anexo" alt="anexo" style="position:absolute;cursor:pointer;" /></a>
 		<img src="files/<?php echo $fotoNoticia; ?>" alt="anexo" class="anexo-noticia" />
 	</span>
 
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo" class="box-anexo" style="display: none;">
-		<img src="imgs/btexclui.png" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
+		<img src="imgs/btn-excluir-axeno.png" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
 		<img id="view" class="anexo-noticia" />
 	</span>
 
