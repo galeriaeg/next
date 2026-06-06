@@ -54,8 +54,8 @@ if ($qtd < 1) {
 
 <p class="p">
   <a href="#" onclick="voltar(event)" class="a-voltar">
-    <i class="fa fa-long-arrow-left btn-back" aria-hidden="true"></i>
-    Voltar
+    <!-- i class="fa fa-long-arrow-left btn-back" aria-hidden="true"></i-->
+    &#129032; Voltar
   </a>
 </p>
 

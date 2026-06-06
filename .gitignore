@@ -4,6 +4,7 @@ gitignore_with_db = """# =======================================================
 # ==============================================================================
 
 # --- Arquivos de Conexão e Dados Sensíveis ---
+public/assets
 config/conecta.php
 .env
 .env.local
@@ -20,7 +21,7 @@ config.local.php
 .idea/
 *.swp
 
-# --- Arquivos do Sistema Operacional ---
+# --- Arquivos do Sistema Operacional ---g
 .DS_Store
 Thumbs.db
 """

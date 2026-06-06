@@ -16,7 +16,7 @@
 	<li>
 		<a href="index.php?id=3" class="txtmenu">
 			<i class="fa fa-file-text" aria-hidden="true"></i>
-			Noticias
+			Novidades
 		</a>
 	</li>
 	<li>

@@ -79,7 +79,7 @@ if ($qtd < 1) {
   </div>
 
 
-  <!-- Logo Marca parceira -->
+  <!-- Logomarca parceira -->
   <div class="col12">
     <?php
     $idMarca_selecionada = isset($idMarca_selecionada) ? (int)$idMarca_selecionada : 0;
@@ -88,17 +88,19 @@ if ($qtd < 1) {
     WHERE id=$idMarca_selecionada
     LIMIT 1 ";
     $res = mysqli_query($conexao, $sql);
-    $qtd = mysqli_num_rows($res);
+    $qtdMarca = mysqli_num_rows($res);
     while ($row = mysqli_fetch_array($res)) {
       $nome_marca = $row['nome'];
       $logo_marca = $row['logomarca'];
     }
-    if ($qtd > 0) {
-      // Mostra Marca do produto
+    if (($qtdMarca > 0) && (!empty($logo_marca))) {
       echo "<img src='$path_files$logo_marca' class='logo-produto' alt='logomarca'>";
       echo "<script>document.getElementById('linha').disabled = false;</script>";
-    } else {
+    } else if (($qtdMarca < 1) && (empty($logo_marca))) {
       echo "<h4 class='alert-info'><i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;&nbsp;Selecione uma Marca</h4>";
+    } else {
+      echo "<img src='public/imgs/sem-marca.png' class='logo-produto' alt='logomarca'>";
+      echo "<script>document.getElementById('linha').disabled = false;</script>";
     }
     ?>
   </div>
@@ -108,7 +110,7 @@ if ($qtd < 1) {
   <div class="col12 card-grupo">
     <?php
     if ((!empty($idMarca_selecionada)) && (empty($idLinha_selecionada))) {
-      //echo "busca pela marca";
+      //Busca produtos pela marca
       $i = 1;
       $sql = "
       SELECT tp.id,tp.foto,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
@@ -118,7 +120,7 @@ if ($qtd < 1) {
       AND tp.idlinha = tl.id
       AND tp.status = 1;";
       $re = mysqli_query($conexao, $sql);
-      $qtd = mysqli_num_rows($re);
+      $qtdProduto = mysqli_num_rows($re);
       while ($row = mysqli_fetch_array($re)) {
         $idProduto = $row['id'];
         $tituloProduto = $row['titulo'];
@@ -150,7 +152,7 @@ if ($qtd < 1) {
         $i++;
       }
     } else if ((!empty($idMarca_selecionada)) && (!empty($idLinha_selecionada))) {
-      //echo "busca por marca e linha";
+      //Busca produtos por marca e linha
       $j = 1;
       $sql = "
       SELECT tp.id,tp.foto,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
@@ -161,7 +163,7 @@ if ($qtd < 1) {
       AND tp.idlinha = tl.id
       AND tp.status = 1;";
       $re = mysqli_query($conexao, $sql);
-      $qtd = mysqli_num_rows($re);
+      $qtdProduto = mysqli_num_rows($re);
       while ($row = mysqli_fetch_array($re)) {
         $idProduto = $row['id'];
         $tituloProduto = $row['titulo'];
@@ -193,6 +195,10 @@ if ($qtd < 1) {
         $j++;
       }
     }
+
+    if (($idMarca_selecionada > 0) && ($qtdProduto < 1))
+      echo "<h4 class='alert-erro col12'>
+    <i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;&nbsp;Não há produtos cadastrados.</h4>";
     ?>
   </div>
 </section>

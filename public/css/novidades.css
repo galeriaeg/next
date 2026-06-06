@@ -20,3 +20,24 @@
   margin-bottom: 10px;
   border-radius: 5px;
 }
+
+.box-paginacao {
+  background-color: transparent;
+  padding: 0;
+  margin-top: 15px;
+  text-align: center;
+}
+.box-paginacao span {
+  color: #777;
+  margin: 0 5px;
+}
+
+.box-paginacao button {
+  padding: 3px 6px;
+  /*background-color: #eee;
+  border: 1px solid #999;*/
+  color: #555;
+  cursor: pointer;
+  /* border-radius: 5px;
+  margin: 0 5px;*/
+}

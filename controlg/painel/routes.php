@@ -51,32 +51,32 @@ function cont()
 
 
 		case "3":
-			$titulo = "Notícias";
+			$titulo = "Novidades";
 			include("modulos/noticias/index.php");
 			break;
 
 		case "3.1":
-			$titulo = "Cadastrar de Notícia";
+			$titulo = "Cadastrar Novidade";
 			include("modulos/noticias/cadastra.php");
 			break;
 
 		case "3.1.1":
-			$titulo = "Cadastrar de Notícia";
+			$titulo = "Cadastrar de Novidade";
 			include("modulos/noticias/resp_cadastra.php");
 			break;
 
 		case "3.2":
-			$titulo = "Editar Notícia";
+			$titulo = "Editar Novidade";
 			include("modulos/noticias/edita.php");
 			break;
 
 		case "3.2.1":
-			$titulo = "Editar Notícia";
+			$titulo = "Editar Novidade";
 			include("modulos/noticias/resp_edita.php");
 			break;
 
 		case "3.3":
-			$titulo = "Excluir Notícia";
+			$titulo = "Excluir Novidade";
 			include("modulos/noticias/resp_deleta.php");
 			break;
 

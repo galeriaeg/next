@@ -5,10 +5,19 @@ include("session.php");
 $idUserSession =  $_SESSION['idUsuarioLogado'];
 $tipoUserSession =  $_SESSION['tipoUsuarioLogado'];
 ?>
+<span id="btnNovo">
+	<a href="index.php?id=2.1" title="Novo">
+		<img src="imgs/novo.png" class="btnovo" alt="Novo" />
+	</a>
+</span>
 
-<a href="index.php?id=2.1" title="Novo">
-	<img src="imgs/novo.png" class="btnovo" alt="Novo" />
-</a>
+<?php
+if ($tipoUserSession != 1) {
+	echo "<script>document.getElementById('btnNovo').remove();</script>";
+}
+?>
+
+
 
 <h3><?php echo $titulo; ?></h3>
 
@@ -64,7 +73,7 @@ $tipoUserSession =  $_SESSION['tipoUsuarioLogado'];
 				else
 					$tipoLabel = "";
 
-				echo "<tr style='background:#f3ffb1;'>";
+				echo "<tr class='tupla' style='background:#f3ffb1;'>";
 				echo "<td width='30%' align='left' class='txt'>$nome $tipoLabel</td>";
 				echo "<td width='33%' align='left' class='txt'>$email</td>";
 				echo "<td width='20%' align='left' class='txt'>$login</td>";
@@ -88,10 +97,16 @@ $tipoUserSession =  $_SESSION['tipoUsuarioLogado'];
 	</tbody>
 </table>
 
-
-<nav class="box-paginacao">
+<nav id="nav" class="box-paginacao">
 	<button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
 	<span class="txtsimples" id="label">1</span>
 	<button id="next" onclick="mudarPagina(1)">&#129034;</button>
 </nav>
 <script src="./js/paginacao.js"></script>
+
+<?php
+if ($tipoUserSession != 1) {
+	echo "<script>const navPaginacao = document.getElementById('nav');";
+	echo "navPaginacao.remove();</script>";
+}
+?>

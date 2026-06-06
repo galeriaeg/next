@@ -41,10 +41,10 @@
 			$btexclui = "<a href='index.php?id=3.3&idCont=$idNoticia&titulo=$titulo&conf=0'><img  src='imgs/btn-excluir.png' alt='Excluir' title='Excluir' border='0' class='bt-excluir btn-action' /></a>";
 
 			echo "<tr class='tupla'>";
-			echo "<th width='10%' align='left'>$data</th>";
-			echo "<th width='73%' align='left'>$titulo</th>";
-			echo "<th width='8%' align='left'>$labelStatus</th>";
-			echo "<th width='9%' align='left'>$btedita $btexclui</th>";
+			echo "<td width='10%' align='left'>$data</td>";
+			echo "<td width='73%' align='left'>$titulo</td>";
+			echo "<td width='8%' align='left'>$labelStatus</td>";
+			echo "<td width='9%' align='left'>$btedita $btexclui</td>";
 			echo "</tr>";
 		}
 

@@ -42,7 +42,7 @@ if (empty($idMarca)) {
 	<?php
 	if ($fleg < 1) {
 		echo "<input name='arquivo' id='anexo' type='file' required accept='image/*' onchange='abreAnexo(this)' class='campo_m' />";
-		echo "<div class='boxAviso'>**Imagem deve ter 300 x 155px</div>";
+		echo "<div class='boxAviso'>*Imagem deve ter 300 x 155px</div>";
 	} else {
 		//Visualização do anexo na base-->
 		echo "<span class='box-anexo' style='display:block'>

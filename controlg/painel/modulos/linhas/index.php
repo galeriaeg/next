@@ -11,7 +11,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 		<select class="campo-simples" required name="marca">
 			<option value="" disabled selected>Selecione uma marca...</option>
 			<?php
-			$sql = "SELECT * FROM tb_marca ";
+			$sql = "SELECT * FROM tb_marca WHERE status = 1";
 			$res = mysqli_query($conexao, $sql);
 			while ($row = mysqli_fetch_array($res)) {
 				$id_marca = $row['id'];

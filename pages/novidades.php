@@ -45,7 +45,7 @@ if ($qtd < 1) {
       $data_exibir = $date->format('d/m/Y');
 
       echo "<h4 class='new'>
-      <a href='novidade?n=$id' target='_top'>
+      <a href='novidades?n=$id' target='_top'>
         <i class='fa fa-plus-circle' aria-hidden='true'></i>&nbsp;&nbsp; $data_exibir - $titulo
       </a></h4>";
     }
@@ -58,8 +58,9 @@ if ($qtd < 1) {
   </div>
 </section>
 
-<button id="prev" onclick="mudarPagina(-1)">Anterior</button>
-<span id="label">Página 1</span>
-<button id="next" onclick="mudarPagina(1)">Próximo</button>
-
+<nav class="box-paginacao">
+  <button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
+  <span id="label" class="legenda">Página 1</span>
+  <button id="next" onclick="mudarPagina(1)">&#129034;</button>
+</nav>
 <script src="public/js/pagination.js"></script>

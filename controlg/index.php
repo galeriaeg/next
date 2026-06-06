@@ -7,7 +7,6 @@
 	<meta name="googlebot" content="noindex" />
 	<meta name="robots" content="noindex, nofollow" />
 	<meta charset="utf-8" />
-	<script type="text/javaScript" src="js/global.js"></script>
 	<script type="text/javaScript" src="js/login.js"></script>
 	<link rel="stylesheet" href="css/estilos.css" />
 	<link rel="shortcut icon" href="imgs/favicon1616.png" />
@@ -16,31 +15,32 @@
 </head>
 
 <body>
-	<form action="aut.php" method="post" name="form" onSubmit="return logon(this)">
+	<form action="auth.php" method="post" name="formLogin" onSubmit="return logon(this)">
 		<div class="box-center">
 			<div id="topo">
 				<img src="imgs/logo-controlg.png" alt="logomarca" class="logomarca" border="0" />
 			</div>
-			<input name="login" type="text" class="campo" placeholder="Login" /><br />
-			<input name="senha" type="password" class="campo" maxlength="12" placeholder="Senha" /><br />
+			<input name="login" type="text" class="campo" placeholder="Login" />
+			<input name="senha" id="senha" type="password" class="campo" placeholder="Senha" />
+			<img src="imgs/icon-senha-off.png" id="iconpass" alt="senhaOff" onclick="mostraEsconde(this);" class="icone-senha" />
 			<input type="submit" name="btnLogin" value="ENTRAR" class="botao" />
+			<div style="text-align:center"><a href="recuperar-senha" class="m-t" target="_blank">Esqueci minha senha</a></div>
 
 			<?php
 			if ($aut == "erro") {
-				echo "<div class='box-erro'>&#10006; Dados incorretos!</div>";
+				echo "<div class='box-erro'>&#10006; Dados incorretos</div>";
 			}
 			?>
 
-			<section class="footer">
-				BS IMAGEM<br />
-				2018 &copy; CtrlG - Sistema de Gerenciamento de Conteúdo <br />
-				Desenvolvido por <a href="http://www.galeriadesigneweb.com.br/" style="color:#3e74ff;" target="_blank">Galeria Design & Web</a>
-			</section>
+			<footer>
+				2026 &copy; CtrlG CMS<br />
+				<a href="http://www.galeriadesigneweb.com.br/" target="_blank">Galeria Design & Web</a>
+			</footer>
 
 		</div>
 	</form>
 
-
+	<script src="js/login.js"></script>
 </body>
 
 </html>

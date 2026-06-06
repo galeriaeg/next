@@ -6,7 +6,7 @@ $site =	$_POST['site'];
 $nome_arquivo = basename($_FILES['arquivo']['name']);
 $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
-if ((empty($titulo)) || (empty($nome_arquivo))) {
+if ((empty($titulo)) || (empty($nome_arquivo)) || (empty($site))) {
 	echo "<script>window.location = 'logout.php';</script>";
 	exit();
 } else {

@@ -37,10 +37,10 @@ require "session.php";
 			$btexclui = "<a href='index.php?id=8.3&idCont=$id&pagina=$pagina&conf=0'><img  src='imgs/btn-excluir.png' title='Excluir' alt='Excluir' border='0' class='bt-excluir btn-action' /></a>";
 
 			echo "<tr class='tupla'>";
-			echo "<th width='5%' align='left' class='txt'>$tipo</th>";
-			echo "<th width='15%' align='left' class='txt'>$pagina</th>";
-			echo "<th width='71%' align='left' class='txt'>$texto...</th>";
-			echo "<th width='9%' align='left' class='txt'>$btedita $btexclui</th>";
+			echo "<td width='5%' align='left' class='txt'>$tipo</td>";
+			echo "<td width='15%' align='left' class='txt'>$pagina</td>";
+			echo "<td width='71%' align='left' class='txt'>$texto...</td>";
+			echo "<td width='9%' align='left' class='txt'>$btedita $btexclui</td>";
 			echo "</tr>";
 		}
 		echo "</table>";

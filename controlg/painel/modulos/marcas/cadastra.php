@@ -11,7 +11,7 @@
 
 	<label>Site:</label>
 	<input name="site" type="text" required class="campo_m" value="" />
-
+	<div class="boxAviso">Caso não tenha Site, use: #</div>
 	<label>Anexo:</label>
 	<input name="arquivo" id="anexo" required type="file" accept="image/*" class="campo_m" onchange="abreAnexo(this)" />
 	<div class="boxAviso">*Imagem deve ter 300 x 155px</div>
@@ -22,11 +22,11 @@
 		<img id="view" class="anexo-noticia" />
 	</span>
 
-	<label>Status:</label>
+	<!-- <label>Status:</label>
 	<select name="status" class="campo_p">
 		<option value="0">Inativo</option>
 		<option value="1">Ativo</option>
-	</select>
+	</select> -->
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />

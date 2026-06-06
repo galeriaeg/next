@@ -268,6 +268,10 @@ a:hover {
   display: inline-block;
 }
 
+.legenda {
+  font-size: 13px;
+}
+
 .input {
   padding: 10px;
 }
@@ -288,12 +292,18 @@ a:hover {
 }
 
 .alert-erro {
-  background-color: chocolate;
-  padding: 5px 10px;
+  background-color: #ffe4e2;
+  color: #cc1e1e;
+  padding: 6px 10px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 .alert-sucesso {
-  background-color: aqua;
-  padding: 5px 10px;
+  background-color: #deffb9;
+  color: #426e6a;
+  padding: 6px 10px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
 }

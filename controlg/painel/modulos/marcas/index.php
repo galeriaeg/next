@@ -31,7 +31,7 @@ require "session.php";
 			$statusMarca = $row['status'];
 
 			if (empty($logomarcaMarca))
-				$logomarca = "imgs/sem-logo.jpg";
+				$logomarca = "imgs/sem-marca.png";
 			else
 				$logomarca = "files/" . $logomarcaMarca;
 
@@ -45,10 +45,10 @@ require "session.php";
 			$btexclui = "<a href='index.php?id=7.3&idMarca=$idMarca&nome=$nomeMarca&nome_arquivo=$logomarcaMarca&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
 
 			echo "<tr class='tupla'>";
-			echo "<th width='10%' align='left' class='txt'><img src='$logomarca' width='85' /></th>";
-			echo "<th width='73%' align='left' class='txt'>$nomeMarca</th>";
-			echo "<th width='8%' align='left' class='txt'>$flegStatus</th>";
-			echo "<th width='9%' align='left' class='txt'>$btedita $btexclui</th>";
+			echo "<td width='10%' align='left' class='txt'><img src='$logomarca' width='85' /></td>";
+			echo "<td width='73%' align='left' class='txt'>$nomeMarca</td>";
+			echo "<td width='8%' align='left' class='txt'>$flegStatus</td>";
+			echo "<td width='9%' align='left' class='txt'>$btedita $btexclui</td>";
 			echo "</tr>";
 		}
 
