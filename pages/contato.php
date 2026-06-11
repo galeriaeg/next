@@ -21,7 +21,16 @@ while ($row = mysqli_fetch_array($res)) {
     <?php echo $titulo; ?>
   </h1>
 
-  <p class="text-page">
+  <p class="text-page p">
     <?php echo $texto; ?>
   </p>
+
+  <form action="" method="POST">
+    <input type="text" name="nome" />
+    <input type="email" name="email" />
+    <input type="text" name="fone" />
+    <textarea></textarea>
+    <input type="submit" value="Enviar" />
+    <input type="submit" value="Limpar" />
+  </form>
 </section>

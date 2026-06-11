@@ -11,7 +11,7 @@ function validaSenha(formUser) {
 function mostraEsconde() {
   const img = document.getElementById("iconpass");
   const inputSenha = document.getElementById("senha");
-
+  //alert(img.alt);
   if (img.alt == "senhaOff") {
     img.alt = "senhaOn";
     img.src = "imgs/icon-senha-on.png";

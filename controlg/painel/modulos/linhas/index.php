@@ -8,6 +8,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 <!-- Bloco Cadastro -->
 <div class="box-topo-busca">
 	<form action="index.php?id=9.1.1" method="POST" name="formLinha" onSubmit="return valida_linha(this)">
+		<b style="color:#666666">Cadastrar Linha:</b>
 		<select class="campo-simples" required name="marca">
 			<option value="" disabled selected>Selecione uma marca...</option>
 			<?php

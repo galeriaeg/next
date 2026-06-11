@@ -1,6 +1,6 @@
 let cropperInstance = null;
 
-function abreAnexo(input) {
+function abreAnexo(input, ratio) {
   if (!input.files || !input.files[0]) return;
 
   const file = input.files[0];
@@ -20,7 +20,7 @@ function abreAnexo(input) {
     }
 
     cropperInstance = new Cropper(imgCrop, {
-      aspectRatio: 16 / 8,
+      aspectRatio: ratio, //16 / 8,
       viewMode: 1,
       movable: true,
       zoomable: true,

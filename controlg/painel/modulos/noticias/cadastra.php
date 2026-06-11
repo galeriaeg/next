@@ -49,9 +49,9 @@
 	<label>Texto:</label>
 	<textarea name="texto" id="textarea-1" class="campo_m" rows="5"></textarea>
 	<br />
-	<!-- Campo de upload -->
+	<!-- Campo de upload - Ratio para novidades 16:8-->
 	<label>Anexo:</label>
-	<input type="file" name="arquivo" id="anexo" class="campo_m" accept="image/*" onchange="abreAnexo(this)" />
+	<input type="file" name="arquivo" id="anexo" class="campo_m" accept="image/*" onchange="abreAnexo(this,16/8)" />
 	<input type="hidden" name="imagem_cropada" id="imagem_cropada" />
 
 	<!-- Preview da imagem -->

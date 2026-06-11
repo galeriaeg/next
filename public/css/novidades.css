@@ -24,7 +24,7 @@
 .box-paginacao {
   background-color: transparent;
   padding: 0;
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: center;
 }
 .box-paginacao span {
@@ -40,4 +40,8 @@
   cursor: pointer;
   /* border-radius: 5px;
   margin: 0 5px;*/
+}
+
+.p-voltar {
+  margin: 80px 0;
 }

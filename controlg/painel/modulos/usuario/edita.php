@@ -64,8 +64,8 @@ if (($tipoUserSession != 1) && ($idUserSetado != $idUserSession)) {
 	<label>Redefinir Senha:</label><br>
 	<form action="index.php?id=2.3" method="post" name="formUser" onsubmit="return validaSenha(this)">
 		<div class="col12">
-			<input name="senha" required id="senha" type="password" class="campo_m" style="float:left;padding:7px;width:253px;padding-left:38px;margin-bottom:8px;background:#fff;" />
-			<img src="imgs/icon-senha-off.png" id="iconpass" alt="0" onclick="mostraEsconde(this);" class="icon-senha" />
+			<input name="senha" required id="senha" type="password" class="campo_m campo_senha" />
+			<img src="imgs/icon-senha-off.png" id="iconpass" alt="senhaOff" onclick="mostraEsconde(alt);" class="icon-senha" />
 			<div class="boxAviso">*A senha deve ter no m&iacute;nimo 8 caracteres</div>
 			<input type="submit" value="Salvar" class="btn-submit" />
 		</div>

@@ -94,10 +94,10 @@ function cont()
 
 
 
-		// case "4":
-		// 	$titulo = "Fontes";
-		// 	include("modulos/noticias-fontes/index.php");
-		// 	break;
+		case "4":
+			$titulo = "Files";
+			include("modulos/files/index.php");
+			break;
 
 		// case "4.1":
 		// 	$titulo = "Cadastrar Fonte";

@@ -116,3 +116,29 @@ input.botao:hover {
   margin-right: 10px;
   cursor: pointer;
 }
+
+/*** alertas ****/
+.alerta-erro {
+  font:
+    normal 16px "Trebuchet MS",
+    Tahoma;
+  background: #ffe7e7;
+  color: #e50000;
+  width: 98%;
+  float: left;
+  padding: 1%;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+.alerta-info {
+  font:
+    normal 16px "Trebuchet MS",
+    Tahoma;
+  background: #f3ffb1;
+  color: #7e712b;
+  width: 98%;
+  float: left;
+  padding: 1%;
+  border-radius: 5px;
+  margin: 15px 0;
+}

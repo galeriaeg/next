@@ -81,8 +81,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 					$btstatus = "<img src='imgs/fleg-inativo.png' class='center' />";
 				}
 
-				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar' /></a>";
-				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&idm=$idmarca&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir' /></a>";
+				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
+				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&idm=$idmarca&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='btn-action bt-excluir' /></a>";
 
 				echo "<tr class='tupla'>";
 				echo "<td width='9%'><img src='$logomarca_Fonte' class='center' width='60' /></td>";
@@ -124,8 +124,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 				}
 
 
-				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar' /></a>";
-				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir' /></a>";
+				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
+				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
 
 				echo "<tr class='tupla'>";
 				echo "<td width='9%' align='left' class='txt'><img src='$logomarca_Fonte' width='90' /></td>";
@@ -153,7 +153,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 <?php
 if ((empty($marca)) && (empty($totalMarca)) && (empty($totalChave) && (empty($chave)))) {
 	echo "<span id='alertaInicial'  class='alerta-info'>
-				 <b>&#9432;</b> Selecione uma <b>Marca</b> ou informe uma <b>plavra chave</b>!
+				 <b>&#9432;</b> Selecione uma <b>Marca</b> ou informe uma <b>palavra chave.</b>
 				</span>";
 }
 if ((empty($marca)) && (!empty($chave)) && ($totalChave < 1)) {

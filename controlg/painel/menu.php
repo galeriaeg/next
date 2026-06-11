@@ -51,4 +51,16 @@
 			Contatos
 		</a>
 	</li>
+	<li>
+		<a href="index.php?id=4" class="txtmenu">
+			<i class="fa fa-file-image-o" aria-hidden="true"></i>
+			Files
+		</a>
+	</li>
+	<li>
+		<a href="index.php?id=0" class="txtmenu">
+			<i class="fa fa-sign-out" aria-hidden="true"></i>
+			Sair
+		</a>
+	</li>
 </ul>

@@ -34,7 +34,6 @@ if ($qtd < 1) {
     <?php echo $data_cadastro; ?>
   </h4>
 
-
   <h1 class="title-page">
     <?php echo $titulo; ?>
   </h1>
@@ -52,7 +51,7 @@ if ($qtd < 1) {
   </div>
 </section>
 
-<p class="p">
+<p class="p p-voltar">
   <a href="#" onclick="voltar(event)" class="a-voltar">
     <!-- i class="fa fa-long-arrow-left btn-back" aria-hidden="true"></i-->
     &#129032; Voltar

@@ -17,7 +17,6 @@ if ($qtd < 1) {
 }
 ?>
 
-
 <section>
   <div class="label-page">
     <h3><?php echo $pagina; ?></h3>
@@ -33,7 +32,7 @@ if ($qtd < 1) {
 
   <div class="col12" style="display:grid">
     <?php
-    $sql = "SELECT * FROM tb_noticias WHERE status = 1 ORDER BY id DESC ";
+    $sql = "SELECT * FROM tb_noticias WHERE status = 1 ORDER BY data DESC ";
     $res = mysqli_query($conexao, $sql);
     $qtd = mysqli_num_rows($res);
     while ($row = mysqli_fetch_array($res)) {
@@ -45,7 +44,7 @@ if ($qtd < 1) {
       $data_exibir = $date->format('d/m/Y');
 
       echo "<h4 class='new'>
-      <a href='novidades?n=$id' target='_top'>
+      <a href='novidade?n=$id' target='_top'>
         <i class='fa fa-plus-circle' aria-hidden='true'></i>&nbsp;&nbsp; $data_exibir - $titulo
       </a></h4>";
     }
