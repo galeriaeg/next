@@ -4,9 +4,13 @@ require "session.php";
 @$marca = $_GET['m'];
 @$chave = $_GET['chave'];
 
+$totalMarca = "";
+$totalChave = "";
+
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 ?>
-
+<script src="modulos/files/files.js"></script>
+<link rel="stylesheet" href="modulos/files/files.css" />
 <script>
 	function envia_marca(v) {
 		let valor = v;
@@ -71,7 +75,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 				$status	=	$row['status'];
 
 				if (empty($fotoProduto))
-					$logomarca_Fonte = "imgs/sem_produto.jpg";
+					$logomarca_Fonte = "imgs/sem-produto.jpg";
 				else
 					$logomarca_Fonte = "files/" . $fotoProduto;
 

@@ -4,12 +4,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 $titulo =	$_POST['titulo'];
 $descricao = $_POST['descricao'];
-//$nome_arquivo = basename($_FILES['arquivo']['name']);
+echo $nome_arquivo = basename($_FILES['arquivo']['name']);
 $idmarca =	$_POST['marca'];
 $idlinha =	$_POST['linha'];
 $status =	$_POST['status'];
-echo $imagem_cropada = $_POST['imagem_cropada'] ?? '';
-echo $nome_arquivo   = '';
 
 //exit();
 

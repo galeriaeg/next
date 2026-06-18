@@ -65,7 +65,7 @@ if (($tipoUserSession != 1) && ($idUserSetado != $idUserSession)) {
 	<form action="index.php?id=2.3" method="post" name="formUser" onsubmit="return validaSenha(this)">
 		<div class="col12">
 			<input name="senha" required id="senha" type="password" class="campo_m campo_senha" />
-			<img src="imgs/icon-senha-off.png" id="iconpass" alt="senhaOff" onclick="mostraEsconde(alt);" class="icon-senha" />
+			<img src="imgs/icon-senha-off.png" id="iconpass" alt="senhaOff" onclick="mostraEsconde(alt);" class="icon-senha" style="margin-top:7px" />
 			<div class="boxAviso">*A senha deve ter no m&iacute;nimo 8 caracteres</div>
 			<input type="submit" value="Salvar" class="btn-submit" />
 		</div>

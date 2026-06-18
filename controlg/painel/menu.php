@@ -57,10 +57,4 @@
 			Files
 		</a>
 	</li>
-	<li>
-		<a href="index.php?id=0" class="txtmenu">
-			<i class="fa fa-sign-out" aria-hidden="true"></i>
-			Sair
-		</a>
-	</li>
 </ul>

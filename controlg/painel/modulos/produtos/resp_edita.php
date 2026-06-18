@@ -24,7 +24,7 @@ if (
 	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 	if (empty($nome_arquivo)) {
-		//echo "sem anexo";
+		//Atualiza sem anexo
 		$sql = "UPDATE tb_produto SET titulo='$titulo',descricao='$descricao',idmarca='$marca',idlinha='$linha',status='$status' WHERE id = '$idproduto' ";
 		$update = mysqli_query($conexao, $sql);
 		echo "<script>
@@ -33,6 +33,15 @@ if (
     		</script>";
 	} else {
 
+		$sql = "UPDATE tb_produto SET titulo='$titulo',descricao='$descricao',foto='$nome_arquivo',idmarca='$marca',idlinha='$linha',status='$status' WHERE id = '$idproduto' ";
+		$update = mysqli_query($conexao, $sql);
+		echo "
+				<script type='text/javascript'>
+				alert('Cadastro realizado com sucesso!');
+				window.location = 'index.php?id=6&m=$marca';
+				</script>";
+
+		/*
 		$ran = rand();
 		$nome_arquivo = $ran . $nome_arquivo;
 
@@ -61,6 +70,7 @@ if (
 				window.location = 'index.php?id=6&m=$marca';
 				</script>";
 		}
+		*/
 	}
 }
 mysqli_close($conexao);

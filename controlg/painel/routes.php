@@ -198,7 +198,7 @@ function cont()
 
 		case "6.2.2":
 			$titulo = "Produto/Excluir Anexo";
-			include("modulos/produtos/resp_deleta_upload.php");
+			include("modulos/produtos/resp_deleta_anexo.php");
 			break;
 
 		case "6.3":

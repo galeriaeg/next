@@ -9,7 +9,7 @@ $urlBase = $protocolo . $dominio . '/next/';
 ?>
 
 <a href="index.php?id=7.1" title="Novo">
-	<img src="imgs/novo.png" class="btnovo" border="0" alt="Novo" />
+	<img src="imgs/novo.png" class="btnovo" alt="Novo" />
 </a>
 
 <h3><?php echo $titulo; ?></h3>
@@ -28,11 +28,12 @@ $urlBase = $protocolo . $dominio . '/next/';
 		$sql = "SELECT * FROM tb_files WHERE nome LIKE '%$file%' ";
 		$cons = $conexao->query($sql) or die($conexao->error);
 		while ($row = $cons->fetch_array()) {
-			$idFile = 	$row['id'];
-			$nomeFile	=	$row['nome'];
-			$pathFile = $urlBase . "controlg/painel/files/" . $nomeFile;
+			$idFile 		= 	$row['id'];
+			$imagemFile	=	$row['imagem'];
+			$nomeFile		=	$row['nome'];
+			$pathFile = $urlBase . "controlg/painel/files/" . $imagemFile;
 			echo "<div class='card-file'>
-			<div style='background-image: url(\"files/$nomeFile\");'></div>
+			<div style='background-image: url(\"files/$imagemFile\");'></div>
 			<input name='url' id='file$idFile' value='$pathFile'>
 				<i>
 					<button onclick='copiarUrl(\"file$idFile\");'>Copiar</button>
@@ -45,10 +46,11 @@ $urlBase = $protocolo . $dominio . '/next/';
 		$cons = $conexao->query($sql) or die($conexao->error);
 		while ($row = $cons->fetch_array()) {
 			$idFile = 	$row['id'];
+			$imagemFile	=	$row['imagem'];
 			$nomeFile	=	$row['nome'];
-			$pathFile = "controlg/painel/files/" . $nomeFile;
+			$pathFile = $urlBase . "controlg/painel/files/" . $imagemFile;
 			echo "<div class='card-file'>
-			<div style='background-image: url(\"files/$nomeFile\");'></div>
+			<div style='background-image: url(\"files/$imagemFile\");'></div>
 			<input name='url' id='file$idFile' value='$pathFile'>
 				<i>
 					<button onclick='copiarUrl(\"file$idFile\");'>Copiar</button>

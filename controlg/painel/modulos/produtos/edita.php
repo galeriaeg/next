@@ -23,7 +23,7 @@ if (
 		$idp = $row['id'];
 		$titulop	= $row['titulo'];
 		$descricaop	=	$row['descricao'];
-		$fotop	=	$row['foto'];
+		echo $fotop	=	$row['foto'];
 		$idmarcap	=	$row['idmarca'];
 		$idlinhap	=	$row['idlinha'];
 		$status	=	$row['status'];
@@ -81,15 +81,27 @@ if (
 	<input name="titulo" type="text" class="campo_m" value="<?php echo $titulop; ?>" />
 
 	<label>Descrição:</label>
-	<textarea name="descricao" class="campo_m" rows="15" /><?php echo $descricaop; ?></textarea>
+	<textarea name="descricao" class="campo_m" rows="15"><?php echo $descricaop; ?></textarea>
 
 	<label>Anexo:</label>
+	<div class="col12" id="box-input-anexo">
+		<a id="btn-anexar" class="btn-anexar" onclick="abreFechaModalFiles(1)"><i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp; Anexar Imagem</a>
+		<div class="box-file" id="box-file" style="display:none;">
+			<i class="fa fa-check" aria-hidden="true"></i>
+			Imagem anexada
+			(<i id="legenda"></i>)
+			<div class="btn-remove" onclick='removerAnexo();'>&#10006;</div>
+		</div>
+		<input type="file" name="arquivo" id="arquivo" style="display:none" />
+	</div>
 	<?php
 	if (empty($fotop)) {
 		echo "<input name='arquivo' type='file' class='campo_m' accept='image/*'  />";
 	} else {
-		echo "</br><a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$id_marca' title='Excluir'><img src='imgs/btexclui.png' class='btDelAnexo' /></a>";
-		echo "<img src='files/$fotop' width='250' style='border:1px solid #CCC' /></br>";
+		echo "<div id='box-anexo' class='box-anexo' style='display: flex;'>";
+		echo "<a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$id_marca' title='Excluir'><img src='imgs/btn-excluir-axeno.jpg' class='btDelAnexo' /></a>";
+		echo "<img src='files/$fotop' width='250' style='border:1px solid #CCC;' />";
+		echo "</div>";
 	}
 	?>
 
@@ -114,7 +126,20 @@ if (
 		<input type="hidden" value="<?php echo $idmarca; ?>" name="idmarca" />
 	</div>
 
-
 </form>
+
+<?php
+if (!empty($fotop)) {
+	echo "<script>
+		document.getElementById('box-input-anexo').remove();
+		</script>";
+}
+?>
+
+<!--importa modulo Files -->
+<?php include_once "modulos/files/modal-files.php"; ?>
+<script src="modulos/files/files.js"></script>
+<link rel="stylesheet" href="modulos/files/files.css" />
+<!--importa modulo Files -->
 
 <?php mysqli_close($conexao); ?>
