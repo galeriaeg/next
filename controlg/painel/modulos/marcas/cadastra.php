@@ -18,15 +18,9 @@
 
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo" class="box-anexo" style="display: none;">
-		<img src="imgs/btn-excluir-axeno.png" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
+		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
 		<img id="view" class="anexo-noticia" />
 	</span>
-
-	<!-- <label>Status:</label>
-	<select name="status" class="campo_p">
-		<option value="0">Inativo</option>
-		<option value="1">Ativo</option>
-	</select> -->
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />
