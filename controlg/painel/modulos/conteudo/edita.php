@@ -61,11 +61,11 @@ if (
 <!-- TEXTAREA EDITOR -->
 
 
-<form action="index.php?id=8.2.1" method="post" name="formc" name="formConteudo" onSubmit="return conteudo(this)">
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-	<legend>
-		<h3><?php echo $tit; ?></h3>
-	</legend>
+<form action="index.php?id=8.2.1" method="post" name="formc" name="formConteudo" onSubmit="return conteudo(this)">
 
 	<span class="txt">Tipo: <?php echo $tipo . " - <b>" . $pagina; ?></b></span><br /><br />
 

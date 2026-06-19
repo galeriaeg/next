@@ -3,12 +3,15 @@
   width: 640px !important;
   min-height: 316px;
   position: fixed;
-  top: 30px;
-  right: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* top: 30px;
+  right: 30px; */
   background-color: #f5f5f5;
   border-radius: 7px;
   padding: 10px;
-  box-shadow: 0 5px 12px #ccc;
+  box-shadow: 0 3px 15px rgba(77, 77, 77, 0.5);
 }
 
 .box-file {
@@ -34,7 +37,7 @@
 
 .iframe-files {
   width: 100%;
-  height: 420px;
+  height: 380px;
   border: 1px solid #cecece;
   background-color: #f5f5f5;
   padding: 10px;
@@ -54,7 +57,7 @@
   /* 100% dividido por 6 colunas = 16.66%. Descontamos o gap */
   width: calc(16.66% - 10px);
   min-width: 110px; /* Reduzi um pouco o min-width para garantir que 6 caibam em telas menores */
-  height: 130px; /* Aumentei levemente para o botão não esmagar a imagem */
+  height: 143px; /* Aumentei levemente para o botão não esmagar a imagem */
   background-color: #e8e8e8;
   box-sizing: border-box;
   display: flex;
@@ -68,6 +71,7 @@
   background-size: cover;
   background-position: center;
   width: 100%;
+  min-height: 75px;
   flex-grow: 1;
 }
 
@@ -78,7 +82,7 @@
   justify-content: center;
   gap: 8px;
   font-style: normal;
-  padding-top: 8px;
+  padding-top: 0;
 }
 
 .card-file input {
@@ -115,11 +119,15 @@
 }
 
 .alink {
-  width: 100%;
   cursor: pointer;
-  color: #0e7ec2;
+  color: #888;
   float: right;
   text-align: right;
+  float: right;
+  font-size: 14px;
+}
+span.alink:hover {
+  color: #0e7ec2;
 }
 
 .btn-anexar {

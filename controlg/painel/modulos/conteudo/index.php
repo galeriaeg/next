@@ -4,7 +4,9 @@ require "session.php";
 
 <a href="index.php?id=8.1" title="Novo"><img src="imgs/novo.png" class="btnovo" border="0" alt="Novo" /></a>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <table id="minhaTabela">
 	<thead>

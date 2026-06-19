@@ -1,10 +1,10 @@
 <?php include "session.php"; ?>
 
-<form action="index.php?id=7.1.1" enctype="multipart/form-data" method="POST">
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
+<form action="index.php?id=7.1.1" enctype="multipart/form-data" method="POST">
 
 	<label>Título:</label>
 	<input name="titulo" required type="text" class="campo_m" />

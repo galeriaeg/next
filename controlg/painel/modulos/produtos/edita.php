@@ -23,7 +23,7 @@ if (
 		$idp = $row['id'];
 		$titulop	= $row['titulo'];
 		$descricaop	=	$row['descricao'];
-		echo $fotop	=	$row['foto'];
+		$fotop	=	$row['file'];
 		$idmarcap	=	$row['idmarca'];
 		$idlinhap	=	$row['idlinha'];
 		$status	=	$row['status'];
@@ -31,15 +31,13 @@ if (
 }
 ?>
 
-
-
 <script type="text/javascript" src="js/global.js"></script>
 
-<form action="index.php?id=6.2.1" enctype="multipart/form-data" method="POST" name="formFonte" onSubmit="return fonte(this)">
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
+<form action="index.php?id=6.2.1" enctype="multipart/form-data" method="POST" name="formFonte" onSubmit="return fonte(this)">
 
 	<span class="txt"><?php echo "ID:" . $idproduto; ?></span><br /><br />
 
@@ -92,15 +90,14 @@ if (
 			(<i id="legenda"></i>)
 			<div class="btn-remove" onclick='removerAnexo();'>&#10006;</div>
 		</div>
-		<input type="file" name="arquivo" id="arquivo" style="display:none" />
+		<!-- input upload -->
+		<input type="text" name="id_arquivo" id="id_arquivo" style="display:none" />
 	</div>
 	<?php
-	if (empty($fotop)) {
-		echo "<input name='arquivo' type='file' class='campo_m' accept='image/*'  />";
-	} else {
-		echo "<div id='box-anexo' class='box-anexo' style='display: flex;'>";
-		echo "<a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$id_marca' title='Excluir'><img src='imgs/btn-excluir-axeno.jpg' class='btDelAnexo' /></a>";
-		echo "<img src='files/$fotop' width='250' style='border:1px solid #CCC;' />";
+	if (!empty($fotop)) {
+		echo "<div id='box-anexo' class='box-anexo' style='display: block;'>";
+		echo "<a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$id_marca' title='Excluir'><img src='imgs/btn-excluir-anexo.jpg' style='position:absolute;cursor:pointer;' /></a>";
+		echo "<img src='files/$fotop' width='250' style='border:1px solid #CCC;margin:0 auto;' />";
 		echo "</div>";
 	}
 	?>

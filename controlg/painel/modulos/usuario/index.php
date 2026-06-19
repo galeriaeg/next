@@ -17,7 +17,9 @@ if ($tipoUserSession != 1) {
 }
 ?>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <table id="minhaTabela">
 	<thead>

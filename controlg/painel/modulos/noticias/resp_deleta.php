@@ -1,8 +1,6 @@
 <?php
 include "session.php";
 
-echo "<h3>$titulo</h3>";
-
 $idCont = $_GET['idCont'];
 $nome = $_GET['titulo'];
 $conf = $_GET['conf'];

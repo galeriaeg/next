@@ -1,7 +1,6 @@
 <?php
-include("session.php");
+include "session.php";
 
-// conecta ao banco
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 // Proteção contra SQL Injection e captura limpa dos dados

@@ -8,7 +8,7 @@ function abreFechaModalFiles(el) {
 }
 
 function removerAnexo() {
-  const inputValor = document.getElementById("arquivo");
+  const inputValor = document.getElementById("id_arquivo");
   if (inputValor) {
     inputValor.value = "";
     document.getElementById("box-file").style.display = "none";
@@ -31,6 +31,9 @@ function anexarFile(id, file, name) {
   document.getElementById("btn-anexar").style.display = "none";
   document.getElementById("box-file").style.display = "block";
   document.getElementById("legenda").textContent = nameFile;
+
+  const idFileNum = idFile.replace(/file/g, ""); // pega somente o ID
+  document.getElementById("id_arquivo").value = idFileNum;
 
   const meuArquivo = new File([imgfile], imgfile, {
     type: "text/plain",

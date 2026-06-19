@@ -35,11 +35,11 @@
 
 <script type="text/javascript" src="js/global.js"></script>
 
-<form action="index.php?id=3.1.1" method="post" name="formNoticias" enctype="multipart/form-data" onSubmit="return noticias(this)">
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
+<form action="index.php?id=3.1.1" method="post" name="formNoticias" enctype="multipart/form-data" onSubmit="return noticias(this)">
 
 	<input name="data" type="date" class="campo_p" />
 

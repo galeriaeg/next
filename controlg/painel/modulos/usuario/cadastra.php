@@ -5,7 +5,7 @@ include "session.php";
 <form action="index.php?id=2.1.1" method="post" name="formUser" onSubmit="return validaSenha(this)">
 
 	<legend>
-		<h3><?php echo $titulo; ?></h3>
+		<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
 	</legend>
 
 	<label>Nome:</label>

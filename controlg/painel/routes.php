@@ -95,19 +95,19 @@ function cont()
 
 
 		case "4":
-			$titulo = "Files";
+			$titulo = "Arquivo";
 			include("modulos/files/index.php");
 			break;
 
-		// case "4.1":
-		// 	$titulo = "Cadastrar Fonte";
-		// 	include("modulos/noticias-fontes/cadastra.php");
-		// 	break;
+		case "4.1":
+			$titulo = "Cadastrar Arquivo";
+			include("modulos/files/cadastra.php");
+			break;
 
-		// case "4.1.1":
-		// 	$titulo = "Cadastrar Fonte";
-		// 	include("modulos/noticias-fontes/resp_cadastra.php");
-		// 	break;
+		case "4.2":
+			$titulo = "Excluir Arquivo";
+			include("modulos/files/resp_deleta_arquivo.php");
+			break;
 
 		// case "4.2":
 		// 	$tit = "Editar Fonte";

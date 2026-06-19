@@ -169,7 +169,7 @@ img.icon-senha:hover {
   padding: 10px;
   box-sizing: border-box;
   width: 60%;
-  display: flex;
+  display: block;
   justify-content: center;
 }
 

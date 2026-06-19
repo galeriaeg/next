@@ -4,9 +4,8 @@ $idmarca = $_GET['m'];
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 ?>
 
-
 <legend>
-	<h3><?php echo $titulo; ?></h3>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
 </legend>
 
 <form action="index.php?id=6.1.1" enctype="multipart/form-data" method="POST" name="formFonte" onSubmit="return fonte(this)">
@@ -53,11 +52,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 		<a id="btn-anexar" class="btn-anexar" onclick="abreFechaModalFiles(1)"><i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp; Anexar Imagem</a>
 		<div class="box-file" id="box-file" style="display:none;">
 			<i class="fa fa-check" aria-hidden="true"></i>
-			Imagem anexada
-			(<i id="legenda"></i>)
+			Imagem anexada (<i id="legenda"></i>)
 			<div class="btn-remove" onclick='removerAnexo();'>&#10006;</div>
 		</div>
-		<input type="file" name="arquivo" id="arquivo" style="display:none" />
+		<input type="text" name="id_arquivo" id="id_arquivo" style="display:none" />
 	</div>
 
 	<div class="col12">

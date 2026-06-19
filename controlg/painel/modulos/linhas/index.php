@@ -3,7 +3,9 @@ require "session.php";
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 ?>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <!-- Bloco Cadastro -->
 <div class="box-topo-busca">

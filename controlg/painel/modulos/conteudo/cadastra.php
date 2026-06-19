@@ -30,12 +30,11 @@
 </script>
 <!-- TEXTAREA EDITOR -->
 
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <form action="index.php?id=8.1.1" method="post" name="formConteudo" onSubmit="return conteudo(this)">
-
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
 
 	<label>Página:</label>
 	<select name="tipo" id="tipo" onchange="addMapa();" class="campo_p">

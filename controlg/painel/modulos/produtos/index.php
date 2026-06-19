@@ -28,7 +28,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 	<img src="imgs/novo.png" class="btnovo" border="0" alt="Novo" />
 </a>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <section class="box-topo-busca">
 	<select class="campo-simples" onchange='envia_marca(this.value);' name="marca">
@@ -69,7 +71,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 			while ($row = $cons->fetch_array()) {
 				$idProd		= 	$row['id'];
 				$tituloFonte	=	$row['titulo'];
-				$fotoProduto	=	$row['foto'];
+				$fotoProduto	=	$row['file'];
 				$idmarca	=	$row['idmarca'];
 				$idlinha	=	$row['idlinha'];
 				$status	=	$row['status'];
@@ -111,7 +113,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 			while ($row = $cons->fetch_array()) {
 				$idProd		= 	$row['id'];
 				$tituloFonte	=	$row['titulo'];
-				$fotoProduto	=	$row['foto'];
+				$fotoProduto	=	$row['file'];
 				$idmarca	=	$row['idmarca'];
 				$idlinha	=	$row['idlinha'];
 				$status	=	$row['status'];

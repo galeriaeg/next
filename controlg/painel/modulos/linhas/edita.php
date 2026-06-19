@@ -18,13 +18,11 @@ if ((empty($idLinha)) || (empty($idmarca))) {
 }
 ?>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($tit) ? $tit : ''; ?></h3>
+</legend>
 
 <form action="index.php?id=9.2.1" enctype="multipart/form-data" method="post" name="formc" name="formConteudo" onSubmit="return conteudo(this)">
-
-	<legend>
-		<h3><?php echo $tit; ?></h3>
-	</legend>
 
 	<label>Nome:</label>
 	<input name="titulo" required type="text" class="campo_p" value="<?php echo $tituloLinha; ?>" />

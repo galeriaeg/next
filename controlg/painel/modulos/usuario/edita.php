@@ -26,7 +26,9 @@ if (($tipoUserSession != 1) && ($idUserSetado != $idUserSession)) {
 }
 ?>
 
-<?php echo "<h3>$titulo</h3>"; ?>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <form action="index.php?id=2.2.1" method="POST">
 	<?php

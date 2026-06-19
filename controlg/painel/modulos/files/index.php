@@ -8,11 +8,16 @@ $urlBase = $protocolo . $dominio . '/next/';
 //echo $urlBase;
 ?>
 
+<script src="modulos/files/files.js"></script>
+<link rel="stylesheet" href="modulos/files/files.css" />
+
 <a href="index.php?id=7.1" title="Novo">
 	<img src="imgs/novo.png" class="btnovo" alt="Novo" />
 </a>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <section class="box-topo-busca">
 	<input type="text" name="chave" id="chave" value="" placeholder="Buscar" class="campo-simples">
@@ -37,7 +42,7 @@ $urlBase = $protocolo . $dominio . '/next/';
 			<input name='url' id='file$idFile' value='$pathFile'>
 				<i>
 					<button onclick='copiarUrl(\"file$idFile\");'>Copiar</button>
-					<button>Excluir</button>
+					<button onclick='window.location.href=\"index.php?id=4.2&file=$idFile&nome=$imagemFile \"'>Excluir</button>
 				</i>
 		</div>";
 		}

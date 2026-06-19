@@ -1,9 +1,7 @@
 <?php
 require "session.php";
 
-//$tipoUserSession =  $_SESSION['tipoUsuarioLogado'];
-
-echo $idUserAtual = $_POST['idUsuario'];
+$idUserAtual = $_POST['idUsuario'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $login = $_POST['login'];

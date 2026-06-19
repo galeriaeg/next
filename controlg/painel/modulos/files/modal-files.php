@@ -1,5 +1,7 @@
+<?php include "session.php"; ?>
+
 <section id="modal-files" class="modal-files" style="display:none;">
-  <div class="alink col12" onclick="abreFechaModalFiles(0)">Fechar</div>
+  <div class="col12"><span class="alink" onclick="abreFechaModalFiles(0)">Fechar</span></div>
   <div class="iframe-files">
     <?php
     $sql = "SELECT * FROM tb_files ORDER BY id DESC";
@@ -12,7 +14,7 @@
       $idFile = "file" . $idFile;
 
       echo "<div class='card-file'>
-			<div style='background-image: url(\"files/$imagemFile\");'></div>
+			<div style='background-image: url(\"files/$imagemFile\");' title='$nomeFile'></div>
 				<i>
 					<button onclick='anexarFile(\"$idFile\",\"$imagemFile\",\"$nomeFile\");'>Selecionar</button>
 				</i>

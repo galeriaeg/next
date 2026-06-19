@@ -1,10 +1,8 @@
 <?php
 include "session.php";
 
-echo $titulo = $_POST['linha'];
-echo $marca = $_POST['marca'];
-
-//exit();
+$titulo = $_POST['linha'];
+$marca = $_POST['marca'];
 
 if ((empty($titulo)) || (empty($marca)) || ($marca == 0)) {
 	echo "<script>window.location = 'logout.php';</script>";

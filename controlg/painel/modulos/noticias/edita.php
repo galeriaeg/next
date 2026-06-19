@@ -69,11 +69,11 @@ $data_formatada = date('Y-m-d', strtotime($data));
 
 <script type="text/javascript" src="js/global.js"></script>
 
-<form action="index.php?id=3.2.1" enctype="multipart/form-data" method="post" name="formNoticias" onSubmit="return noticias(this)">
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
+<form action="index.php?id=3.2.1" enctype="multipart/form-data" method="post" name="formNoticias" onSubmit="return noticias(this)">
 
 	<input name="data" type="date" class="campo_p" value="<?php echo $data_formatada; ?>" />
 

@@ -1,8 +1,10 @@
+<?php include "session.php"; ?>
+
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
+
 <?php
-include "session.php";
-
-echo "<h3>$titulo</h3>";
-
 $idLinha = $_GET['idLinha'];
 $tituloLinha = $_GET['tlinha'];
 $conf = $_GET['conf'];

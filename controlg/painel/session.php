@@ -13,4 +13,6 @@ if (!isset($_SESSION['loginUsuarioLogado']) || !isset($_SESSION['tipoUsuarioLoga
 	session_destroy();
 	header("Location: ../index.php?err=sim");
 	exit();
+} else {
+	//echo "conectado";
 }

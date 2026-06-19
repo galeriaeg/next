@@ -28,7 +28,9 @@ if (empty($idMarca)) {
 }
 ?>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <form action="index.php?id=7.2.1" enctype="multipart/form-data" method="post" name="formc">
 
@@ -46,7 +48,7 @@ if (empty($idMarca)) {
 	} else {
 		//Visualização do anexo na base-->
 		echo "<span class='box-anexo' style='display:block'>
-		<a href='index.php?id=7.2.2&file=$logomarca&idMarca=$idMarca'><img src='imgs/btn-excluir-axeno.png' title='Excluir anexo' alt='anexo' style='position:absolute;cursor:pointer;' /></a>
+		<a href='index.php?id=7.2.2&file=$logomarca&idMarca=$idMarca'><img src='imgs/btn-excluir-anexo.jpg' title='Excluir anexo' alt='anexo' style='position:absolute;cursor:pointer;' /></a>
 		<img src='files/$logomarca' alt='anexo' class='anexo-noticia' />
 		</span>";
 	}
