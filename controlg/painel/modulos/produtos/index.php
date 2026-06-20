@@ -77,7 +77,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 				$status	=	$row['status'];
 
 				if (empty($fotoProduto))
-					$logomarca_Fonte = "imgs/sem-produto.jpg";
+					$logomarca_Fonte = "imgs/sem-anexo.jpg";
 				else
 					$logomarca_Fonte = "files/" . $fotoProduto;
 
@@ -119,7 +119,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 				$status	=	$row['status'];
 
 				if (empty($fotoProduto))
-					$logomarca_Fonte = "imgs/sem_produto.jpg";
+					$logomarca_Fonte = "imgs/sem-anexo.jpg";
 				else
 					$logomarca_Fonte = "files/" . $fotoProduto;
 

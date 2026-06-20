@@ -2,6 +2,7 @@
 @$id_produto = $_GET['p'];
 
 $path_files = "controlg/painel/files/";
+$path_erro = "controlg/painel/imgs/";
 
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
@@ -22,7 +23,7 @@ while ($row = mysqli_fetch_array($res)) {
   $id = $row['id'];
   $titulo = $row['titulo'];
   $descricao = $row['descricao'];
-  $foto = $row['foto'];
+  $foto = $row['file'];
   $idmarca = $row['idmarca'];
   $idlinha = $row['idlinha'];
   $status = $row['status'];
@@ -35,6 +36,13 @@ if ($qtd < 1) {
   echo "<script>window.location.href='home'</script>";
   exit();
 }
+
+
+if (!$foto) {
+  $foto = $path_erro . "sem-anexo.jpg";
+} else {
+  $foto = $path_files . $foto;
+}
 ?>
 
 <!-- filtro -->
@@ -45,7 +53,7 @@ if ($qtd < 1) {
 
   <div class="box-conteudo">
     <article class="col3" id="article" style="transition:0.3s;">
-      <img src="<?php echo $path_files . $foto; ?>" alt="foto do produto" class="img-produto" />
+      <img src="<?php echo $foto; ?>" alt="foto do produto" class="img-produto" />
       <span id="btnMais" onclick="ampliarImagem();"><img src="public/imgs/btn-mais-off.png" class="btn-zoom-mais" alt="Ampliar foto" /></span>
       <span id="btnMenos" style="display: none;" onclick="reduzirImagem();"><img src="public/imgs/btn-menos-off.png" class="btn-zoom-menos" alt="Reduzir foto" /></span>
     </article>

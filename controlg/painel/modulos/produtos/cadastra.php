@@ -76,8 +76,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 <!--importa modulo Files -->
 <?php include_once "modulos/files/modal-files.php"; ?>
-<script src="modulos/files/files.js"></script>
-<link rel="stylesheet" href="modulos/files/files.css" />
+<script src="modulos/files/js/files.js"></script>
+<link rel="stylesheet" href="modulos/files/css/files.css" />
 <!--importa modulo Files -->
 
 

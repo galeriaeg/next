@@ -54,7 +54,7 @@
 	<li>
 		<a href="index.php?id=4" class="txtmenu">
 			<i class="fa fa-file-image-o" aria-hidden="true"></i>
-			Files
+			Arquivos
 		</a>
 	</li>
 </ul>

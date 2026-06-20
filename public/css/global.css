@@ -282,6 +282,10 @@ a:hover {
   color: #555;
 }
 
+.alerta {
+  margin: 2px 0;
+}
+
 .alert-info {
   background-color: #ffef8b;
   color: #99760f;

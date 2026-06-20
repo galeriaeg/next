@@ -101,7 +101,7 @@ function cont()
 
 		case "4.1":
 			$titulo = "Cadastrar Arquivo";
-			include("modulos/files/cadastra.php");
+			include("modulos/files/resp_cadastra.php");
 			break;
 
 		case "4.2":

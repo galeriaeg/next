@@ -3,6 +3,7 @@
 @$idLinha_selecionada = $_GET['l'];
 
 $path_files = "controlg/painel/files/";
+$path_erro = "controlg/painel/imgs/";
 
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
@@ -86,6 +87,7 @@ if ($qtd < 1) {
     $sql = "SELECT nome,logomarca 
     FROM tb_marca 
     WHERE id=$idMarca_selecionada
+    AND status = 1
     LIMIT 1 ";
     $res = mysqli_query($conexao, $sql);
     $qtdMarca = mysqli_num_rows($res);
@@ -97,7 +99,7 @@ if ($qtd < 1) {
       echo "<img src='$path_files$logo_marca' class='logo-produto' alt='logomarca'>";
       echo "<script>document.getElementById('linha').disabled = false;</script>";
     } else if (($qtdMarca < 1) && (empty($logo_marca))) {
-      echo "<h4 class='alert-info'><i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;&nbsp;Selecione uma Marca</h4>";
+      echo "<h4 class='alerta alert-info'><i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;&nbsp;Selecione uma Marca</h4>";
     } else {
       echo "<img src='public/imgs/sem-marca.png' class='logo-produto' alt='logomarca'>";
       echo "<script>document.getElementById('linha').disabled = false;</script>";
@@ -113,7 +115,7 @@ if ($qtd < 1) {
       //Busca produtos pela marca
       $i = 1;
       $sql = "
-      SELECT tp.id,tp.foto,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
+      SELECT tp.id,tp.file,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
       FROM tb_produto tp, tb_marca tm, tb_linha tl
       WHERE tp.idmarca = $idMarca_selecionada
       AND tp.idmarca = tm.id
@@ -124,25 +126,32 @@ if ($qtd < 1) {
       while ($row = mysqli_fetch_array($re)) {
         $idProduto = $row['id'];
         $tituloProduto = $row['titulo'];
-        $fotoProduto = $row['foto'];
+        $fotoProduto = $row['file'];
         $nomeMarca = $row['nomeMarca'];
         $nomeLinha = $row['nomeLinha'];
+
+
+        if (!$fotoProduto) {
+          $fotoProduto = $path_erro . "sem-anexo.jpg";
+        } else {
+          $fotoProduto = $path_files . $fotoProduto;
+        }
 
         if ($i % 4 == 0) {
           echo "<div class='card-produto card-last'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='$path_files$fotoProduto' alt='prod' />
+            <img src='$fotoProduto' alt='produto' />
           </div>
          </a>
-        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i>$tituloProduto</h2>
-        <h4>$nomeMarca</h4>
+        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
+        <h4>$nomeMarca - $nomeLinha</h4>
         </div>";
         } else {
           echo "<div class='card-produto card-first'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='$path_files$fotoProduto' alt='prod' />
+            <img src='$fotoProduto' alt='produto' />
           </div>
         </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
@@ -155,7 +164,7 @@ if ($qtd < 1) {
       //Busca produtos por marca e linha
       $j = 1;
       $sql = "
-      SELECT tp.id,tp.foto,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
+      SELECT tp.id,tp.file,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
       FROM tb_produto tp, tb_marca tm, tb_linha tl
       WHERE tp.idmarca = $idMarca_selecionada
       AND tp.idlinha = $idLinha_selecionada
@@ -167,25 +176,31 @@ if ($qtd < 1) {
       while ($row = mysqli_fetch_array($re)) {
         $idProduto = $row['id'];
         $tituloProduto = $row['titulo'];
-        $fotoProduto = $row['foto'];
+        $fotoProduto = $row['file'];
         $nomeMarca = $row['nomeMarca'];
         $nomeLinha = $row['nomeLinha'];
+
+        if (!$fotoProduto) {
+          $fotoProduto = $path_erro . "sem-anexo.jpg";
+        } else {
+          $fotoProduto = $path_files . $fotoProduto;
+        }
 
         if ($j % 4 == 0) {
           echo "<div class='card-produto card-last'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='$path_files$fotoProduto' alt='prod' />
+            <img src='$fotoProduto' alt='produto' />
           </div>
          </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i>$tituloProduto</h2>
-        <h4>$nomeMarca</h4>
+        <h4>$nomeMarca - $nomeLinha</h4>
         </div>";
         } else {
           echo "<div class='card-produto card-first'>
         <a href='/next/produto?p=$idProduto'>
           <div class='box-imagem'>
-            <img src='$path_files$fotoProduto' alt='prod' />
+            <img src='$fotoProduto' alt='produto' />
           </div>
         </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
@@ -196,8 +211,10 @@ if ($qtd < 1) {
       }
     }
 
+    $qtdProduto = isset($qtdProduto) ? $qtdProduto : '';
+
     if (($idMarca_selecionada > 0) && ($qtdProduto < 1))
-      echo "<h4 class='alert-erro col12'>
+      echo "<h4 class='alerta alert-erro col12'>
     <i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;&nbsp;Não há produtos cadastrados.</h4>";
     ?>
   </div>
