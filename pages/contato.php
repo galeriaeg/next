@@ -25,12 +25,26 @@ while ($row = mysqli_fetch_array($res)) {
     <?php echo $texto; ?>
   </p>
 
-  <form action="" method="POST">
-    <input type="text" name="nome" />
-    <input type="email" name="email" />
-    <input type="text" name="fone" />
-    <textarea></textarea>
-    <input type="submit" value="Enviar" />
-    <input type="submit" value="Limpar" />
-  </form>
+  <div style="width:50%;">
+
+    <form action="envia-contato" method="POST">
+      <input type="text" required placeholder="Nome" class="campo-m" name="nome" />
+      <input type="email" required placeholder="E-mail" class="campo-m" name="email" />
+      <input type="text" required placeholder="Telefone" class="campo-m" name="fone" />
+      <input type="text" required placeholder="Cidade" class="campo-p" name="cidade" />
+      <input type="text" required placeholder="Estado" class="campo-p" name="estado" list="lista-estados" id="estado" autocomplete="off" />
+      <datalist id="lista-estados"></datalist>
+      <textarea rows="12" required placeholder="Mensagem" class="campo-m"></textarea>
+      <div style="width:100%;">
+        <input type="submit" class="btn-principal" value="Enviar" />
+        <input type="reset" class="btn-secundario" value="Limpar" />
+      </div>
+    </form>
+
+
+
+  </div>
 </section>
+
+
+<script src="public/js/contato.js"></script>

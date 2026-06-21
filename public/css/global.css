@@ -311,3 +311,61 @@ a:hover {
   display: flex;
   align-items: center;
 }
+
+/*** FORM **/
+
+.campo-m {
+  padding: 10px 12px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #555;
+  border: #ccc 1px solid;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px #ccc;
+  margin-bottom: 12px;
+}
+
+.campo-p {
+  padding: 10px 12px;
+  width: 49.6%;
+  box-sizing: border-box;
+  color: #555;
+  border: #ccc 1px solid;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px #ccc;
+  margin-bottom: 12px;
+}
+
+.btn-principal {
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 22px;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: 0 3px 8px #ccc;
+  background: linear-gradient(to left, #60bdb2 50%, #1fb8a1 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 0.3s ease-out;
+}
+.btn-principal:hover {
+  background-position: left bottom;
+}
+
+.btn-secundario {
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 22px;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: 0 3px 8px #ccc;
+  background: linear-gradient(to left, #888 50%, #777 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: background-position 0.3s ease-out;
+}
+.btn-secundario:hover {
+  background-position: left bottom;
+}
