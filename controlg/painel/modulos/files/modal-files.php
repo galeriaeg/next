@@ -1,4 +1,7 @@
-<?php include "session.php"; ?>
+<?php
+include "session.php";
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+?>
 
 <section id="modal-files" class="modal-files" style="display:none;">
   <div class="col12"><span class="alink" onclick="abreFechaModalFiles(0)">Fechar</span></div>

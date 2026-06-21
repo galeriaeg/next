@@ -119,6 +119,10 @@ img.icon-senha:hover {
 }
 
 /******* ALERTAS ******/
+.w-m {
+  width: 60% !important;
+}
+
 .alerta-erro {
   font:
     normal 16px "Trebuchet MS",

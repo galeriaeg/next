@@ -1,7 +1,7 @@
 <?php
 require "session.php";
 
-$idFile = $_GET['file'];
+$idFile = (int) ($_GET['file'] ?? 0);
 $nomeFile = $_GET['nome'];
 
 if ((empty($idFile)) || (empty($nomeFile))
@@ -16,21 +16,23 @@ if ((empty($idFile)) || (empty($nomeFile))
 	$sql = "DELETE FROM tb_files WHERE id='$idFile'";
 	$del = mysqli_query($conexao, $sql);
 
-
-
-	// atualiza tb_produto
+	// atualiza tb_produto e deleta a mesma imagem
 	if ($del > 0) {
-		$sql = "UPDATE tb_produto SET file='',idfile='' WHERE idfile = '$idFile'";
-		$update = mysqli_query($conexao, $sql);
 
 		// apaga imagem do servidor
 		$file_delete = "files/" . $nomeFile;
 		unlink($file_delete);
 
-		if ($update) {
-			echo "<script>alert('Arquivo excluido com sucesso!');</script>";
-			echo "<script>window.location.href='index.php?id=4'</script>";
-		}
+		// Atualiza tab Produtos
+		$sql = "UPDATE tb_produto SET file='', idfile='0' WHERE idfile = '$idFile'";
+		$updateProduto = mysqli_query($conexao, $sql);
+
+		// Atualiza tb Noticias
+		$sql = "UPDATE tb_noticias SET file='', idfile='0' WHERE idfile = '$idFile'";
+		$updateNoticia = mysqli_query($conexao, $sql);
+
+		echo "<script>alert('Arquivo excluido com sucesso!');</script>";
+		echo "<script>window.location.href='index.php?id=4'</script>";
 	}
 }
 mysqli_close($conexao);

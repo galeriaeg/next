@@ -11,7 +11,7 @@ $qtd = mysqli_num_rows($res);
 while ($row = mysqli_fetch_array($res)) {
   $id = $row['id'];
   $titulo = $row['titulo'];
-  $foto = $row['foto'];
+  $foto = $row['file'];
   $texto = $row['descricao'];
   $data = $row['data'];
 

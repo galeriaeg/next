@@ -19,23 +19,7 @@ if (
 	exit();
 } else {
 
-
-	// if (!empty($imagem_cropada)) {
-	// 	$base64        = preg_replace('/^data:image\/\w+;base64,/', '', $imagem_cropada);
-	// 	$dados         = base64_decode($base64);
-	// 	$rand          = rand(100000, 999999);
-	// 	$nome_original = pathinfo($_FILES['arquivo']['name'], PATHINFO_FILENAME);
-	// 	$nome_original = preg_replace('/[^a-zA-Z0-9_-]/', '', $nome_original);
-	// 	$nome_arquivo  = $rand . '-' . $nome_original . '.jpg';
-	// 	$uploadfile    = 'files/' . $nome_arquivo;
-
-	// 	if (!file_put_contents($uploadfile, $dados)) {
-	// 		echo "<script>alert('Erro ao salvar arquivo!'); window.history.back();</script>";
-	// 		exit();
-	// 	}
-	// }
-
-	// pega nome do arquivo
+	// pega nome do arquivo na tb_files
 	$sql = "SELECT imagem FROM tb_files WHERE id='$idarquivo' ";
 	$res = mysqli_query($conexao, $sql);
 	while ($row = mysqli_fetch_array($res)) {

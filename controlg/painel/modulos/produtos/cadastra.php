@@ -55,7 +55,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 			Imagem anexada (<i id="legenda"></i>)
 			<div class="btn-remove" onclick='removerAnexo();'>&#10006;</div>
 		</div>
-		<input type="text" name="id_arquivo" id="id_arquivo" style="display:none" />
+		<input type="hidden" name="id_arquivo" id="id_arquivo" />
 	</div>
 
 	<div class="col12">
@@ -75,13 +75,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 
 <!--importa modulo Files -->
-<?php include_once "modulos/files/modal-files.php"; ?>
 <script src="modulos/files/js/files.js"></script>
 <link rel="stylesheet" href="modulos/files/css/files.css" />
+<?php include_once "modulos/files/modal-files.php"; ?>
 <!--importa modulo Files -->
 
-
-<script src="js/cropper.js"></script>
 <script language="JavaScript">
 	function MM_jumpMenu(targ, selObj, restore) {
 		const valorSelecionado = selObj.options[selObj.selectedIndex].value;

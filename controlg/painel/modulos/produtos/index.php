@@ -87,7 +87,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 					$btstatus = "<img src='imgs/fleg-inativo.png' class='center' />";
 				}
 
-				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
+				$btedita = "<a href='index.php?id=6.2&idp=$idProd'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
 				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&idm=$idmarca&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='btn-action bt-excluir' /></a>";
 
 				echo "<tr class='tupla'>";
@@ -129,8 +129,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 					$btstatus = "<img src='imgs/fleg-inativo.png'  class='center' />";
 				}
 
-
-				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
+				$btedita = "<a href='index.php?id=6.2&idp=$idProd'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
 				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
 
 				echo "<tr class='tupla'>";
@@ -173,3 +172,10 @@ if ((!empty($marca)) && (empty($chave)) && ($totalMarca < 1)) {
 				</span>";
 }
 ?>
+
+<nav class="box-paginacao">
+	<button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
+	<span class="txtsimples" id="label">1</span>
+	<button id="next" onclick="mudarPagina(1)">&#129034;</button>
+</nav>
+<script src="./js/paginacao.js"></script>

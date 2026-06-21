@@ -79,7 +79,7 @@ $urlBase = $protocolo . $dominio . '/next/';
 			$nomeFile		=	$row['nome'];
 			$pathFile 	= $urlBase . "controlg/painel/files/" . $imagemFile;
 			echo "<div class='card-file'>
-			<div style='background-image: url(\"files/$imagemFile\");'></div>
+			<div style='background-image: url(\"files/$imagemFile\");' title='$nomeFile'></div>
 			<input name='url' id='file$idFile' value='$pathFile'>
 				<i>
 					<button onclick='copiarUrl(\"file$idFile\");'>Copiar</button>
@@ -96,7 +96,7 @@ $urlBase = $protocolo . $dominio . '/next/';
 			$nomeFile	=	$row['nome'];
 			$pathFile = $urlBase . "controlg/painel/files/" . $imagemFile;
 			echo "<div class='card-file'>
-			<div style='background-image: url(\"files/$imagemFile\");'></div>
+			<div style='background-image: url(\"files/$imagemFile\");' title='$nomeFile'></div>
 			<input name='url' id='file$idFile' value='$pathFile'>
 				<i>
 					<button onclick='copiarUrl(\"file$idFile\");'>Copiar</button>

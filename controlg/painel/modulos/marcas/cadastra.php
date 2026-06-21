@@ -11,10 +11,10 @@
 
 	<label>Site:</label>
 	<input name="site" type="text" required class="campo_m" value="" />
-	<div class="boxAviso">Caso não tenha Site, use: #</div>
+	<div class="boxAviso w-m">Caso não tenha Site, use: #</div>
 	<label>Anexo:</label>
 	<input name="arquivo" id="anexo" required type="file" accept="image/*" class="campo_m" onchange="abreAnexo(this)" />
-	<div class="boxAviso">*Imagem deve ter 300 x 155px</div>
+	<div class="boxAviso w-m">*Imagem deve ter 300 x 155px</div>
 
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo" class="box-anexo" style="display: none;">

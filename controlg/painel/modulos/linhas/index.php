@@ -23,7 +23,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 			}
 			?>
 		</select>
-		<input type="text" required class="campo-simples" placeholder="Linha" name="linha">
+		<input type="text" required class="campo-simples" placeholder="Nova linha" name="linha">
 		<input type="submit" value="Cadastrar" class="btn-simples" />
 	</form>
 </div>

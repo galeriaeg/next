@@ -193,7 +193,7 @@ if ($qtd < 1) {
             <img src='$fotoProduto' alt='produto' />
           </div>
          </a>
-        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i>$tituloProduto</h2>
+        <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
         <h4>$nomeMarca - $nomeLinha</h4>
         </div>";
         } else {

@@ -1,7 +1,7 @@
 <?php
 include "session.php";
 
-$titulo =	$_POST['titulo'];
+$titulo =	strtolower($_POST['titulo']); // converte para minusculo
 $imagem_cropada = $_POST['imagem_cropada'] ?? '';
 
 // Define data e hora atual

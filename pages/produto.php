@@ -37,11 +37,20 @@ if ($qtd < 1) {
   exit();
 }
 
-
+// define o caminha da imagem
 if (!$foto) {
   $foto = $path_erro . "sem-anexo.jpg";
 } else {
   $foto = $path_files . $foto;
+}
+
+// Define o número do whatsapp
+$numCel = '';
+$sql = "SELECT celular FROM tb_contatos WHERE status = 1 LIMIT 1 ";
+$res = mysqli_query($conexao, $sql);
+$qtdCel = mysqli_num_rows($res);
+while ($row = mysqli_fetch_array($res)) {
+  $numCel = str_replace('-', '', $row['celular']);
 }
 ?>
 
@@ -66,7 +75,7 @@ if (!$foto) {
       <p class="text-page col12 p">
         <?php echo $descricao; ?>
       </p>
-      <button class="btn-whatsapp">
+      <button id="btn-wapp" class="btn-whatsapp" onclick="window.open('https://wa.me/<?php echo $numCel; ?>', '_blank')">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Solicitar orçamento
       </button>
@@ -77,10 +86,15 @@ if (!$foto) {
         </a>
       </p>
     </div>
-
   </div>
-
 </section>
+
+<?php
+// Remove botão WhatsApp se status == 0
+if ($qtdCel == 0) {
+  echo "<script>document.getElementById('btn-wapp').remove();</script>";
+}
+?>
 
 <script src="public/js/produtos.js"></script>
 <script src="public/js/global.js"></script>

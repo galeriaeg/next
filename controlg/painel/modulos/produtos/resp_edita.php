@@ -2,7 +2,7 @@
 include "session.php";
 
 $idproduto = $_POST['idp'];
-$marca = $_POST['idmarca'];
+$marca = $_POST['marca'];
 $linha = $_POST['linha'];
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];

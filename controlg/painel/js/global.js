@@ -121,16 +121,6 @@ function edtSlide(formEdtSlide) {
   }
 }
 
-//SOMENTE NUMEROS METROS
-function somenteNumeros(num) {
-  var er = /[^0-9.]/;
-  er.lastIndex = 0;
-  var campo = num;
-  if (er.test(campo.value)) {
-    campo.value = "";
-  }
-}
-
 //mascra p/ numeros diversos
 function mascaraNum(src, mask) {
   var i = src.value.length;
@@ -143,7 +133,7 @@ function mascaraNum(src, mask) {
 
 //SOMENTE NUMEROS
 function somenteNumeros(campo) {
-  var digits = "0123456789/";
+  var digits = "0123456789-";
   var campo_temp;
   for (var i = 0; i < campo.value.length; i++) {
     campo_temp = campo.value.substring(i, i + 1);

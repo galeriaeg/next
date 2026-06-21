@@ -1,6 +1,10 @@
-<?php
-include "session.php";
+<?php include "session.php"; ?>
 
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
+
+<?php
 $idLinha = $_GET['idLinha'];
 $idmarca = $_GET['idmarca'];
 
