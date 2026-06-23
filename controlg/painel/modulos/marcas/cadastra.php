@@ -13,7 +13,7 @@
 	<input name="site" type="text" required class="campo_m" value="" />
 	<div class="boxAviso w-m">Caso não tenha Site, use: #</div>
 	<label>Anexo:</label>
-	<input name="arquivo" id="anexo" required type="file" accept="image/*" class="campo_m" onchange="abreAnexo(this)" />
+	<input name="arquivo" id="anexo" required type="file" accept="image/*" class="campo_m" onchange="validaTamMarca(this)" />
 	<div class="boxAviso w-m">*Imagem deve ter 300 x 155px</div>
 
 	<!-- Visualização do anexo no upload-->
@@ -29,4 +29,5 @@
 
 </form>
 
+<script src="js/validaTamAnexo.js"></script>
 <script src="js/previewFile.js"></script>

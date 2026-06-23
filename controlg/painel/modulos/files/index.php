@@ -83,7 +83,7 @@ $urlBase = $protocolo . $dominio . '/next/';
 			<input name='url' id='file$idFile' value='$pathFile'>
 				<i>
 					<button onclick='copiarUrl(\"file$idFile\");'>Copiar</button>
-					<button onclick='window.location.href=\"index.php?id=4.2&file=$idFile&nome=$imagemFile \"'>Excluir</button>
+					<button onclick='window.location.href=\"index.php?id=4.2&file=$idFile&nome=$imagemFile&conf=0 \"'>Excluir</button>
 				</i>
 		</div>";
 		}
@@ -100,7 +100,7 @@ $urlBase = $protocolo . $dominio . '/next/';
 			<input name='url' id='file$idFile' value='$pathFile'>
 				<i>
 					<button onclick='copiarUrl(\"file$idFile\");'>Copiar</button>
-					<button onclick='window.location.href=\"index.php?id=4.2&file=$idFile&nome=$imagemFile \"'>Excluir</button>
+					<button onclick='window.location.href=\"index.php?id=4.2&file=$idFile&nome=$imagemFile&conf=0 \"'>Excluir</button>
 				</i>
 		</div>";
 		}

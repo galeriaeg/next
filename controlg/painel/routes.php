@@ -148,7 +148,7 @@ function cont()
 			break;
 
 		case "5.2":
-			$tit = "Editar Slide";
+			$titulo = "Editar Slide";
 			include("modulos/slide/edita.php");
 			break;
 

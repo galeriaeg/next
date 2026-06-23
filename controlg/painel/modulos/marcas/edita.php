@@ -43,7 +43,7 @@ if (empty($idMarca)) {
 	<label>Anexo:</label>
 	<?php
 	if ($fleg < 1) {
-		echo "<input name='arquivo' id='anexo' type='file' required accept='image/*' onchange='abreAnexo(this)' class='campo_m' />";
+		echo "<input name='arquivo' id='anexo' type='file' required accept='image/*' onchange='validaTamMarca(this)' class='campo_m' />";
 		echo "<div class='boxAviso w-m'>*Imagem deve ter 300 x 155px</div>";
 	} else {
 		//Visualização do anexo na base-->
@@ -82,4 +82,5 @@ if (empty($idMarca)) {
 
 </form>
 
+<script src="js/validaTamAnexo.js"></script>
 <script src="js/previewFile.js"></script>
