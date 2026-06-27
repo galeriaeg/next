@@ -1,13 +1,12 @@
 <?php
 include "session.php";
 
-echo $nome_arquivo_dsk	=	strtolower(basename($_FILES['arquivoDesktop']['name']));
+$nome_arquivo_dsk	=	strtolower(basename($_FILES['arquivoDesktop']['name']));
 echo $nome_arquivo_mob	=	strtolower(basename($_FILES['arquivoMobile']['name']));
-echo $id			=	$_POST['id'];
-echo $link		=	$_POST['link'];
-echo $destino	=	$_POST['destino'];
-echo $status		=	$_POST['status'];
-
+$id			=	$_POST['id'];
+$link		=	$_POST['link'];
+$destino	=	$_POST['destino'];
+$status		=	$_POST['status'];
 
 
 if ((empty($id)) || (empty($link)) || (empty($destino))) {
@@ -32,13 +31,11 @@ if ((empty($id)) || (empty($link)) || (empty($destino))) {
 		$nome_arquivo_dsk = $rand . "-" . $nome_arquivo_dsk;
 		$uploadfile_dsk = $uploaddir . $nome_arquivo_dsk;
 		if (move_uploaded_file($_FILES['arquivoDesktop']['tmp_name'], $uploadfile_dsk)) {
-			$sql = "INSERT INTO tb_slider (img_desk, img_mob, link, destino, status)
-		VALUES ('$nome_arquivo_dsk','$nome_arquivo_mob','$link','$destino','$status')";
-			$conf = $conexao->query($sql) or die($conexao->error);
+			$sql = " UPDATE tb_slider SET img_desk='$nome_arquivo_dsk' WHERE id = '$id'  ";
+			$update = mysqli_query($conexao, $sql);
 		}
-		$sql = " UPDATE tb_slider SET img_desk='$nome_arquivo_dsk', link='$link', destino='$destino', status='$status'  WHERE id = '$id'  ";
-		$update = mysqli_query($conexao, $sql);
 	}
+
 
 
 
@@ -47,16 +44,19 @@ if ((empty($id)) || (empty($link)) || (empty($destino))) {
 		if (($extensaoMob != "png") && ($extensaoMob != "jpg") && ($extensaoMob != "jpeg")) {
 			echo "
 			<script>
-			alert('Arquivo inválido para mobile!');
+			alert('Arquivo inválido para desktop!');
 			window.location = 'index.php?id=5.1';
 			</script>";
-			exit();
 		}
 		$nome_arquivo_mob = $rand * 4 . "-" . $nome_arquivo_mob;
 		$uploadfile_mob = $uploaddir . $nome_arquivo_mob;
-		$sql = " UPDATE tb_slider SET img_mob='$nome_arquivo_mob', link='$link', destino='$destino', status='$status'  WHERE id = '$id'  ";
-		$update = mysqli_query($conexao, $sql);
+		if (move_uploaded_file($_FILES['arquivoMobile']['tmp_name'], $uploadfile_mob)) {
+			$sql = " UPDATE tb_slider SET img_mob='$nome_arquivo_mob' WHERE id = '$id'  ";
+			$update = mysqli_query($conexao, $sql);
+		}
 	}
+
+
 
 	$sql = " UPDATE tb_slider SET link='$link', destino='$destino', status='$status'  WHERE id = '$id'  ";
 	$update = mysqli_query($conexao, $sql);
