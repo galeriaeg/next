@@ -30,8 +30,8 @@
 		$total = mysqli_num_rows($cons);
 		while ($row = $cons->fetch_array()) {
 			$id	= $row['id'];
-			$ft_dsk = $row['foto'];
-			$ft_mob = $row['foto_mini'];
+			$ft_dsk = $row['img_desk'];
+			$ft_mob = $row['img_mob'];
 			$link = $row['link'];
 			$destino = $row['destino'];
 			$status	= $row['status'];
@@ -59,7 +59,7 @@
 
 			//botes editar e excluir	
 			$btedita = "<a href='index.php?id=5.2&idSlide=$id'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action'  /></a>";
-			$btexclui = "<a href='index.php?id=5.3&idSlide=$id&foto_dsk=$ft_dsk&foto_mob=$ft_mob&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
+			$btexclui = "<a href='index.php?id=5.3&idSlide=$id&filedsk=$ft_dsk&filemob=$ft_mob'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
 
 			// Redefine status
 			if ($status != 0) {
@@ -81,7 +81,7 @@
 		echo "</table>";
 
 		if ($total < 1) {
-			echo "<span class='box-notifica'>&#10006; N&atilde;o h&aacute; registros!</span>";
+			echo "<span class='alerta-info'>&#10006; Não há registros.</span>";
 		}
 
 		mysqli_close($conexao);

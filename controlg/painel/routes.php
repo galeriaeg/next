@@ -163,11 +163,14 @@ function cont()
 			break;
 
 		case "5.4":
-			$titulo = "Slide/Excluir Anexo";
+			$titulo = "Excluir Anexo";
 			include("modulos/slide/resp_upload.php");
 			break;
 
-
+		case "5.5":
+			$titulo = "Excluir Anexo";
+			include("modulos/slide/resp_remove_anexo.php");
+			break;
 
 
 
