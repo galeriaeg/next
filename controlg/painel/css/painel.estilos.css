@@ -119,6 +119,10 @@ img.icon-senha:hover {
 }
 
 /******* ALERTAS ******/
+.w-p {
+  width: 30% !important;
+}
+
 .w-m {
   width: 60% !important;
 }
@@ -397,6 +401,24 @@ input.btn-simples:hover {
 
 .campo-simples {
   padding: 4px 8px;
+}
+
+.btn-break {
+  background: #c4dcff;
+  background: linear-gradient(
+    0deg,
+    rgba(196, 220, 255, 1) 0%,
+    rgba(211, 227, 253, 1) 33%,
+    rgba(240, 245, 255, 1) 100%
+  );
+  color: #5592b8;
+  padding: 3px 8px;
+  margin-left: 505px;
+  font-size: 13px;
+  cursor: pointer;
+}
+span.btn-break:hover {
+  color: #015f99;
 }
 
 /***** GRID *****/

@@ -11,6 +11,8 @@ while ($row = mysqli_fetch_array($res)) {
   $texto = $row['texto'];
   $tipo = $row['tipo'];
 }
+
+$randCaptcha =  rand(1000, 9999);
 ?>
 <section>
   <div class="label-page">
@@ -25,23 +27,27 @@ while ($row = mysqli_fetch_array($res)) {
     <?php echo $texto; ?>
   </p>
 
-  <div style="width:50%;">
+  <div style="width:100%;">
 
     <form action="envia-contato" method="POST">
       <input type="text" required placeholder="Nome" class="campo-m" name="nome" />
       <input type="email" required placeholder="E-mail" class="campo-m" name="email" />
-      <input type="text" required placeholder="Telefone" class="campo-m" name="fone" />
+      <input type="text" required placeholder="Telefone" maxlength="12" id="telefone" onkeypress="mascaraNum(this, '##-#########')" oninput="somenteNumeros(this)" class="campo-m" name="telefone" />
       <input type="text" required placeholder="Cidade" class="campo-p" name="cidade" />
       <input type="text" required placeholder="Estado" class="campo-p" name="estado" list="lista-estados" id="estado" autocomplete="off" />
       <datalist id="lista-estados"></datalist>
-      <textarea rows="12" required placeholder="Mensagem" class="campo-m"></textarea>
-      <div style="width:100%;">
-        <input type="submit" class="btn-principal" value="Enviar" />
-        <input type="reset" class="btn-secundario" value="Limpar" />
+      <textarea rows="12" required placeholder="Mensagem" name="mensagem" class="campo-m"></textarea>
+      <div class="col12">
+        <p class="text-page m-b">Cód. Captcha: <strong><?php echo $randCaptcha; ?></strong></p><br />
+        <input type="text" required placeholder="Repita o Código." oninput="somenteNumeros(this)" class="campo-pp" name="meuCaptcha" />
+        <input type="hidden" value="<?php echo $randCaptcha; ?>" placeholder="Nome" name="randCaptcha" />
+      </div>
+
+      <div class="col12 m-t">
+        <input type="submit" class="btn-principal m-r" value="Enviar" />
+        <input type="reset" class="btn-secundario m-l" value="Limpar" />
       </div>
     </form>
-
-
 
   </div>
 </section>

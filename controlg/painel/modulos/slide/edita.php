@@ -85,7 +85,7 @@ if (empty($idSlide)) {
 
 
 	<label>Link: </label>
-	<input name="link" type="text" class="campo_m" value="<?php echo "$link"; ?>" />
+	<input name="link" type="text" required class="campo_m" value="<?php echo "$link"; ?>" />
 	<div class="boxAviso w-m">Caso o slide não tenha link, use: #</div>
 
 	<label>Destino:</label>

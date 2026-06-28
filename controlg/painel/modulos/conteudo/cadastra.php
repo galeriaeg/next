@@ -37,7 +37,7 @@
 <form action="index.php?id=8.1.1" method="post" name="formConteudo" onSubmit="return conteudo(this)">
 
 	<label>Página:</label>
-	<select name="tipo" id="tipo" onchange="addMapa();" class="campo_p">
+	<select name="tipo" id="tipo" required onchange="addMapa();" class="campo_p">
 		<option selected></option>
 		<option value="1:Sobre">Sobre</option>
 		<option value="2:Produtos">Produtos</option>
@@ -47,10 +47,10 @@
 	</select>
 
 	<label>Título:</label>
-	<input name="titulo" type="text" class="campo_m" />
+	<input name="titulo" type="text" required class="campo_m" />
 
 	<label>Texto:</label>
-	<textarea id="textarea-1" name="texto" class="campo_g" rows="25"></textarea>
+	<textarea id="textarea-1" name="texto" required class="campo_g" rows="25"></textarea>
 
 	<span id="mapa" style="display: none; margin-top:15px">
 		<label>Mapa:</label>

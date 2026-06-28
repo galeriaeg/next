@@ -139,7 +139,7 @@ if ($qtd < 1) {
 
         if ($i % 4 == 0) {
           echo "<div class='card-produto card-last'>
-        <a href='/next/produto?p=$idProduto'>
+        <a href='produto?p=$idProduto'>
           <div class='box-imagem'>
             <img src='$fotoProduto' alt='produto' />
           </div>
@@ -149,7 +149,7 @@ if ($qtd < 1) {
         </div>";
         } else {
           echo "<div class='card-produto card-first'>
-        <a href='/next/produto?p=$idProduto'>
+        <a href='produto?p=$idProduto'>
           <div class='box-imagem'>
             <img src='$fotoProduto' alt='produto' />
           </div>
@@ -188,7 +188,7 @@ if ($qtd < 1) {
 
         if ($j % 4 == 0) {
           echo "<div class='card-produto card-last'>
-        <a href='/next/produto?p=$idProduto'>
+        <a href='produto?p=$idProduto'>
           <div class='box-imagem'>
             <img src='$fotoProduto' alt='produto' />
           </div>
@@ -198,7 +198,7 @@ if ($qtd < 1) {
         </div>";
         } else {
           echo "<div class='card-produto card-first'>
-        <a href='/next/produto?p=$idProduto'>
+        <a href='produto?p=$idProduto'>
           <div class='box-imagem'>
             <img src='$fotoProduto' alt='produto' />
           </div>

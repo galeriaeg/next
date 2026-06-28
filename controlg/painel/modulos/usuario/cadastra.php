@@ -20,7 +20,7 @@ include "session.php";
 	<label>Senha:</label>
 	<input name="senha" id="senha" required type="password" style="padding-left:40px" class="campo_p" />
 	<img src="imgs/icon-senha-off.png" onclick="mostraEsconde(this);" class="iconeSenha" alt="senhaOff" id="iconpass" />
-	<div class="boxAviso" style="margin-top:15px;">*A senha deve ter no m&iacute;nimo 8 caracteres</div>
+	<div class="boxAviso w-p" style="margin-top:15px;">*A senha deve ter no m&iacute;nimo 8 caracteres</div>
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />

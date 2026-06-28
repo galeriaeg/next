@@ -70,11 +70,11 @@ if (
 	<span class="txt">Tipo: <?php echo $tipo . " - <b>" . $pagina; ?></b></span><br /><br />
 
 	<label>T&iacute;tulo:</label>
-	<input name="titulo" type="text" class="campo_m" value="<?php echo $titulo; ?>" />
+	<input name="titulo" type="text" required class="campo_m" value="<?php echo $titulo; ?>" />
 
 
 	<label>Texto:</label>
-	<textarea id="textarea-1" name="texto" cols="50" rows="25"><?php echo $texto; ?></textarea>
+	<textarea id="textarea-1" name="texto" required cols="50" rows="25"><?php echo $texto; ?></textarea>
 
 	<?php
 	if ($tipo == 1) {

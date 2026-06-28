@@ -45,7 +45,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 	<input name="titulo" required type="text" class="campo_m" />
 
 	<label>Descrição:</label>
-	<textarea name="descricao" required class="campo_m" rows="15"></textarea>
+	<span id="btn-br" class="btn-break">Quebrar Linha</span>
+	<textarea name="descricao" required class="campo_m" id="texto" rows="15"></textarea>
+	<div class="boxAviso w-m">Aperte a tecla <b>Enter</b> ou use o botão acima para quebrar a linha do texto.</div>
 
 	<label>Anexo:</label>
 	<div class="col12">
@@ -73,6 +75,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 </form>
 
+
+<script src="js/quebraLinha.js"></script>
 
 <!--importa modulo Files -->
 <script src="modulos/files/js/files.js"></script>

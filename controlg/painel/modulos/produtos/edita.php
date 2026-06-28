@@ -86,13 +86,13 @@ if (empty($idproduto)) {
 	</select>
 
 
-
-
 	<label>Título:</label>
 	<input name="titulo" type="text" class="campo_m" value="<?php echo $titulop; ?>" />
 
 	<label>Descrição:</label>
-	<textarea name="descricao" class="campo_m" rows="15"><?php echo $descricaop; ?></textarea>
+	<span id="btn-br" class="btn-break">Quebrar Linha</span>
+	<textarea name="descricao" class="campo_m" id="texto" rows="15"><?php echo $descricaop; ?></textarea>
+	<div class="boxAviso w-m">Aperte a tecla <b>Enter</b> ou use o botão acima para quebrar a linha do texto.</div>
 
 	<label>Anexo:</label>
 	<div class="col12" id="box-input-anexo">
@@ -144,6 +144,8 @@ if (!empty($fotop)) {
 		</script>";
 }
 ?>
+
+<script src="js/quebraLinha.js"></script>
 
 <!-- IMPORT MODULO FILES -->
 <?php include_once "modulos/files/modal-files.php"; ?>
