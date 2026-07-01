@@ -1,0 +1,12 @@
+.grupo-cards {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+.card-home {
+  background-color: #e6e6e6;
+  width: 33.33%;
+  height: 300px;
+  border-radius: 5px;
+}

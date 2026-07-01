@@ -28,6 +28,23 @@ if ($randCaptcha <> $meuCaptcha) {
 }
 
 
+
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+$sql = "SELECT * FROM tb_contatos WHERE dados_default ='SIM' AND status = 1 LIMIT 1 ";
+$res = mysqli_query($conexao, $sql);
+$qtd = mysqli_num_rows($res);
+while ($row = mysqli_fetch_array($res)) {
+	$email = $row['email'];
+	$celular = $row['celular'];
+}
+
+if ($qtd > 0) {
+	$to  = $email; // destino
+} else {
+	echo "<p class='p' style='color:red'>&#10006; Erro fatal: Destino não definido.</p>";
+}
+
+
 if (
 	(empty($nome)) ||
 	(empty($email)) ||
@@ -41,7 +58,7 @@ if (
 }
 
 
-$to  = 'web@solucoesnext.com.br';
+// $to  = 'web@solucoesnext.com.br';
 $subject = 'NEXT SOLUÇÕES EM SAÚDE | CONTATO';
 $subject = utf8_decode($subject);
 
