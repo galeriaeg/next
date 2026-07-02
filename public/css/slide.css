@@ -80,3 +80,9 @@
   color: white;
   font-weight: normal;
 }
+
+.sombra-slide {
+  display: block;
+  margin: 0 auto;
+  margin-top: 14px;
+}

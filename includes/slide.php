@@ -32,4 +32,6 @@
   ?>
 </div>
 
+<img src="public/imgs/sombra-slide.png" class="sombra-slide" alt="sombra" />
+
 <script src="public/js/slide.js"></script>
