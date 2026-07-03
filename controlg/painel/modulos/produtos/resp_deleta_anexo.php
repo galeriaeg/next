@@ -14,7 +14,7 @@ if ((empty($idp)) || (empty($nfile)) || (empty($idmarca))) {
 
 	if ($update > 0) {
 		echo "<script>alert('Imagem removida com sucesso!');</script>";
-		echo "<script>window.location.href='index.php?id=6&m=$idmarca'</script>";
+		echo "<script>window.location.href='index.php?id=6.2&m=$idp'</script>";
 	}
 }
 mysqli_close($conexao);

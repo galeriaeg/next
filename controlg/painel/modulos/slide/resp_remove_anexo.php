@@ -27,7 +27,7 @@ if ($conf < 1) {
     if ($update > 0) {
       if (unlink("files/" . $nomeFileDsk)) {
         echo "<script>alert('Arquivo removido com sucesso.');</script>";
-        echo "<script>window.location = 'index.php?id=5'</script>";
+        echo "<script>window.location = 'index.php?id=5.2&idSlide=$idSlide'</script>";
       }
     }
   }
@@ -39,7 +39,7 @@ if ($conf < 1) {
     if ($update > 0) {
       if (unlink("files/" . $nomeFileMob)) {
         echo "<script>alert('Arquivo removido com sucesso.');</script>";
-        echo "<script>window.location = 'index.php?id=5'</script>";
+        echo "<script>window.location = 'index.php?id=5.2&idSlide=$idSlide'</script>";
       }
     }
   }
