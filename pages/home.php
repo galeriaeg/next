@@ -1,4 +1,5 @@
 <?php require_once "includes/slide.php"; ?>
+
 <section class="col12 grupo-cards">
 
   <div class="card-light ">
@@ -34,8 +35,7 @@
 
 </section>
 
-
-<div class="line-full textoPadrao"><span style="background:#fFf;padding:0 10px;">NOSSAS MARCAS</span></div>
+<div class="line-full textoPadrao"><span style="background:#fFf;padding:0 10px;">NOSSOS PARCEIROS</span></div>
 
 <section class="box-marcas col12">
   <?php
@@ -55,4 +55,10 @@
     echo "<a href='$site' target='_blank'><img src='$logomarca' alt='$nome' class='marca-parceiro' /></a>";
   }
   ?>
+</section>
+
+<div class="line-full textoPadrao"><span style="background:#fFf;padding:0 10px;">NOSSAS LINHAS DE PRODUTOS</span></div>
+
+<section class="col12">
+  <?php require_once "includes/linhas.php"; ?>
 </section>

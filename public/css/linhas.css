@@ -1,0 +1,103 @@
+/* Container para alinhar os botões e o bloco de cards */
+.carrossel-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  gap: 10px;
+}
+
+.box-linhas {
+  background-color: #eee;
+  color: blue;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 10px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /* Garante uma rolagem suave via clique ou touch */
+  scroll-behavior: smooth;
+}
+
+/* Esconde a barra de rolagem para um visual mais limpo (opcional) */
+.box-linhas::-webkit-scrollbar {
+  display: none;
+}
+
+.card-linha {
+  background-color: aquamarine;
+  width: 250px;
+  height: 250px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-linha img {
+  width: 100%;
+  height: 100%;
+  /* Faz a imagem preencher o card perfeitamente sem distorcer */
+  object-fit: cover;
+  /* Transição suave de 0.3 segundos para o efeito não ser seco */
+  transition: transform 0.3s ease;
+}
+.card-linha:hover img {
+  /* Amplia a imagem em 10% (mude para 1.2 se quiser 20%, etc) */
+  transform: scale(1.1);
+}
+
+.nome-linha {
+  position: absolute;
+  z-index: 2; /* Garante que o texto fique por cima da imagem */
+
+  /* Estilo do fundo do texto (ajuste como preferir) */
+  background-color: rgba(255, 255, 236, 0.8);
+  color: #555;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  pointer-events: none; /* Evita que o texto bloqueie o mouse ao passar por cima */
+
+  /* Estado Inicial: Escondido e levemente menor */
+  opacity: 0;
+  transform: scale(0.8);
+
+  /* Transição suave para a opacidade e para o leve ganho de tamanho */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.card-linha:hover .nome-linha {
+  opacity: 1;
+  transform: scale(1); /* Volta ao tamanho normal criando um efeito lindo */
+}
+
+.btn-next {
+  margin-top: 10px;
+  width: 35px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+img.btn-next:hover {
+  content: url("../imgs/btn-next-on.png");
+  filter: contrast(0.9);
+}
+
+.btn-prev {
+  margin-top: 10px;
+  width: 35px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+img.btn-prev:hover {
+  content: url("../imgs/btn-prev-on.png");
+  filter: contrast(0.9);
+}
