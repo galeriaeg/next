@@ -1,13 +1,14 @@
-<?php include "session.php"; ?>
+<?php
+include "session.php";
+
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+?>
 
 <legend>
 	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
 </legend>
 
-<form action="index.php?id=9.1.1" enctype="multipart/form-data" method="POST">
-
-	<label>Linha:</label>
-	<input name="linha" type="text" class="campo_m" required />
+<form action="index.php?id=12.1.1" enctype="multipart/form-data" method="POST">
 
 	<label>Anexo:</label>
 	<input name="arquivo" id="anexo" type="file" class="campo_m" onchange="validaTamCard(this)" required />
@@ -19,17 +20,16 @@
 		<img id="view" class="anexo-noticia" />
 	</span>
 
-	<label>Marca:</label>
-	<select class="campo_p" required name="marca">
+	<label>Linha:</label>
+	<select class="campo_p" required name="linha">
 		<option value="" disabled selected>Selecione uma marca...</option>
 		<?php
-		include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
-		$sql = "SELECT * FROM tb_marca WHERE status = 1";
+		$sql = "SELECT id, titulo FROM tb_linha GROUP BY titulo";
 		$res = mysqli_query($conexao, $sql);
 		while ($row = mysqli_fetch_array($res)) {
-			$id_marca = $row['id'];
-			$nome_marca = $row['nome'];
-			echo "<option value='$id_marca'>$nome_marca</option>";
+			$id_linha = $row['id'];
+			$titulo_linha = $row['titulo'];
+			echo "<option value='$id_linha'>$titulo_linha</option>";
 		}
 		?>
 	</select>

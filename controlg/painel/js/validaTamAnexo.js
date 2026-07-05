@@ -1,20 +1,3 @@
-// function validaTamMarca00(input) {
-//   const img = document.getElementById("view-sd");
-//   const anexo = document.getElementById("box-anexo");
-//   img.src = URL.createObjectURL(input.files[0]);
-//   img.onload = function () {
-//     let largura = this.width;
-//     let altura = this.height;
-//     if (largura != 300 || altura != 155) {
-//       alert("A imagem deve ter as medidas: 300 x 155px");
-//       location.reload();
-//       return;
-//     }
-//     img.style.display = "block";
-//     anexo.style.display = "block";
-//   };
-// }
-
 function validaTamMarca(input) {
   if (!input.files || !input.files[0]) return;
   var reader = new FileReader();
@@ -24,6 +7,28 @@ function validaTamMarca(input) {
     img.onload = function () {
       if (this.width !== 300 || this.height !== 155) {
         alert("A imagem deve ter exatamente 300 x 155px.");
+        input.value = ""; // Limpa o campo
+        return;
+      }
+      // Mostra o preview
+      document.getElementById("view").style.display = "block";
+      document.getElementById("view").src = e.target.result;
+      document.getElementById("box-anexo").style.display = "block";
+      document.getElementById("input").style.display = "none";
+    };
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function validaTamCard(input) {
+  if (!input.files || !input.files[0]) return;
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var img = new Image();
+    img.src = e.target.result;
+    img.onload = function () {
+      if (this.width !== 300 || this.height !== 300) {
+        alert("A imagem deve ter exatamente 300 x 300px.");
         input.value = ""; // Limpa o campo
         return;
       }

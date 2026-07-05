@@ -22,8 +22,6 @@ if ((empty($titulo)) || (empty($nome_arquivo)) || (empty($site))) {
 			window.history.back();
 			</script>
 			";
-		echo "Imagem com tamanho fora do padrão.<br />";
-		echo "Padrão: Lagura:300px - altura:155px";
 		exit();
 	}
 

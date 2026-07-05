@@ -65,7 +65,7 @@ if (empty($idproduto)) {
 	</select>
 
 	<label>Linha:</label>
-	<select class="campo_p" name="linha">
+	<select class="campo_p" required name="linha">
 		<?php
 		if ($idmarca_get > 0) {
 			$idmarcap = $idmarca_get;
@@ -87,11 +87,11 @@ if (empty($idproduto)) {
 
 
 	<label>Título:</label>
-	<input name="titulo" type="text" class="campo_m" value="<?php echo $titulop; ?>" />
+	<input name="titulo" type="text" required class="campo_m" value="<?php echo $titulop; ?>" />
 
 	<label>Descrição:</label>
 	<span id="btn-br" class="btn-break">Quebrar Linha</span>
-	<textarea name="descricao" class="campo_m" id="texto" rows="15"><?php echo $descricaop; ?></textarea>
+	<textarea name="descricao" required class="campo_m" id="texto" rows="15"><?php echo $descricaop; ?></textarea>
 	<div class="boxAviso w-m">Aperte a tecla <b>Enter</b> ou use o botão acima para quebrar a linha do texto.</div>
 
 	<label>Anexo:</label>

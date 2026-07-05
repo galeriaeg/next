@@ -120,6 +120,7 @@ if ($qtd < 1) {
       WHERE tp.idmarca = $idMarca_selecionada
       AND tp.idmarca = tm.id
       AND tp.idlinha = tl.id
+      AND tm.status = 1
       AND tp.status = 1;";
       $re = mysqli_query($conexao, $sql);
       $qtdProduto = mysqli_num_rows($re);
@@ -140,7 +141,7 @@ if ($qtd < 1) {
         if ($i % 4 == 0) {
           echo "<div class='card-produto card-last'>
         <a href='produto?p=$idProduto'>
-          <div class='box-imagem'>
+          <div class='box-imagem'>*
             <img src='$fotoProduto' alt='produto' />
           </div>
          </a>
@@ -170,6 +171,7 @@ if ($qtd < 1) {
       AND tp.idlinha = $idLinha_selecionada
       AND tp.idmarca = tm.id
       AND tp.idlinha = tl.id
+      AND tm.status = 1
       AND tp.status = 1;";
       $re = mysqli_query($conexao, $sql);
       $qtdProduto = mysqli_num_rows($re);
@@ -189,7 +191,7 @@ if ($qtd < 1) {
         if ($j % 4 == 0) {
           echo "<div class='card-produto card-last'>
         <a href='produto?p=$idProduto'>
-          <div class='box-imagem'>
+          <div class='box-imagem'>**
             <img src='$fotoProduto' alt='produto' />
           </div>
          </a>

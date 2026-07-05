@@ -95,7 +95,7 @@ function cont()
 
 
 		case "4":
-			$titulo = "Arquivo";
+			$titulo = "Arquivos";
 			include("modulos/files/index.php");
 			break;
 
@@ -108,27 +108,6 @@ function cont()
 			$titulo = "Excluir Arquivo";
 			include("modulos/files/resp_deleta_arquivo.php");
 			break;
-
-		// case "4.2":
-		// 	$tit = "Editar Fonte";
-		// 	include("modulos/noticias-fontes/edita.php");
-		// 	break;
-
-		// case "4.2.1":
-		// 	$titulo = "Editar Fonte";
-		// 	include("modulos/noticias-fontes/resp_edita.php");
-		// 	break;
-
-		// case "4.3":
-		// 	$titulo = "Excluir Fonte";
-		// 	include("modulos/noticias-fontes/resp_deleta.php");
-		// 	break;
-
-		// case "4.4":
-		// 	$titulo = "Fonte/Excluir Anexo";
-		// 	include("modulos/noticias-fontes/resp_deleta_upload.php");
-		// 	break;
-
 
 
 
@@ -211,9 +190,6 @@ function cont()
 
 
 
-
-
-
 		case "7":
 			$titulo = "Marcas";
 			include("modulos/marcas/index.php");
@@ -291,6 +267,10 @@ function cont()
 			include("modulos/linhas/index.php");
 			break;
 
+		case "9.1":
+			$titulo = "Cadastrar Linhas";
+			include("modulos/linhas/cadastra.php");
+			break;
 
 		case "9.1.1":
 			$titulo = "Cadastrar Linha";
@@ -362,6 +342,37 @@ function cont()
 			include("modulos/contatos/resp_edita.php");
 			break;
 
+
+
+		case "12":
+			$titulo = "Cards das Linhas";
+			include("modulos/linhas-cards/index.php");
+			break;
+
+		case "12.1":
+			$titulo = "Cadastrar Card Linha";
+			include("modulos/linhas-cards/cadastra.php");
+			break;
+
+		case "12.1.1":
+			$titulo = "Cadastrar Card Linha";
+			include("modulos/linhas-cards/resp_cadastra.php");
+			break;
+
+		case "12.2":
+			$titulo = "Editar Card Linha";
+			include("modulos/linhas-cards/edita.php");
+			break;
+
+		case "12.3":
+			$titulo = "Excluir Card Linha";
+			include("modulos/linhas-cards/resp_deleta.php");
+			break;
+
+		case "12.4":
+			$titulo = "Excluir Card Linha";
+			include("modulos/linhas-cards/resp_deleta.php");
+			break;
 
 
 

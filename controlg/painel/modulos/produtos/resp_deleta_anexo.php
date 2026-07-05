@@ -10,7 +10,7 @@ if ((empty($idp)) || (empty($nfile)) || (empty($idmarca))) {
 
 	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 	$sql = "UPDATE tb_produto SET file='',idfile=0 WHERE id = '$idp'";
-	echo $update = mysqli_query($conexao, $sql);
+	$update = mysqli_query($conexao, $sql);
 
 	if ($update > 0) {
 		echo "<script>alert('Imagem removida com sucesso!');</script>";

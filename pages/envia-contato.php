@@ -27,8 +27,6 @@ if ($randCaptcha <> $meuCaptcha) {
 	exit();
 }
 
-
-
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 $sql = "SELECT * FROM tb_contatos WHERE dados_default ='SIM' AND status = 1 LIMIT 1 ";
 $res = mysqli_query($conexao, $sql);

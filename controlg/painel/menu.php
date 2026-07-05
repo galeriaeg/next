@@ -38,6 +38,10 @@
 		<a href="index.php?id=9" class="txtmenu">
 			<span>Linhas</span>
 		</a>
+		<br />
+		<a href="index.php?id=12" class="txtmenu">
+			<span>Cards das Linhas</span>
+		</a>
 	</li>
 	<li>
 		<a href="index.php?id=10" class="txtmenu">

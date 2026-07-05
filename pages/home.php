@@ -1,4 +1,8 @@
-<?php require_once "includes/slide.php"; ?>
+<?php
+require_once "includes/slide.php";
+
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+?>
 
 <section class="col12 grupo-cards">
 
@@ -7,10 +11,20 @@
       <div class="hero">Novidades</div>
       <img src="public/imgs/ico-news.png" alt="icone" class="icon-card" />
     </div>
-    <!-- <img src="controlg/painel/files/60480-flash.jpg" alt="capa" style="width:100%;margin-top:15px" /> -->
-    <span class="data">10/11/2025</span>
-    <h2>Philips inicia produção nacional do tomógrafo CT 5300, totalmente integrado com inteligência artific</h2>
-    <a href="#">Philips inicia produção nacional do tomógrafo CT 5300,</a>
+    <?php
+    $sql = "SELECT id, titulo, descricao, data FROM tb_noticiaS WHERE status =1 ORDER BY ID DESC limit 1 ";
+    $res = mysqli_query($conexao, $sql);
+    $qtd = mysqli_num_rows($res);
+    while ($row = mysqli_fetch_array($res)) {
+      $id = $row['id'];
+      $titulo = $row['titulo'];
+      $descricao = $row['descricao'];
+      $data = $row['data'];
+    }
+    ?>
+    <span class="data"><?php echo $data; ?></span>
+    <h2><?php echo $titulo; ?></h2>
+    <a href="#"><?php echo mb_strimwidth($descricao, 0, 88, "...");; ?></a>
   </div>
 
   <div class="card-light">
@@ -41,7 +55,7 @@
   <?php
   $path_files = "controlg/painel/files/";
 
-  include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+
 
   $sql = "SELECT nome,logomarca,site FROM tb_marca WHERE status =1 ";
   $res = mysqli_query($conexao, $sql);
@@ -57,7 +71,7 @@
   ?>
 </section>
 
-<div class="line-full textoPadrao"><span style="background:#fFf;padding:0 10px;">NOSSAS LINHAS DE PRODUTOS</span></div>
+<div class="line-full textoPadrao" style="filter: grayscale(1);"><span style="background:#fFf;padding:0 10px;">NOSSAS LINHAS DE PRODUTOS</span></div>
 
 <section class="col12">
   <?php require_once "includes/linhas.php"; ?>
