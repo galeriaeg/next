@@ -17,8 +17,7 @@ if (
 	(empty($idNoticia)) ||
 	(empty($dataNoticia)) ||
 	(empty($tituloNoticia)) ||
-	(empty($textoNoticia)) ||
-	(empty($statusNoticia))
+	(empty($textoNoticia))
 ) {
 	echo "<script>window.location = 'logout.php'</script>";
 	exit();

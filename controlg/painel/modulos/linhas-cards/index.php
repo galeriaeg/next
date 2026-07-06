@@ -32,9 +32,9 @@
 			$statusCard = $row['status'];
 
 			if (empty($anexoCard))
-				$logomarca = "imgs/sem-marca.png";
+				$card = "imgs/sem-card.jpg";
 			else
-				$logomarca = "files/" . $anexoCard;
+				$card = "files/" . $anexoCard;
 
 			// Define Fleg Status
 			if ($statusCard > 0)
@@ -43,10 +43,10 @@
 				$flegStatus = "<img src='imgs/fleg-inativo.png' class='center' />";
 
 			$btedita = "<a href='index.php?id=12.2&idCard=$idCard'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
-			$btexclui = "<a href='index.php?id=12.3&idCard=$idCard&nome=$idCard&nome_arquivo=$anexoCard&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
+			$btexclui = "<a href='index.php?id=12.3&idCard=$idCard&nome_arquivo=$anexoCard&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
 
 			echo "<tr class='tupla'>";
-			echo "<td width='10%' align='left' class='txt'><img src='$logomarca' width='85' /></td>";
+			echo "<td width='10%' align='left' class='txt'><img src='$card' width='85' /></td>";
 			echo "<td width='73%' align='left' class='txt'>$nomelinha</td>";
 			echo "<td width='8%' align='left' class='txt'>$flegStatus</td>";
 			echo "<td width='9%' align='left' class='txt'>$btedita $btexclui</td>";

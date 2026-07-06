@@ -30,14 +30,11 @@ if (empty($idCard)) {
 }
 ?>
 
-<form action="index.php?id=9.2.1" enctype="multipart/form-data" method="post" name="formc" name="formConteudo" onSubmit="return conteudo(this)">
-
-	<label>Nome:</label>
-	<input name="titulo" required type="text" class="campo_p" value="<?php echo $nomeCard; ?>" />
+<form action="index.php?id=12.2.1" enctype="multipart/form-data" method="post">
 
 	<label>Linha:</label>
 	<select class="campo_p" required name="linha" onChange="MM_jumpMenu('parent',this,1)">
-		<option disabled selected>Linhas</option>
+		<option disabled value="" selected>Selecione uma linha...</option>
 		<?php
 		$sql = "SELECT * FROM tb_linha ";
 		$res = mysqli_query($conexao, $sql);
@@ -55,30 +52,29 @@ if (empty($idCard)) {
 	<label>Anexo:</label>
 	<?php
 	if ($fleg < 1) {
-		echo "<input name='arquivo' id='anexo' type='file' required accept='image/*' onchange='validaTamMarca(this)' class='campo_m' />";
-		echo "<div class='boxAviso w-m'>*Imagem deve ter 300 x 155px</div>";
+		echo "<input name='arquivo' id='anexo' type='file' required accept='image/*' onchange='validaTamCard(this)' class='campo_m' />";
+		echo "<div class='boxAviso w-m'>*Imagem deve ter 300 x 300px</div>";
 	} else {
 		//Visualização do anexo na base-->
 		echo "<span class='box-anexo' style='display:block'>
-		<a href='index.php?id=7.2.2&file=$anexoCard&idMarca=$idCard'><img src='imgs/btn-excluir-anexo.jpg' title='Excluir anexo' alt='anexo' style='position:absolute;cursor:pointer;' /></a>
-		<img src='files/$anexoCard' alt='anexo' class='anexo-noticia' />
+		<a href='index.php?id=12.2.2&file=$anexoCard&idCard=$idCard'><img src='imgs/btn-excluir-anexo.jpg' title='Excluir anexo' alt='anexo' style='position:absolute;cursor:pointer;' /></a>
+		<img src='files/$anexoCard' alt='anexo' class='anexo-preview' />
 		</span>";
 	}
 	?>
-
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo" class="box-anexo" style="display: none;">
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
-		<img id="view" class="anexo-noticia" />
+		<img id="view" class="anexo-preview" />
 	</span>
-
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />
 		<input type="button" value="Voltar" onClick="location.href='index.php?id=12'" class="btn-back" />
-		<input type="hidden" value="<?php echo $idCard; ?>" name="idLinha" />
+		<input type="hidden" value="<?php echo $idCard; ?>" name="idCard" />
 	</div>
 
 </form>
 
-<script type="text/javascript" src="js/global.js"></script>
+<script src="js/validaTamAnexo.js"></script>
+<script src="js/previewFile.js"></script>

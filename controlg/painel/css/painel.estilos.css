@@ -167,8 +167,8 @@ img.icon-senha:hover {
   box-sizing: border-box;
 }
 
-.anexo-noticia {
-  width: 200px;
+.anexo-preview {
+  width: 160px;
   position: static;
   margin: 0 auto;
 }

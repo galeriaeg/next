@@ -27,7 +27,7 @@
 			<div style="text-align:center"><a href="recuperar-senha" class="m-t" target="_blank">Esqueci minha senha</a></div>
 
 			<?php
-			if ($aut == "erro") {
+			if ($aut == "false") {
 				echo "<div class='box-erro'>&#10006; Dados incorretos</div>";
 			}
 			?>

@@ -10,19 +10,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 <form action="index.php?id=12.1.1" enctype="multipart/form-data" method="POST">
 
-	<label>Anexo:</label>
-	<input name="arquivo" id="anexo" type="file" class="campo_m" onchange="validaTamCard(this)" required />
-	<div class="boxAviso w-m">*Imagem deve ter 300 x 300px</div>
-
-	<!-- Visualização do anexo no upload-->
-	<span id="box-anexo" class="box-anexo" style="display: none;">
-		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
-		<img id="view" class="anexo-noticia" />
-	</span>
-
 	<label>Linha:</label>
 	<select class="campo_p" required name="linha">
-		<option value="" disabled selected>Selecione uma marca...</option>
+		<option value="" disabled selected>Selecione uma linha...</option>
 		<?php
 		$sql = "SELECT id, titulo FROM tb_linha GROUP BY titulo";
 		$res = mysqli_query($conexao, $sql);
@@ -33,6 +23,17 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 		}
 		?>
 	</select>
+
+	<label>Anexo:</label>
+	<input name="arquivo" id="anexo" type="file" class="campo_m" onchange="validaTamCard(this)" required />
+	<div class="boxAviso w-m">*Imagem deve ter 300 x 300px</div>
+
+	<!-- Visualização do anexo no upload-->
+	<span id="box-anexo" class="box-anexo" style="display: none;">
+		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
+		<img id="view" class="anexo-preview" />
+	</span>
+
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />

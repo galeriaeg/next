@@ -69,7 +69,7 @@ if ((empty($login)) or (empty($senha))) {
 
     echo "<script>this.location = 'painel/index.php';</script>";
   } else {
-    echo "<script>this.location.href='index.php?aut=erro';</script>";
+    echo "<script>this.location.href='index.php?aut=false';</script>";
     exit();
   }
 }

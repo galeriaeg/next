@@ -49,9 +49,9 @@
 
 .nome-linha {
   position: absolute;
-  z-index: 2; /* Garante que o texto fique por cima da imagem */
+  z-index: 2;
 
-  /* Estilo do fundo do texto (ajuste como preferir) */
+  /* texto */
   background-color: rgba(255, 255, 236, 0.8);
   color: #555;
   padding: 10px 20px;
@@ -59,6 +59,34 @@
   font-size: 15px;
   font-weight: 500;
   pointer-events: none; /* Evita que o texto bloqueie o mouse ao passar por cima */
+
+  /* Estado Inicial: Escondido e levemente menor */
+  opacity: 1;
+  transform: scale(0.8);
+
+  /* Transição suave para a opacidade e para o leve ganho de tamanho */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.card-linha:hover .nome-linha {
+  opacity: 1;
+  transform: scale(1); /* Volta ao tamanho normal criando um efeito lindo */
+}
+
+.label-linha {
+  position: absolute;
+  z-index: 2;
+
+  /* texto */
+  background-color: rgba(32, 75, 68, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  pointer-events: none; /* Evita que o texto bloqueie o mouse ao passar por cima */
+  margin-bottom: -90px;
 
   /* Estado Inicial: Escondido e levemente menor */
   opacity: 0;
@@ -69,7 +97,7 @@
     opacity 0.3s ease,
     transform 0.3s ease;
 }
-.card-linha:hover .nome-linha {
+.card-linha:hover .label-linha {
   opacity: 1;
   transform: scale(1); /* Volta ao tamanho normal criando um efeito lindo */
 }

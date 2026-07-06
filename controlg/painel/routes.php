@@ -364,15 +364,22 @@ function cont()
 			include("modulos/linhas-cards/edita.php");
 			break;
 
+		case "12.2.1":
+			$titulo = "Editar Card Linha";
+			include("modulos/linhas-cards/resp_edita.php");
+			break;
+
+		case "12.2.2":
+			$titulo = "Remove Anexo Card Linha";
+			include("modulos/linhas-cards/resp_deleta_anexo.php");
+			break;
+
 		case "12.3":
 			$titulo = "Excluir Card Linha";
 			include("modulos/linhas-cards/resp_deleta.php");
 			break;
 
-		case "12.4":
-			$titulo = "Excluir Card Linha";
-			include("modulos/linhas-cards/resp_deleta.php");
-			break;
+
 
 
 

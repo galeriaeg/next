@@ -67,7 +67,7 @@ if (empty($idSlide)) {
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo-sd" class="box-anexo" style="display: none;">
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" title="Remover" onclick="window.location='index.php?id=5.5&idSlide=<?php echo $idSlide; ?>&filedsk=<?php echo $img_dsk; ?>'" style="position:absolute;cursor:pointer;" />
-		<img id="view-sd" src="<?php echo $img_dsk; ?>" class="anexo-noticia" />
+		<img id="view-sd" src="<?php echo $img_dsk; ?>" class="anexo-preview" />
 	</span>
 	<div class="boxAviso w-m">*Somente jpg, gif ou png - tamanho padrão 1800 x 450px</div>
 
@@ -79,7 +79,7 @@ if (empty($idSlide)) {
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo-sm" class="box-anexo" style="display: none;">
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" title="Remover" onclick="window.location='index.php?id=5.5&idSlide=<?php echo $idSlide; ?>&filemob=<?php echo $img_mob; ?>'" style="position:absolute;cursor:pointer;" />
-		<img id="view-sm" src="<?php echo $img_dsk; ?>" class="anexo-noticia" />
+		<img id="view-sm" src="<?php echo $img_dsk; ?>" class="anexo-preview" />
 	</span>
 	<div class="boxAviso w-m">*Somente jpg, gif ou png - tamanho padrão 600 x 450px</div>
 

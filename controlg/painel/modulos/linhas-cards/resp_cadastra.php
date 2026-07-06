@@ -25,8 +25,7 @@ if ((empty($linha)) || (empty($nome_arquivo))) {
 		exit();
 	}
 
-	$rand = rand(1000, 99999);
-	$nome_arquivo = $rand . "-" . $nome_arquivo;
+	// Valida extensão do arquivo
 	$extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
 	$permitidos = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 	if (!in_array($extensao, $permitidos)) {
@@ -47,9 +46,13 @@ if ((empty($linha)) || (empty($nome_arquivo))) {
 		echo $titulo_linha	= $row['titulo'];
 	}
 
-
+	// Cria prefixo randomino e concatena ao nome do arquivo
+	$rand = rand(1000, 99999);
+	$nome_arquivo = $rand . "-" . $nome_arquivo;
 	$uploaddir = 'files/';
 	$uploadfile = $uploaddir . $nome_arquivo;
+
+	// Faz upload do arquivo
 	if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
 
 		$sql = "INSERT INTO tb_linhas_cards (idlinha,nome,anexo,status)

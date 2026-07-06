@@ -1,22 +1,23 @@
 <?php
 include "session.php";
 
-$idMarca = $_GET['idMarca'];
+$idCard = $_GET['idCard'];
 $nome_arquivo = $_GET['file'];
 
-if ((empty($idMarca)) || (empty($nome_arquivo))) {
+if ((empty($idCard)) || (empty($nome_arquivo))) {
 	echo "<script>window.location = 'logout.php';</script>";
 	exit();
 } else {
 
 	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
-	$sql = "UPDATE tb_marca SET logomarca='' WHERE id = '$idMarca'";
+
+	$sql = "UPDATE tb_linhas_cards SET anexo='' WHERE id = '$idCard'";
 	$update = mysqli_query($conexao, $sql);
 
 	$file_delete = "files/" . $nome_arquivo;
 	unlink($file_delete);
 
 	echo "<script>alert('Imagem excluida com sucesso!');</script>";
-	echo "<script>window.location.href='index.php?id=7.2&idMarca=$idMarca'</script>";
+	echo "<script>window.location.href='index.php?id=12.2&idCard=$idCard'</script>";
 }
 mysqli_close($conexao);

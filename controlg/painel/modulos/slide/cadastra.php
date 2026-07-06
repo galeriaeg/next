@@ -15,7 +15,7 @@
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo-sd" class="box-anexo" style="display: none;">
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" title="Remover" onclick="fechaPreviewSlide(1);" style="position:absolute;cursor:pointer;" />
-		<img id="view-sd" class="anexo-noticia" />
+		<img id="view-sd" class="anexo-preview" />
 	</span>
 	<div class="boxAviso w-m">*Somente jpg, gif ou png - tamanho padrão 1800 x 450px</div>
 
@@ -25,7 +25,7 @@
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo-sm" class="box-anexo" style="display: none;">
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" title="Remover" onclick="fechaPreviewSlide(2);" style="position:absolute;cursor:pointer;" />
-		<img id="view-sm" class="anexo-noticia" />
+		<img id="view-sm" class="anexo-preview" />
 	</span>
 	<div class="boxAviso w-m">*Somente jpg, gif ou png - tamanho padrão 600 x 450px</div>
 

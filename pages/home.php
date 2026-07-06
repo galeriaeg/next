@@ -12,7 +12,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
       <img src="public/imgs/ico-news.png" alt="icone" class="icon-card" />
     </div>
     <?php
-    $sql = "SELECT id, titulo, descricao, data FROM tb_noticiaS WHERE status =1 ORDER BY ID DESC limit 1 ";
+    $sql = "SELECT id, titulo, descricao, data FROM tb_noticiaS WHERE status =1 ORDER BY ID DESC LIMIT 1 ";
     $res = mysqli_query($conexao, $sql);
     $qtd = mysqli_num_rows($res);
     while ($row = mysqli_fetch_array($res)) {
@@ -24,7 +24,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
     ?>
     <span class="data"><?php echo $data; ?></span>
     <h2><?php echo $titulo; ?></h2>
-    <a href="#"><?php echo mb_strimwidth($descricao, 0, 88, "...");; ?></a>
+    <a href="novidade?n=<?php echo $id; ?>">
+      <?php echo mb_strimwidth($descricao, 0, 88, "..."); ?>
+    </a>
   </div>
 
   <div class="card-light">

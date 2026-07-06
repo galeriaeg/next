@@ -49,14 +49,14 @@ if (empty($idMarca)) {
 		//Visualização do anexo na base-->
 		echo "<span class='box-anexo' style='display:block'>
 		<a href='index.php?id=7.2.2&file=$logomarca&idMarca=$idMarca'><img src='imgs/btn-excluir-anexo.jpg' title='Excluir anexo' alt='anexo' style='position:absolute;cursor:pointer;' /></a>
-		<img src='files/$logomarca' alt='anexo' class='anexo-noticia' />
+		<img src='files/$logomarca' alt='anexo' class='anexo-preview' />
 		</span>";
 	}
 	?>
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo" class="box-anexo" style="display: none;">
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
-		<img id="view" class="anexo-noticia" />
+		<img id="view" class="anexo-preview" />
 	</span>
 
 	<label>Status:</label>
