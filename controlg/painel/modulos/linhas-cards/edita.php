@@ -53,7 +53,7 @@ if (empty($idCard)) {
 	<?php
 	if ($fleg < 1) {
 		echo "<input name='arquivo' id='anexo' type='file' required accept='image/*' onchange='validaTamCard(this)' class='campo_m' />";
-		echo "<div class='boxAviso w-m'>*Imagem deve ter 300 x 300px</div>";
+		echo "<div class='boxAviso w-m'>Permitido: png, jpg, jpeg, gif, webp, svg | Medidas: 300 x 300px</div>";
 	} else {
 		//Visualização do anexo na base-->
 		echo "<span class='box-anexo' style='display:block'>

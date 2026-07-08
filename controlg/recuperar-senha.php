@@ -1,4 +1,4 @@
-<?php @$aut = $_GET['aut']; ?>
+<?php @$send = $_GET['send']; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,19 +15,19 @@
 </head>
 
 <body>
-	<form action="reset.php" method="post" name="formLogin" onSubmit="return logon(this)">
+	<form action="resetar-senha.php" method="post" name="formReset" onSubmit="return resetaSenha(this)">
 		<div class="box-center">
 			<div id="topo">
 				<img src="imgs/logo-controlg.png" alt="logomarca" class="logomarca" border="0" />
 			</div>
 			<label>Recuperar Senha</label>
-			<input name="email" type="email" required class="campo" placeholder="E-mail" />
+			<input name="email" type="email" class="campo" placeholder="E-mail" />
 			<input type="submit" name="btnLogin" value="ENVIAR" class="botao" />
 			<div style="text-align:center"><a href="index.php" class="m-t" target="_top">Fazer Login</a></div>
 
 			<?php
-			if ($aut == "false") {
-				echo "<div class='box-erro'>&#10006; Dados incorretos</div>";
+			if ($send == "false") {
+				echo "<div class='box-erro'>&#10006; E-mail bloqueado ou não cadastrado.</div>";
 			}
 			?>
 

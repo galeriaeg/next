@@ -35,6 +35,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 	<label>Anexo:</label>
 	<input name="arquivo" required id="anexo" type="file" class="campo_m" accept="image/*" onchange="validaTamMapa(this)" />
+	<div class="boxAviso w-m">Permitido: png, jpg, jpeg, gif, webp, svg | Medidas: 300 x 300px</div>
+
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo" class="box-anexo" style="display: none;">
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />

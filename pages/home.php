@@ -57,8 +57,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
   <?php
   $path_files = "controlg/painel/files/";
 
-
-
   $sql = "SELECT nome,logomarca,site FROM tb_marca WHERE status =1 ";
   $res = mysqli_query($conexao, $sql);
   $qtd = mysqli_num_rows($res);

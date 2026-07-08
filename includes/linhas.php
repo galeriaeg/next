@@ -3,7 +3,7 @@
   $path = "controlg/painel/files/";
 
   include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
-  $sql = "SELECT * FROM tb_linhas_cards ORDER BY nome ASC";
+  $sql = "SELECT * FROM tb_linhas_cards WHERE status = 1  ORDER BY nome ASC";
   $cons = $conexao->query($sql) or die($conexao->error);
   while ($row = $cons->fetch_array()) {
     $idCard =   $row['id'];

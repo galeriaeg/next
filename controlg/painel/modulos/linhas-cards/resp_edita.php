@@ -14,6 +14,9 @@ if ((empty($idCard)) || (empty($idLinha))) {
 	exit();
 } else {
 
+	$validado = 0;
+	$update = false;
+
 	// Captura titulo da linha
 	$sql = "SELECT id,titulo FROM tb_linha WHERE id='$idLinha'";
 	$cons = $conexao->query($sql) or die($conexao->error);
@@ -22,10 +25,10 @@ if ((empty($idCard)) || (empty($idLinha))) {
 		$titulo_linha	= $row['titulo'];
 	}
 
-	$update = false;
 
-	// Valida altura e largura da imagem
 	if (!empty($nome_arquivo)) {
+
+		// Valida altura e largura do anexo
 		$dimensoes = getimagesize($arquivo_tmp);
 		$largura = $dimensoes[0];
 		$altura = $dimensoes[1];
@@ -37,37 +40,43 @@ if ((empty($idCard)) || (empty($idLinha))) {
 				</script>
 				";
 			exit();
+		} else {
+			$validado = 1;
 		}
 
-		// Valida extensão do arquivo
-		$extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
-		$permitidos = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-		if (!in_array($extensao, $permitidos)) {
-			echo "
+		if ($validado == 1) {
+			// Valida extensão do arquivo
+			$extensaoMob = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+			$extensoesPermitidas = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'];
+			if (!in_array($extensaoMob, $extensoesPermitidas)) {
+				echo "
 			<script>
-					alert('Erro! O tipo de arquivo não é permitido! Permite apenas: " . implode(', ', $permitidos) . "');
-					window.location.href='index.php?id=12.1';
-			</script>
-			";
-			exit();
-		}
+			alert('Tipo de arquivo inválido!');
+			window.location = 'index.php?id=10.1';
+			</script>";
+				exit();
+			} else {
+				// Renomeia arquivo e define path
+				$ran = rand(10000, 99999);
+				$nome_arquivo = $ran . "-" . $nome_arquivo;
+				$uploaddir = 'files/';
+				$uploadfile = $uploaddir . $nome_arquivo;
 
-		// Cria prefixo randomino e concatena ao nome do arquivo
-		$rand = rand(10000, 99999);
-		$nome_arquivo = $rand . "-" . $nome_arquivo;
-		$uploaddir = 'files/';
-		$uploadfile = $uploaddir . $nome_arquivo;
-
-		//Faz Upload
-		if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
-			echo "entrou";
-			$sql = "UPDATE tb_linhas_cards SET idlinha='$id_linha', nome='$titulo_linha', anexo='$nome_arquivo' WHERE id = '$idCard' ";
-			$update = mysqli_query($conexao, $sql);
+				//Faz Upload e grava
+				if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
+					$sql = "UPDATE tb_linhas_cards SET idlinha='$id_linha', nome='$titulo_linha', anexo='$nome_arquivo', status='$status' WHERE id = '$idCard' ";
+					$update = mysqli_query($conexao, $sql);
+					$validado = 2;
+				}
+			}
 		}
 	} else {
+		//Grava na base
 		$sql = "UPDATE tb_linhas_cards SET idlinha='$id_linha',nome='$titulo_linha', status='$status' WHERE id = '$idCard' ";
 		$update = mysqli_query($conexao, $sql);
+		$validado = 2;
 	}
+
 
 	if ($update) {
 		echo "<script>
@@ -76,4 +85,5 @@ if ((empty($idCard)) || (empty($idLinha))) {
 			</script>";
 	}
 }
+
 mysqli_close($conexao);

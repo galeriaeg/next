@@ -12,7 +12,9 @@ if ((empty($linha)) || (empty($nome_arquivo))) {
 	exit();
 } else {
 
-	// Valida altura e largura
+	$validado = 0;
+
+	// Valida altura e largura do anexo
 	$dimensoes = getimagesize($arquivo_tmp);
 	$largura = $dimensoes[0];
 	$altura = $dimensoes[1];
@@ -24,48 +26,62 @@ if ((empty($linha)) || (empty($nome_arquivo))) {
 			</script>
 			";
 		exit();
+	} else {
+		$validado = 1;
 	}
 
-	// Valida extensão do arquivo
-	$extensao = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
-	$permitidos = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-	if (!in_array($extensao, $permitidos)) {
-		echo "
-    <script>
-        alert('Erro! O tipo de arquivo não é permitido! Permite apenas: " . implode(', ', $permitidos) . "');
-        window.location.href='index.php?id=12.1';
-    </script>
-    ";
-		exit();
-	}
 
-	// Captura titulo da linha
-	$sql = "SELECT id,titulo FROM tb_linha WHERE id='$linha'";
-	$cons = $conexao->query($sql) or die($conexao->error);
-	while ($row = $cons->fetch_array()) {
-		echo $id_linha = $row['id'];
-		echo $titulo_linha	= $row['titulo'];
-	}
-
-	// Cria prefixo randomino e concatena ao nome do arquivo
-	$rand = rand(1000, 99999);
-	$nome_arquivo = $rand . "-" . $nome_arquivo;
-	$uploaddir = 'files/';
-	$uploadfile = $uploaddir . $nome_arquivo;
-
-	// Faz upload do arquivo
-	if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
-
-		$sql = "INSERT INTO tb_linhas_cards (idlinha,nome,anexo,status)
-		VALUES ('$id_linha','$titulo_linha','$nome_arquivo','$status')";
-		$conf = $conexao->query($sql) or die($conexao->error);
-
-		echo "
+	if ($validado == 1) {
+		// Valida extensão do arquivo
+		$extensaoMob = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+		$extensoesPermitidas = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'];
+		if (!in_array($extensaoMob, $extensoesPermitidas)) {
+			echo "
 			<script>
-			alert('Cadastro realizado com sucesso!');
-			window.location.href = 'index.php?id=12';
+			alert('Tipo de arquivo inválido!');
+			window.location = 'index.php?id=10.1';
 			</script>";
-		exit();
+			exit();
+		} else {
+			$validado = 2;
+		}
+	}
+
+	if ($validado == 2) {
+		// Captura titulo da linha
+		$sql = "SELECT id,titulo FROM tb_linha WHERE id='$linha'";
+		$cons = $conexao->query($sql) or die($conexao->error);
+		while ($row = $cons->fetch_array()) {
+			$id_linha = $row['id'];
+			$titulo_linha	= $row['titulo'];
+
+			$validado = 3;
+		}
+	}
+
+	if ($validado == 3) {
+		// Renomeia arquivo e define path
+		$ran = rand(10000, 99999);
+		$nome_arquivo = $ran . "-" . $nome_arquivo;
+		$uploaddir = 'files/';
+		$uploadfile = $uploaddir . $nome_arquivo;
+
+		// Faz upload do arquivo
+		if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
+
+			$sql = "INSERT INTO tb_linhas_cards (idlinha,nome,anexo,status)
+		VALUES ('$id_linha','$titulo_linha','$nome_arquivo','$status')";
+			$conf = $conexao->query($sql) or die($conexao->error);
+
+			if ($conf > 0) {
+				echo "
+				<script>
+				alert('Cadastro realizado com sucesso!');
+				window.location.href = 'index.php?id=12';
+				</script>";
+				exit();
+			}
+		}
 	}
 }
 mysqli_close($conexao);

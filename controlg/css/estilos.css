@@ -53,10 +53,10 @@ footer a {
 
 /**** IMAGEM *****/
 .logomarca {
-  width: 200px;
-  margin: 0 auto;
-  float: left;
-  margin: 10px 50px 30px 50px;
+  width: auto;
+  height: 42px;
+  display: block;
+  margin: 10px auto 30px auto;
 }
 
 /**** FORMULARIO *****/
@@ -92,7 +92,7 @@ input.botao:hover {
 /**** ESTRUTURA *****/
 .box-center {
   width: 300px;
-  min-height: 313px;
+  min-height: 308px;
   position: absolute;
   top: 50%;
   left: 50%;

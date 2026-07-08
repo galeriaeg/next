@@ -3,10 +3,6 @@ require "session.php";
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 ?>
 
-<a href="index.php?id=9.1" title="Novo">
-	<img src="imgs/novo.png" class="btnovo" border="0" alt="Novo" />
-</a>
-
 <legend>
 	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
 </legend>
