@@ -17,7 +17,7 @@ if ($iniciaComIframe) {
 }
 
 if ((empty($titulo)) || (empty($texto)) || (empty($pagina))) {
-	echo "<script>window.location = 'logout.php'</script>";
+	echo "<script>window.location.href = 'logout.php'</script>";
 } else {
 
 	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');

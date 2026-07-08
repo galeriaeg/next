@@ -7,6 +7,7 @@ $idCard =	$_POST['idCard'];
 $idLinha =	$_POST['linha'];
 $nome_arquivo = basename($_FILES['arquivo']['name'] ?? '');
 $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
+$status =	$_POST['status'];
 
 if ((empty($idCard)) || (empty($idLinha))) {
 	echo "<script>window.location.href = 'logout.php';</script>";
@@ -62,18 +63,16 @@ if ((empty($idCard)) || (empty($idLinha))) {
 			echo "entrou";
 			$sql = "UPDATE tb_linhas_cards SET idlinha='$id_linha', nome='$titulo_linha', anexo='$nome_arquivo' WHERE id = '$idCard' ";
 			$update = mysqli_query($conexao, $sql);
-
-			echo "fez up";
 		}
 	} else {
-		$sql = "UPDATE tb_linhas_cards SET idlinha='$id_linha',nome='$titulo_linha' WHERE id = '$idCard' ";
+		$sql = "UPDATE tb_linhas_cards SET idlinha='$id_linha',nome='$titulo_linha', status='$status' WHERE id = '$idCard' ";
 		$update = mysqli_query($conexao, $sql);
 	}
 
 	if ($update) {
 		echo "<script>
 			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=12';
+			window.location.href = 'index.php?id=12';
 			</script>";
 	}
 }

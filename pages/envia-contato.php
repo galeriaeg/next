@@ -51,7 +51,7 @@ if (
 	(empty($estado)) ||
 	(empty($texto))
 ) {
-	echo "<script>window.location='contato?send=false'</script>";
+	echo "<script>window.location.href='contato?send=false'</script>";
 	exit();
 }
 
@@ -99,7 +99,7 @@ $envio = mail($to, $subject, $message, implode("\r\n", $headers));
 
 if ($envio) {
 	echo "<script>alert('Email enviado com sucesso!')</script>";
-	echo "<script>window.location='contato'</script>";
+	echo "<script>window.location.href='contato'</script>";
 } else {
 	echo "A mensagem não pode ser enviada";
 }

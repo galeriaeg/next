@@ -9,7 +9,7 @@ $status 	=	isset($_POST['status']) ? $_POST['status'] : '0';
 
 
 if ((empty($celular)) || (empty($email))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.herf = 'logout.php';</script>";
 	exit();
 } else {
 
@@ -19,7 +19,7 @@ if ((empty($celular)) || (empty($email))) {
 	if ($update > 0) {
 		echo "<script>
 			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=11';
+			window.location.href = 'index.php?id=11';
 			</script>";
 	}
 }

@@ -8,7 +8,7 @@
 $idCard = $_GET['idCard'];
 
 if (empty($idCard)) {
-	echo "<script>window.location = 'logout.php'</script>";
+	echo "<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
@@ -67,6 +67,24 @@ if (empty($idCard)) {
 		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
 		<img id="view" class="anexo-preview" />
 	</span>
+
+
+	<label>Status:</label>
+	<select name="status" class="campo_p">
+		<?php
+		if ($statusCard < 1) {
+			echo "
+				<option value='1'>Ativo</option>
+				<option selected value='0'>Inativo</option>
+				";
+		} else {
+			echo "
+				<option selected value='1'>Ativo</option>
+				<option value='0'>Inativo</option>
+				";
+		}
+		?>
+	</select>
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />

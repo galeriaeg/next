@@ -5,7 +5,7 @@ $titulo = $_POST['linha'];
 $marca = $_POST['marca'];
 
 if ((empty($titulo)) || (empty($marca)) || ($marca == 0)) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 
@@ -19,7 +19,7 @@ if ((empty($titulo)) || (empty($marca)) || ($marca == 0)) {
 		echo "
 			<script>
 			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=9';
+			window.location.href = 'index.php?id=9';
 			</script>";
 	}
 }

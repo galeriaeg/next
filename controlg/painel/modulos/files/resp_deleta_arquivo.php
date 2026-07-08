@@ -10,7 +10,7 @@ $nomeFile = $_GET['nome'];
 $confirma = $_GET['conf'];
 
 if ((empty($idFile)) || (empty($nomeFile))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 

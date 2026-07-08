@@ -5,7 +5,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 $idNoticia = $_GET['idn'];
 
 if (empty($idNoticia)) {
-  echo "<script>window.location = 'logout.php';</script>";
+  echo "<script>window.location.href = 'logout.php';</script>";
   exit();
 } else {
 

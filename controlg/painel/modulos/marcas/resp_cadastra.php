@@ -7,11 +7,13 @@ $nome_arquivo = basename($_FILES['arquivo']['name']);
 $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
 if ((empty($titulo)) || (empty($nome_arquivo)) || (empty($site))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 
-	// valida altura e largura
+	$validado = 0;
+
+	// Valida altura e largura do arquivo
 	$dimensoes = getimagesize($arquivo_tmp);
 	$largura = $dimensoes[0];
 	$altura = $dimensoes[1];
@@ -23,38 +25,50 @@ if ((empty($titulo)) || (empty($nome_arquivo)) || (empty($site))) {
 			</script>
 			";
 		exit();
+	} else {
+		$validado = 1;
 	}
 
-	$ran = rand(1000, 99999);
-	$nome_arquivo = $ran . "-" . $nome_arquivo;
-	$valida = substr($nome_arquivo, -4);
-	if (($valida != ".jpg") and ($valida != ".gif") and ($valida != ".png")) {
-		echo "
+	if ($validado == 1) {
+		// Valida extensão do arquivo
+		$extensaoMob = strtolower(pathinfo($nome_arquivo, PATHINFO_EXTENSION));
+		$extensoesPermitidas = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg'];
+		if (!in_array($extensaoMob, $extensoesPermitidas)) {
+			echo "
 			<script>
-			alert('Erro! O tipo de arquivo não é permitido! ');
-			window.history.back();
-			</script>
-			";
-		exit();
+			alert('Tipo de arquivo inválido!');
+			window.location.href = 'index.php?id=10.1';
+			</script>";
+			exit();
+		} else {
+			$validado = 2;
+		}
 	}
 
-	$uploaddir = 'files/';
-	$uploadfile = $uploaddir . $nome_arquivo;
+	if ($validado == 2) {
+		// Renomeia arquivo e define path
+		$ran = rand(10000, 99999);
+		$nome_arquivo = $ran . "-" . $nome_arquivo;
+		$uploaddir = 'files/';
+		$uploadfile = $uploaddir . $nome_arquivo;
 
-	if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
+		// Faz upload do arquivo
+		if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
 
-		include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+			include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-		$sql = "INSERT INTO tb_marca (nome,logomarca,site,status)
+			$sql = "INSERT INTO tb_marca (nome,logomarca,site,status)
 			VALUES ('$titulo','$nome_arquivo','$site',1)";
-		$conf = $conexao->query($sql) or die($conexao->error);
+			$conf = $conexao->query($sql) or die($conexao->error);
 
-
-		echo "
-			<script type='text/javascript'>
-			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=7';
-			</script>";
+			if ($conf > 0) {
+				echo "
+				<script type='text/javascript'>
+				alert('Cadastro realizado com sucesso!');
+				window.location.href = 'index.php?id=7';
+				</script>";
+			}
+		}
 	}
 }
 mysqli_close($conexao);

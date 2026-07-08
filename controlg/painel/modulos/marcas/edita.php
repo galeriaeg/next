@@ -4,7 +4,7 @@ include "session.php";
 $idMarca = $_GET['idMarca'];
 
 if (empty($idMarca)) {
-	echo "<script>window.location = 'index.php';</script>";
+	echo "<script>window.location.href = 'index.php';</script>";
 	exit();
 } else {
 
@@ -64,12 +64,14 @@ if (empty($idMarca)) {
 		<?php
 		if ($status < 1) {
 			echo "
+				<option value='1'>Ativo</option>
 				<option selected value='0'>Inativo</option>
-				<option value='1'>Ativo</option>";
+				";
 		} else {
 			echo "
+			<option selected value='1'>Ativo</option>
 				<option value='0'>Inativo</option>
-				<option selected value='1'>Ativo</option>";
+				";
 		}
 		?>
 	</select>

@@ -5,9 +5,10 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 $linha = $_POST['linha'];
 $nome_arquivo = basename($_FILES['arquivo']['name']);
 $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
+$status = $_POST['status'];
 
 if ((empty($linha)) || (empty($nome_arquivo))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 
@@ -56,13 +57,13 @@ if ((empty($linha)) || (empty($nome_arquivo))) {
 	if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
 
 		$sql = "INSERT INTO tb_linhas_cards (idlinha,nome,anexo,status)
-		VALUES ('$id_linha','$titulo_linha','$nome_arquivo',1)";
+		VALUES ('$id_linha','$titulo_linha','$nome_arquivo','$status')";
 		$conf = $conexao->query($sql) or die($conexao->error);
 
 		echo "
 			<script>
 			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=12';
+			window.location.href = 'index.php?id=12';
 			</script>";
 		exit();
 	}

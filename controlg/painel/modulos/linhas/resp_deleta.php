@@ -10,7 +10,7 @@ $tituloLinha = $_GET['tlinha'];
 $conf = $_GET['conf'];
 
 if ((empty($idLinha)) || (empty($tituloLinha))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 

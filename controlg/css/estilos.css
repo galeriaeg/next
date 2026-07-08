@@ -18,6 +18,13 @@ form {
   margin: 0;
 }
 
+label {
+  color: #0e7ec2;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 1.2rem;
+}
+
 a {
   color: #777;
   text-decoration: none;

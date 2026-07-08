@@ -15,16 +15,15 @@
 </head>
 
 <body>
-	<form action="auth.php" method="post" name="formLogin" onSubmit="return logon(this)">
+	<form action="reset.php" method="post" name="formLogin" onSubmit="return logon(this)">
 		<div class="box-center">
 			<div id="topo">
 				<img src="imgs/logo-controlg.png" alt="logomarca" class="logomarca" border="0" />
 			</div>
-			<input name="login" type="text" class="campo" placeholder="Login" />
-			<input name="senha" id="senha" type="password" class="campo" placeholder="Senha" />
-			<img src="imgs/icon-senha-off.png" id="iconpass" alt="senhaOff" onclick="mostraEsconde(this);" class="icone-senha" />
-			<input type="submit" name="btnLogin" value="ENTRAR" class="botao" />
-			<div style="text-align:center"><a href="recuperar-senha.php" class="m-t" target="_top">Esqueci minha senha</a></div>
+			<label>Recuperar Senha</label>
+			<input name="email" type="email" required class="campo" placeholder="E-mail" />
+			<input type="submit" name="btnLogin" value="ENVIAR" class="botao" />
+			<div style="text-align:center"><a href="index.php" class="m-t" target="_top">Fazer Login</a></div>
 
 			<?php
 			if ($aut == "false") {

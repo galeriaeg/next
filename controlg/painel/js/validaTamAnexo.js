@@ -82,6 +82,28 @@ function validaTamSlideMob(input) {
   };
 }
 
+function validaTamMapa(input) {
+  if (!input.files || !input.files[0]) return;
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var img = new Image();
+    img.src = e.target.result;
+    img.onload = function () {
+      if (this.width !== 300 || this.height !== 300) {
+        alert("A imagem deve ter exatamente 300 x 300px.");
+        input.value = ""; // Limpa o campo
+        return;
+      }
+      // Mostra o preview
+      document.getElementById("view").style.display = "block";
+      document.getElementById("view").src = e.target.result;
+      document.getElementById("box-anexo").style.display = "block";
+      document.getElementById("input").style.display = "none";
+    };
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
 function fechaPreviewSlide(el) {
   if (el == 1) {
     document.getElementById("input-sd").style.display = "block";

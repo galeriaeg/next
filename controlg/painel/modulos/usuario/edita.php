@@ -21,7 +21,7 @@ while ($row = $cons->fetch_array()) {
 // Bloqueia acesso indevido
 if (($tipoUserSession != 1) && ($idUserSetado != $idUserSession)) {
 	echo "Sem acesso";
-	echo "<script type='text/javascript'>window.location = 'logout.php'</script>";
+	echo "<script type='text/javascript'>window.location.href = 'logout.php'</script>";
 	exit();
 }
 ?>

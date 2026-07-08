@@ -10,7 +10,7 @@ $dataHoraAtual = date('d/m/Y H:i:s');
 
 
 if ((empty($titulo)) || (empty($imagem_cropada))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 
@@ -35,7 +35,7 @@ if ((empty($titulo)) || (empty($imagem_cropada))) {
 
 		echo "<script>
                 alert('Cadastro realizado com sucesso!');
-                window.location='index.php?id=4';
+                window.location.href='index.php?id=4';
               </script>";
 	}
 }

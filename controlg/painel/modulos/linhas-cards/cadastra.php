@@ -25,7 +25,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 	</select>
 
 	<label>Anexo:</label>
-	<input name="arquivo" id="anexo" type="file" class="campo_m" onchange="validaTamCard(this)" required />
+	<input name="arquivo" id="anexo" type="file" class="campo_m" accept="image/*" onchange="validaTamCard(this)" required />
 	<div class="boxAviso w-m">*Imagem deve ter 300 x 300px</div>
 
 	<!-- Visualização do anexo no upload-->
@@ -34,6 +34,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 		<img id="view" class="anexo-preview" />
 	</span>
 
+	<label>Status:</label>
+	<select name="status" class="campo_p">
+		<option value="1">Ativo</option>
+		<option value="0">Inativo</option>
+	</select>
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />

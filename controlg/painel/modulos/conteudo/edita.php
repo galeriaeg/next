@@ -10,7 +10,7 @@ if (
 	(empty($tipoCont)) ||
 	(empty($pagina))
 ) {
-	echo "<script>window.location = 'index.php'</script>";
+	echo "<script>window.location.href = 'index.php'</script>";
 	exit();
 } else {
 
@@ -75,6 +75,7 @@ if (
 
 	<label>Texto:</label>
 	<textarea id="textarea-1" name="texto" required cols="50" rows="25"><?php echo $texto; ?></textarea>
+	<div class="boxAviso w-m" style="margin-top:7px">Crie container com: class="box-gen"</div>
 
 	<?php
 	if ($tipo == 1) {

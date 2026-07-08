@@ -8,7 +8,7 @@ $senha	=	$_POST['senha'];
 $tipo = 2; //tipo para usuário comun
 
 if ((empty($nome)) || (empty($email)) || (empty($login)) || (empty($senha))) {
-	echo "<script type='text/javascript'>window.location = 'logout.php'</script>";
+	echo "<script type='text/javascript'>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 
@@ -48,7 +48,7 @@ if ((empty($nome)) || (empty($email)) || (empty($login)) || (empty($senha))) {
 		echo "
 		<script type='text/javascript'>
 		alert('Cadastro realizado com sucesso!');
-		window.location = 'index.php?id=2'
+		window.location.href = 'index.php?id=2'
 		</script>
 		";
 	}

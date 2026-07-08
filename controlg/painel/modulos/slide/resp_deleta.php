@@ -37,7 +37,7 @@ if ($conf < 1) {
 
 	if ($result > 0) {
 		echo "<script>alert('Cadastro excluído com sucesso.');</script>";
-		echo "<script>window.location = 'index.php?id=5'</script>";
+		echo "<script>window.location.href = 'index.php?id=5'</script>";
 	}
 }
 mysqli_close($conexao);

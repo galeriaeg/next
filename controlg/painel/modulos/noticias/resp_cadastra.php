@@ -10,7 +10,7 @@ $status     = $_POST['status'];
 
 
 if ((empty($titulo)) || (empty($descricao)) || (empty($data))) {
-	echo "<script>window.location = 'logout.php'</script>";
+	echo "<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 
@@ -26,7 +26,7 @@ if ((empty($titulo)) || (empty($descricao)) || (empty($data))) {
 	$conf = $conexao->query($sql) or die($conexao->error);
 
 	if ($conf) {
-		echo "<script>alert('Cadastro realizado com sucesso!'); window.location = 'index.php?id=3'</script>";
+		echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href = 'index.php?id=3'</script>";
 		exit();
 	}
 }

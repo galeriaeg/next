@@ -300,7 +300,7 @@ function cont()
 			break;
 
 		case "10.1":
-			$titulo = "Cadastrar  Área de atuação";
+			$titulo = "Cadastrar Área de atuação";
 			include("modulos/area-atuacao/cadastra.php");
 			break;
 
@@ -378,9 +378,6 @@ function cont()
 			$titulo = "Excluir Card Linha";
 			include("modulos/linhas-cards/resp_deleta.php");
 			break;
-
-
-
 
 
 		default:

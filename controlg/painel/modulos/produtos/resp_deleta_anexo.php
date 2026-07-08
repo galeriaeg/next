@@ -4,7 +4,7 @@ $nfile = $_GET['nfile'];
 $idmarca = $_GET['idm'];
 
 if ((empty($idp)) || (empty($nfile)) || (empty($idmarca))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 

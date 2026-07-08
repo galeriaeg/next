@@ -10,7 +10,7 @@ $status		=	$_POST['status'];
 
 
 if ((empty($id)) || (empty($link)) || (empty($destino))) {
-	echo "<script>window.location = 'logout.php'</script>";
+	echo "<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 
@@ -25,7 +25,7 @@ if ((empty($id)) || (empty($link)) || (empty($destino))) {
 			echo "
 			<script>
 			alert('Arquivo inválido para desktop!');
-			window.location = 'index.php?id=5.1';
+			window.location.href = 'index.php?id=5.1';
 			</script>";
 		}
 		$nome_arquivo_dsk = $rand . "-" . $nome_arquivo_dsk;
@@ -45,7 +45,7 @@ if ((empty($id)) || (empty($link)) || (empty($destino))) {
 			echo "
 			<script>
 			alert('Arquivo inválido para desktop!');
-			window.location = 'index.php?id=5.1';
+			window.location.href = 'index.php?id=5.1';
 			</script>";
 		}
 		$nome_arquivo_mob = $rand * 4 . "-" . $nome_arquivo_mob;
@@ -64,7 +64,7 @@ if ((empty($id)) || (empty($link)) || (empty($destino))) {
 		echo "
 			<script>
 			alert('Cadastro atualizado com sucesso!');
-			window.location = 'index.php?id=5'
+			window.location.href = 'index.php?id=5'
 			</script>";
 	}
 

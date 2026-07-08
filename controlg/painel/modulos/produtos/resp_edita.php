@@ -17,7 +17,7 @@ if (
 	(empty($descricao))
 ) {
 	echo "
-		<script>window.location = 'logout.php'</script>";
+		<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 
@@ -29,7 +29,7 @@ if (
 		$update = mysqli_query($conexao, $sql);
 		echo "<script>
     		alert('Cadastro realizado com sucesso!');
-    		window.location = 'index.php?id=6&m=$marca';
+    		window.location.href = 'index.php?id=6&m=$marca';
     		</script>";
 	} else {
 		//Atualiza com anexo
@@ -49,7 +49,7 @@ if (
 			echo "
 					<script type='text/javascript'>
 					alert('Cadastro realizado com sucesso!');
-					window.location = 'index.php?id=6&m=$marca';
+					window.location.href = 'index.php?id=6&m=$marca';
 					</script>";
 		}
 	}

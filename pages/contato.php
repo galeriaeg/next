@@ -37,8 +37,9 @@ $randCaptcha =  rand(1000, 9999);
       <input type="text" required placeholder="Estado" class="campo-m" name="estado" list="lista-estados" id="estado" autocomplete="off" />
       <datalist id="lista-estados"></datalist>
       <textarea rows="12" required placeholder="Mensagem" name="mensagem" class="campo-g"></textarea>
+
       <div class="col12">
-        <p class="text-page m-b">Cód. Captcha: <strong><?php echo $randCaptcha; ?></strong></p><br />
+        <p class="text-page m-b col12">Código verificador: <strong> <?php echo $randCaptcha; ?></strong></p>
         <input type="text" required placeholder="Repita o Código." oninput="somenteNumeros(this)" class="campo-p" name="meuCaptcha" />
         <input type="hidden" value="<?php echo $randCaptcha; ?>" placeholder="Nome" name="randCaptcha" />
       </div>

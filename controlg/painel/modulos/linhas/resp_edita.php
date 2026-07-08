@@ -7,7 +7,7 @@ $titulo =	$_POST['titulo'];
 
 
 if ((empty($idLinha)) || (empty($idMarca)) || (empty($titulo))) {
-	echo "<script>window.location = 'logout';</script>";
+	echo "<script>window.location.href = 'logout';</script>";
 	exit();
 } else {
 
@@ -18,7 +18,7 @@ if ((empty($idLinha)) || (empty($idMarca)) || (empty($titulo))) {
 
 	echo "<script>
 		alert('Cadastro realizado com sucesso!');
-		window.location = 'index.php?id=9';
+		window.location.href = 'index.php?id=9';
 		</script>";
 }
 mysqli_close($conexao);

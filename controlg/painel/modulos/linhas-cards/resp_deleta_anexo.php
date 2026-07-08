@@ -5,7 +5,7 @@ $idCard = $_GET['idCard'];
 $nome_arquivo = $_GET['file'];
 
 if ((empty($idCard)) || (empty($nome_arquivo))) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 

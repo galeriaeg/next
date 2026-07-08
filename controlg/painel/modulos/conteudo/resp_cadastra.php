@@ -15,7 +15,7 @@ $pagina = $pos[1];
 if ((empty($titulo)) || (empty($texto)) || (empty($tipo))) {
 	echo "
 		<script type='text/javascript'>
-		window.location = 'logout.php'
+		window.location.href = 'logout.php'
 		</script>";
 	exit();
 } else {
@@ -44,7 +44,7 @@ if ((empty($titulo)) || (empty($texto)) || (empty($tipo))) {
 		echo "
 		<script type='text/javascript'>
 		alert('Cadastro realizado com sucesso!');
-		window.location = 'index.php?id=8'
+		window.location.href = 'index.php?id=8'
 		</script>";
 	}
 }

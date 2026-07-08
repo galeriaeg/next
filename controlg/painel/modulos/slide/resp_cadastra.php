@@ -13,7 +13,7 @@ if (
 	(empty($link)) ||
 	(empty($destino))
 ) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 	$rand = rand(10000, 99999);
@@ -23,7 +23,7 @@ if (
 		echo "
 			<script>
 			alert('Arquivo inválido para desktop!');
-			window.location = 'index.php?id=5.1';
+			window.location.href = 'index.php?id=5.1';
 			</script>";
 	}
 
@@ -32,7 +32,7 @@ if (
 		echo "
 			<script>
 			alert('Arquivo inválido para mobile!');
-			window.location = 'index.php?id=5.1';
+			window.location.href = 'index.php?id=5.1';
 			</script>";
 		exit();
 	}
@@ -59,7 +59,7 @@ if (
 			echo "
 			<script type='text/javascript'>
 			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=5';
+			window.location.href = 'index.php?id=5';
 			</script>";
 		}
 	}

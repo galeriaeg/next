@@ -14,12 +14,12 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 <script>
 	function envia_marca(v) {
 		let valor = v;
-		window.location = 'index.php?id=6&m=' + valor;
+		window.location.href = 'index.php?id=6&m=' + valor;
 	}
 
 	function envia_chave() {
 		let valor = document.getElementById('chave').value;
-		window.location = 'index.php?id=6&chave=' + valor;
+		window.location.href = 'index.php?id=6&chave=' + valor;
 	}
 </script>
 

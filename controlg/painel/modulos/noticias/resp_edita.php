@@ -19,7 +19,7 @@ if (
 	(empty($tituloNoticia)) ||
 	(empty($textoNoticia))
 ) {
-	echo "<script>window.location = 'logout.php'</script>";
+	echo "<script>window.location.href = 'logout.php'</script>";
 	exit();
 }
 

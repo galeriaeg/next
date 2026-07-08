@@ -405,3 +405,12 @@ a:hover {
 .btn-secundario:hover {
   background-position: left bottom;
 }
+
+.box-gen {
+  background-color: #dfeef3;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  border: 1px solid #b6d8e3;
+}

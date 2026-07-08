@@ -1,59 +1,59 @@
 <?php
-	require "session.php";
+require "session.php";
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 ?>
 
-
 <a href="index.php?id=10.1" title="Novo">
-	<img src="imgs/novo.png"  class="btnovo" border="0" alt="Novo" />
+	<img src="imgs/novo.png" class="btnovo" border="0" alt="Novo" />
 </a>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-
-<table width="100%" border="0">
-	<tr class="tr">
-		<th width="20%" align="left" class="th">MARCA</th>
-		<th width="71%" align="left" class="th">REGIÕES</th>
-		<th width="9%" align="left" class="th">A&Ccedil;&Otilde;ES</th>
-	</tr>
-	
-	
-	<?php
-
-		include "../conecta.php";
-		
-		$sql = "SELECT aa.*, m.logomarca
-		FROM area_atuacao AS aa, marca AS m
-		WHERE aa.idmarca = m.id
+<!-- Lista de Registros -->
+<table id="minhaTabela">
+	<thead>
+		<tr>
+			<th width="10%">MARCA</th>
+			<th width="81%">REGIÕES</th>
+			<th width="9%" class="center">AÇÕES</th>
+		</tr>
+	</thead>
+	<tbody id="corpoTabela">
+		<?php
+		$sql = "SELECT tb_at.*, tb_m.logomarca AS logo
+		FROM tb_area_atuacao AS tb_at, tb_marca AS tb_m
+		WHERE tb_m.id = tb_at.idmarca
 		ORDER BY id ASC";
-		$cons = $conexao->query($sql)or die($conexao->error);
-		while($row = $cons->fetch_array()){
+		$cons = $conexao->query($sql) or die($conexao->error);
+		while ($row = $cons->fetch_array()) {
 			$id_area = 	$row['id'];
 			$idmarca_area	=	$row['idmarca'];
 			$legenda_area	=	$row['legenda'];
 			$mapa_area = $row['mapa'];
 			$obs_area = $row['obs'];
-			$logomarca_area = $row['logomarca'];
-			
+			$logomarca_area = "files/" . $row['logo'];
 
-			$btedita ="<a href='index.php?id=10.2&idArea=$id_area'><img src='imgs/btedita_off.png' border='0' class='bt-editar' /></a>";
-			$btexclui ="<a href='index.php?id=10.3&idArea=$id_area&file=$mapa_area&conf=0'><img  src='imgs/btexclui_off.png' border='0' class='bt-excluir' /></a>";
-			
-			
+			$marca = "<img src='$logomarca_area' alt='logo' width='100' />";
+
+			//botes editar e excluir	
+			$btedita	= "<a href='index.php?id=10.2&idArea=$id_area'><img src='imgs/btn-editar.png' border='0' class='bt-editar  btn-action' /></a>";
+			$btexclui = "<a href='index.php?id=10.3&idArea=$id_area'><img src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
+
 			echo "<tr class='tupla'>";
-			echo "<th width='20%' align='left' class='txt'><img src='files/$logomarca_area' width='85' /></th>";
-			echo "<th width='71%' align='left' class='txt'>$legenda_area</th>";
-			echo "<th width='9%' align='left' class='txt'>$btedita $btexclui</th>";
+			echo "<td width='10%' align='left' class='txt'>$marca</td>";
+			echo "<td width='81%' align='left' class='txt'>$legenda_area</td>";
+			echo "<td width='9%' align='left' class='txt'>$btedita $btexclui</td>";
 			echo "</tr>";
-			
-		} 
-		
-		echo "</table>";
-		
-		echo "<br /><br />";
-		
-		
-		
-		mysql_close();
-		
-	?>
+		}
+		?>
+	</tbody>
+</table>
+
+<nav class="box-paginacao">
+	<button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
+	<span class="txtsimples" id="label">1</span>
+	<button id="next" onclick="mudarPagina(1)">&#129034;</button>
+</nav>
+<script src="./js/paginacao.js"></script>

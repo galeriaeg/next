@@ -15,7 +15,7 @@ if (
 	(empty($idmarca)) ||
 	(empty($idlinha))
 ) {
-	echo "<script>window.location = 'logout.php';</script>";
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 
@@ -33,7 +33,7 @@ if (
 	if ($conf > 0) {
 		echo "<script>
 			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=6';
+			window.location.href = 'index.php?id=6';
 			</script>";
 	}
 }

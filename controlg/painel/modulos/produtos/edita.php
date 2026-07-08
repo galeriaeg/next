@@ -7,7 +7,7 @@ $idmarca_get = $_GET['m'];
 $idlinha_get = $_GET['l'];
 
 if (empty($idproduto)) {
-	echo "<script>window.location = 'index.php'</script>";
+	echo "<script>window.location.href = 'index.php'</script>";
 	exit();
 } else {
 
