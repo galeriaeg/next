@@ -32,10 +32,7 @@
 			}
 			?>
 
-			<footer>
-				2026 &copy; CtrlG CMS<br />
-				<a href="http://www.galeriadesigneweb.com.br/" target="_blank">Galeria Design & Web</a>
-			</footer>
+			<footer>2026 &copy; CtrlG CMS</footer>
 
 		</div>
 	</form>

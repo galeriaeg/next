@@ -30,8 +30,9 @@ if ($stmt) {
     $novaSenha = $randNum . $letraSorteada;
     //echo "<div style='font-size:17px;padding:5px 10px;background:#dcffb4;display:inline-table;'>$novaSenha</div>";
 
-    $nomeUsuario = htmlspecialchars($usuario['nome'], ENT_QUOTES, 'UTF-8');
+    echo $nomeUsuario = htmlspecialchars($usuario['nome'], ENT_QUOTES, 'UTF-8');
     $emailUsuario = htmlspecialchars($usuario['email'], ENT_QUOTES, 'UTF-8');
+
     //Criptografa a senha
     $novaSenhaCript = md5($novaSenha);
 

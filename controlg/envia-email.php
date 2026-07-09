@@ -1,23 +1,20 @@
 <?php
-
 $ip = $_SERVER["REMOTE_ADDR"];
 
-if (empty($emailUsuario)) {
-	echo "<script>window.location.href='recuperar-senha.php?aut=false'</script>";
-	exit();
+if ((empty($nomeUsuario)) || (empty($emailUsuario))) {
+  echo "<script>window.location.href='recuperar-senha.php?aut=false'</script>";
+  exit();
 }
 
-mb_internal_encoding("UTF-8");
-$subject = "NEXT SOLUÇÕES EM SAÚDE | NOVA SENHA";
-$to = $emailUsuario; // email do usuário vem do resetar-senha
-//$to = "web@solucoesnext.com.br";
+// Email cópia
+$destinoCopia = "galeriaeg@gmail.com";
 
 $message = "
-		<table width='800' border='0' style='padding:10px;margin:8px;border-collapse:0;'>
+		<table width='620' border='0' style='padding:10px;margin:8px;border-collapse:0;'>
 			<tr>
 				<td>
-					<img height='30' src='https://dev.solucoesnext.com.br/public/imgs/logo.png'/>
-					<img height='30' src='https://dev.solucoesnext.com.br/controlg/imgs/logo-controlg' alt='controlG' />
+					<img height='30' src='https://dev.solucoesnext.com.br/public/imgs/logo.png' alt='next'/>
+					<img height='30' src='https://dev.solucoesnext.com.br/controlg/imgs/logo-controlg.png' alt='controlG' style='margin-left:350px;' />
 					<br /><br />
 				</td>
 			</tr>
@@ -27,8 +24,8 @@ $message = "
 			<tr>
 				<td style='height:40px;color:#555;font:normal 18px calibri,verdana'>
           <br />
-          Olá <strong>$nomeUsuario</strong>,  sua nova senha de acesso ao <strong>Painel da Next</strong> está logo abaixo:
-          (É recomendado que no seu próximo acesso você altere a sua senha.)
+          Olá <strong>$nomeUsuario</strong>, sua nova senha de acesso ao <strong>Painel da Next</strong> está logo abaixo.
+          <br />(É recomendado que no seu próximo acesso você altere a sua senha.)
           <br /><br />
           <div style='font-size:25px;padding:5px 10px;background:#dcffb4;display:inline-table;'>$novaSenha</div>
 					<br /><br />
@@ -43,19 +40,35 @@ $message = "
 			</tr>
 		</table>";
 
-// To send HTML mail, the Content-type header must be set
-$headers = [];
-$headers[] = 'MIME-Version: 1.0';
-$headers[] = 'Content-type: text/html; charset=UTF-8';
-$headers[] = 'To:' . $to;
-$headers[] = 'From:' . $to;
-$headers[] = 'Reply-To:' . 'noreply@solucoesnext.com.br';
+include "phpMailerAutoload/PHPMailerAutoload.php";
 
-$envio = mail($to, $subject, $message, implode("\r\n", $headers));
+$msg = new PHPMailer();
 
-if ($envio) {
-	echo "<script>alert('Email enviado com sucesso!')</script>";
-	echo "<script>window.location.href='contato'</script>";
+$msg->CharSet = "UTF-8";
+$msg->isSMTP();
+$msg->Host = 'mail.solucoesnext.com.br';
+$msg->SMTPAuth = true;
+$msg->SMTPSecure = 'tls';
+$msg->Username = 'web@solucoesnext.com.br';
+$msg->Password = 'Lnu7tdstm@@q';
+$msg->Port = 587;
+$msg->setFrom('web@solucoesnext.com.br', 'NextMed');
+$msg->SMTPAutoTLS = false;
+$msg->IsHTML(true);
+$msg->CharSet = 'UTF-8';
+$msg->Subject = "NEXT SOLUÇÕES EM SAÚDE | NOVA SENHA";
+$msg->addReplyTo('web@solucoesnext.com.br', 'NextMed');
+$msg->AddAddress($emailUsuario, $nomeUsuario); //destino
+$msg->AddCC($destinoCopia, 'Galeria'); // Copia
+$msg->Body = $message;
+
+$enviado = $msg->Send();
+
+if ($enviado) {
+  echo "<script>alert('Email enviado com sucesso!')</script>";
+  echo "<script>window.location.href='index.php'</script>";
+  exit();
 } else {
-	echo "A mensagem não pode ser enviada";
+  echo "Não foi possível enviar o e-mail.<br/>";
+  echo "<b>Informações do erro:</b> " . $msg->ErrorInfo;
 }
