@@ -321,7 +321,7 @@ function cont()
 
 		case "10.2.2":
 			$titulo = " Área de atuação/Excluir Anexo";
-			include("modulos/area-atuacao/resp_deleta_upload.php");
+			include("modulos/area-atuacao/resp_deleta_anexo.php");
 			break;
 
 		case "10.3":

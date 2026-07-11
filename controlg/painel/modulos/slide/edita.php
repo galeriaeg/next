@@ -63,25 +63,28 @@ if (empty($idSlide)) {
 	<label>Imagem desktop: </label>
 	<span id="input-sd">
 		<input name="arquivoDesktop" id="input-sd" required type="file" accept="image/*" class="campo_m" onchange="validaTamSlideDesk(this)" />
+		<div class="boxAviso w-m">Permitido: png, jpg, jpeg, gif, webp, svg | Medidas: 1800 x 450px</div>
 	</span>
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo-sd" class="box-anexo" style="display: none;">
-		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" title="Remover" onclick="window.location.href='index.php?id=5.5&idSlide=<?php echo $idSlide; ?>&filedsk=<?php echo $img_dsk; ?>'" style="position:absolute;cursor:pointer;" />
+		<img src="imgs/btn-excluir-anexo.jpg" alt="botão anexo" title="Remover" onclick="window.location.href='index.php?id=5.5&idSlide=<?php echo $idSlide; ?>&filedsk=<?php echo $img_dsk; ?>'" style="position:absolute;cursor:pointer;" />
 		<img id="view-sd" src="<?php echo $img_dsk; ?>" class="anexo-preview" />
 	</span>
-	<div class="boxAviso w-m">*Somente jpg, gif ou png - tamanho padrão 1800 x 450px</div>
+
 
 	<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
 	<label>Imagem mobile:</label>
 	<span id="input-sm">
 		<input name="arquivoMobile" type="file" required id="input-sm" accept="image/*" class="campo_m" onchange="validaTamSlideMob(this)" />
+		<div class="boxAviso w-m">Permitido: png, jpg, jpeg, gif, webp, svg | Medidas: 600 x 450px</div>
 	</span>
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo-sm" class="box-anexo" style="display: none;">
-		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" title="Remover" onclick="window.location.href='index.php?id=5.5&idSlide=<?php echo $idSlide; ?>&filemob=<?php echo $img_mob; ?>'" style="position:absolute;cursor:pointer;" />
+		<img src="imgs/btn-excluir-anexo.jpg" alt="botão anexo" title="Remover" onclick="window.location.href='index.php?id=5.5&idSlide=<?php echo $idSlide; ?>&filemob=<?php echo $img_mob; ?>'" style="position:absolute;cursor:pointer;" />
 		<img id="view-sm" src="<?php echo $img_dsk; ?>" class="anexo-preview" />
 	</span>
-	<div class="boxAviso w-m">*Somente jpg, gif ou png - tamanho padrão 600 x 450px</div>
+
+
 
 
 	<label>Link: </label>

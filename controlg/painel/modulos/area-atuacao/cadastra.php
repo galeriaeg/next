@@ -31,7 +31,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 	<input name="legenda" required type="text" class="campo_m" />
 
 	<label>Descrição:</label>
-	<textarea name="texto" required rows="5" class="campo_m"></textarea>
+	<span id="btn-br" class="btn-break">Quebrar Linha</span>
+	<textarea name="texto" id="texto" required rows="5" class="campo_m"></textarea>
 
 	<label>Anexo:</label>
 	<input name="arquivo" required id="anexo" type="file" class="campo_m" accept="image/*" onchange="validaTamMapa(this)" />
@@ -52,3 +53,4 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 <script src="js/validaTamAnexo.js"></script>
 <script src="js/previewFile.js"></script>
+<script src="js/quebraLinha.js"></script>

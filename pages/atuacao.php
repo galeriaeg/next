@@ -29,4 +29,30 @@ if ($qtd < 1) {
   <p class="text-page p">
     <?php echo $texto; ?>
   </p>
+
+  <?php
+  $sql = "SELECT * FROM tb_area_atuacao";
+  $res = mysqli_query($conexao, $sql);
+  $qtd = mysqli_num_rows($res);
+  while ($row = mysqli_fetch_array($res)) {
+    $idmarca = $row['idmarca'];
+    $legenda = $row['legenda'];
+    $mapa = $row['mapa'];
+    $texto = $row['texto'];
+
+    $mapa = "controlg/painel/files/" . $mapa;
+
+    echo "<div class='col12' style='display:flex;align-items:top'>
+
+    <div>
+      <img src='controlg/painel/files/16030-logo-konica.png' width='150' alt='mapa' />
+      <br />
+      <span>$texto</span>
+    </div>
+
+    <img src='$mapa' width='200' alt='mapa' />
+    <div>$legenda</div>
+  </div>";
+  }
+  ?>
 </section>
