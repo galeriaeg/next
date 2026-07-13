@@ -31,7 +31,7 @@
 			}
 			?>
 
-			<footer>2026 &copy; CtrlG CMS</footer>
+			<footer>2026 &copy; ControlG CMS</footer>
 
 		</div>
 	</form>

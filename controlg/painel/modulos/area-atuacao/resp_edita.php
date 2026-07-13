@@ -24,7 +24,7 @@ if ((empty($idArea)) || (empty($legenda)) || (empty($texto))) {
 		$dimensoes = getimagesize($arquivo_tmp);
 		$largura = $dimensoes[0];
 		$altura = $dimensoes[1];
-		if (($largura != '300') || ($altura != '300')) {
+		if (($largura != '600') || ($altura != '600')) {
 			echo "
 			<script>
 			alert('Imagem com tamanho fora do padrão.');

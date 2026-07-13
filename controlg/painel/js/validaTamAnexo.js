@@ -89,8 +89,8 @@ function validaTamMapa(input) {
     var img = new Image();
     img.src = e.target.result;
     img.onload = function () {
-      if (this.width !== 300 || this.height !== 300) {
-        alert("A imagem deve ter exatamente 300 x 300px.");
+      if (this.width !== 600 || this.height !== 600) {
+        alert("A imagem deve ter exatamente 600 x 600px.");
         input.value = ""; // Limpa o campo
         return;
       }

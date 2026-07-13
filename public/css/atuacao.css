@@ -1,0 +1,47 @@
+.box-area {
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.img-mapa {
+  padding-right: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.box-bg-mapa {
+  width: 400px;
+  aspect-ratio: 1 / 1;
+  float: left;
+  background-image: url("../imgs/bg-circulo.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.box-texto-mapa {
+  width: auto;
+  border-left: 1px solid #d1d1d1;
+  margin-left: 50px;
+  padding-left: 50px;
+}
+
+.img-logo {
+  width: 130px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.box-contato {
+  border: 0 solid #ddd;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.box-uf {
+  border: 0 solid #df0;
+  margin-bottom: 15px;
+}

@@ -178,7 +178,7 @@ h1 {
 /* Colunas responsivas */
 .col12 {
   width: 100%;
-  border: 1px solid red;
+  border: 0 solid red;
 }
 .col9 {
   width: 75%;
