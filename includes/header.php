@@ -1,6 +1,6 @@
 <section class="box-topo">
   <div>
-    <img src="public/imgs/logo.png" alt="logo" class="logo" />
+    <a href="home"><img src="public/imgs/logo.png" alt="logo" class="logo" /></a>
   </div>
   <div class="box-input">
     <input type="text" class="input-busca" placeholder="Buscar..." name="chave" id="chave" />

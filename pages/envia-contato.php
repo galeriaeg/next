@@ -28,14 +28,12 @@ if ($randCaptcha <> $meuCaptcha) {
 }
 
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
-$sql = "SELECT * FROM tb_contatos WHERE dados_default ='SIM' AND status = 1 LIMIT 1 ";
+$sql = "SELECT email FROM tb_contatos WHERE dados_default ='SIM' AND status = 1 LIMIT 1 ";
 $res = mysqli_query($conexao, $sql);
 $qtd = mysqli_num_rows($res);
 while ($row = mysqli_fetch_array($res)) {
-	$email = $row['email'];
-	$celular = $row['celular'];
+	echo $email = $row['email'];
 }
-
 if ($qtd > 0) {
 	$to  = $email; // destino
 } else {

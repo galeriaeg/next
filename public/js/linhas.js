@@ -20,3 +20,7 @@ function pararRolagem() {
   // Devolve o comportamento suave padrão do CSS
   carrossel.style.scrollBehavior = "smooth";
 }
+
+function abrirPagina() {
+  window.location.href = "produtos";
+}

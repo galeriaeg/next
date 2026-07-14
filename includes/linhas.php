@@ -14,9 +14,9 @@
 
     $anexoCard = $path . $anexoCard;
 
-    echo "<div class='card-linha'>
+    echo "<div class='card-linha' onclick='abrirPagina()'>
     <span class='nome-linha'>$nomeCard</span>
-    <span class='label-linha'>+ Ler Mais</span>
+    <span class='label-linha'>+ Consultar</span>
     <img src='$anexoCard' alt='$nomeCard'>
   </div>";
   }
