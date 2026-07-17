@@ -1,18 +1,101 @@
-ul {
-  display: flex;
+/******** DESKTOP *********/
+@media (min-width: 867px) {
+  ul {
+    display: flex;
+  }
+
+  li {
+    margin: 0 35px 0 0;
+  }
+
+  .box-menu {
+    display: flex !important;
+  }
+
+  .amenu {
+    color: #bcf5ee;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 5px 6px;
+  }
+  .amenu:hover {
+    color: #fff;
+    text-shadow: 0 1px 3px #31665e;
+  }
+
+  .box-busca-mob {
+    display: none !important;
+  }
+
+  .btn-send-mob {
+    display: none;
+  }
 }
 
-li {
-  margin: 0 35px 0 0;
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  ul {
+    display: flex;
+  }
+
+  li {
+    margin: 0 18px 0 0;
+  }
+
+  .box-menu {
+    display: flex !important;
+  }
+
+  .amenu {
+    color: #bcf5ee;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 5px 6px;
+  }
+  .amenu:hover {
+    color: #fff;
+    text-shadow: 0 1px 3px #31665e;
+  }
+
+  .box-busca-mob {
+    display: none !important;
+  }
+
+  .btn-send-mob {
+    display: none;
+  }
 }
 
-.amenu {
-  color: #bcf5ee;
-  text-decoration: none;
-  transition: 0.3s;
-  padding: 5px 6px;
-}
-.amenu:hover {
-  color: #fff;
-  text-shadow: 0 1px 3px #31665e;
+/******** MOBILE *********/
+@media (min-width: 325px) and (max-width: 614px) {
+  ul {
+    display: block;
+  }
+
+  li {
+    margin: 0 0 0 0;
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #95d1ca;
+  }
+
+  .amenu {
+    color: #bcf5ee;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 5px 6px;
+  }
+  .amenu:hover {
+    color: #fff;
+    text-shadow: 0 1px 3px #31665e;
+  }
+  .btn-send-mob {
+    display: block;
+    float: right;
+    margin-top: -45px;
+    margin-right: 5%;
+    z-index: 10;
+    position: relative;
+    padding: 5px 0;
+  }
 }

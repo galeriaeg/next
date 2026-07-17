@@ -48,6 +48,9 @@
   display: block;
   margin: 20px 0 0 0;
 }
+.card-light a:hover {
+  color: #555;
+}
 
 /** CARD MAPA **/
 
@@ -89,6 +92,9 @@
   font-size: 15px;
   display: block;
   margin: 20px 0 0 0;
+}
+.card-solid a:hover {
+  text-decoration: underline;
 }
 
 .line-full {

@@ -24,7 +24,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
     ?>
     <span class="data"><?php echo $data; ?></span>
     <h2><?php echo $titulo; ?></h2>
-    <a href="novidade?n=<?php echo $id; ?>">
+    <a href="novidade?n=<?php echo $id; ?>" class="a">
       <?php echo mb_strimwidth($descricao, 0, 88, "..."); ?>
     </a>
   </div>
@@ -35,7 +35,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
       <img src="public/imgs/ico-solucoes.png" alt="icone" class="icon-card" />
     </div>
     <h2>Estamos sempre atentos às novas tecnologias e às necessidades dos nossos clientes.</h2>
-    <a href="#">
+    <a href="#" class="aw">
       Nossas parcerias com grandes marcas do mercado garantem seriedade, segurança e tecnologia de ponta.</a>
   </div>
 

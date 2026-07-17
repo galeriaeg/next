@@ -162,7 +162,7 @@ h1 {
 }
 
 .fio {
-  border-top: 1px solid #e1e1e1;
+  border-top: 1px solid #ddd;
   height: 1px;
   margin: 30px 0;
 }
@@ -215,11 +215,27 @@ header {
   box-sizing: border-box;
 }
 
-nav {
-  background-color: #60bdb2;
-  padding: 12px 10%; /*ajusta largura do site*/
-  box-sizing: border-box;
-  color: #b4e9e3;
+/******** DESKTOP *********/
+@media (min-width: 867px) {
+  nav {
+    background-color: #60bdb2;
+    padding: 12px 10%; /*ajusta largura do site*/
+    box-sizing: border-box;
+    color: #b4e9e3;
+  }
+}
+
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  header {
+    padding: 25px 4%;
+  }
+  nav {
+    background-color: #60bdb2;
+    padding: 12px 3%; /*ajusta largura do site*/
+    box-sizing: border-box;
+    color: #b4e9e3;
+  }
 }
 
 main {
@@ -426,4 +442,18 @@ a:hover {
   margin-bottom: 25px;
   border: 1px solid #b6d8e3;
   font-size: 15px;
+}
+
+/******** MOBILE *********/
+@media (min-width: 325px) and (max-width: 614px) {
+  header {
+    padding: 25px 4%;
+  }
+
+  nav {
+    background-color: #60bdb2;
+    padding: 0; /*ajusta largura do site*/
+    box-sizing: border-box;
+    color: #b4e9e3;
+  }
 }
