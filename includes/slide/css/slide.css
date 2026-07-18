@@ -5,7 +5,7 @@
     z-index: 100;
     width: 96%;
     margin: 0 2%;
-    margin-top: -15%;
+    margin-top: -14%;
     float: left;
   }
 
@@ -44,10 +44,11 @@
   }
 
   .bt-back {
-    width: 28px;
+    width: 35px;
     cursor: pointer;
     opacity: 0.4;
     transition: 0.3s;
+    display: block;
   }
   img.bt-back:hover {
     cursor: pointer;
@@ -57,10 +58,11 @@
   }
 
   .bt-go {
-    width: 28px;
+    width: 35px;
     cursor: pointer;
     opacity: 0.4;
     transition: 0.3s;
+    display: block;
   }
   img.bt-go:hover {
     cursor: pointer;
@@ -174,10 +176,11 @@
   }
 
   .bt-back {
-    width: 24px;
+    width: 25px;
     cursor: pointer;
     opacity: 0.4;
     transition: 0.3s;
+    display: block;
   }
   img.bt-back:hover {
     cursor: pointer;
@@ -187,10 +190,11 @@
   }
 
   .bt-go {
-    width: 24px;
+    width: 25px;
     cursor: pointer;
     opacity: 0.4;
     transition: 0.3s;
+    display: block;
   }
   img.bt-go:hover {
     cursor: pointer;

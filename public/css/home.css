@@ -249,7 +249,7 @@
   .box-marcas img {
     border: #eee 1px solid;
     max-width: 185px;
-    margin: 20px 0;
+    margin: 10px 0;
     transition: 0.3s;
     cursor: pointer;
   }

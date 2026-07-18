@@ -7,6 +7,7 @@
   box-sizing: border-box;
   border-left: 10px solid #eee;
   border-right: 10px solid #eee;
+  margin-bottom: 20px;
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -103,10 +104,9 @@
 }
 
 .btn-next {
-  margin-top: 10px;
-  width: 35px;
+  width: auto;
   cursor: pointer;
-  margin-right: 5px;
+  margin-left: 10px;
 }
 img.btn-next:hover {
   content: url("../imgs/btn-next-on.png");
@@ -114,10 +114,9 @@ img.btn-next:hover {
 }
 
 .btn-prev {
-  margin-top: 10px;
-  width: 35px;
+  width: auto;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 img.btn-prev:hover {
   content: url("../imgs/btn-prev-on.png");

@@ -1,10 +1,13 @@
-.foto-novidade {
-  width: 450px;
-  float: left;
-  margin-right: 25px;
-  margin-bottom: 4px;
-  padding: 3px;
-  border: 1px solid #ccc;
+/* DESK */
+@media (min-width: 769px) {
+  .foto-novidade {
+    width: 450px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 4px;
+    padding: 3px;
+    border: 1px solid #ccc;
+  }
 }
 
 .conteudo {
@@ -24,7 +27,7 @@
 .box-paginacao {
   background-color: transparent;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
 }
 .box-paginacao span {
@@ -44,4 +47,16 @@
 
 .p-voltar {
   margin: 80px 0;
+}
+
+/* MOB */
+@media (max-width: 599px) {
+  .foto-novidade {
+    width: 100%;
+    float: left;
+    margin-bottom: 40px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
 }

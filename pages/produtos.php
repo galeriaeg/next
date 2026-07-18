@@ -141,7 +141,7 @@ if ($qtd < 1) {
         if ($i % 4 == 0) {
           echo "<div class='card-produto card-last'>
         <a href='produto?p=$idProduto'>
-          <div class='box-imagem'>*
+          <div class='box-imagem'>
             <img src='$fotoProduto' alt='produto' />
           </div>
          </a>

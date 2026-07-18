@@ -120,6 +120,7 @@
   .icone-lupa {
     width: 30px;
     filter: brightness(0.8);
+    display: block;
   }
 
   .box-menu-lupa-mob {
