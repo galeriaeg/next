@@ -1,14 +1,15 @@
+<?php include "session.php"; ?>
+
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
+
 <?php
-include "session.php";
-
-echo "<h3>$titulo</h3>";
-
 $idp = $_GET['idp'];
 $conf = $_GET['conf'];
 $nomeProduto = $_GET['nomep'];
 $idmarca = $_GET['idm'];
 $nomeArquivo = $_GET['nome'];
-
 
 if ((empty($idp)) || (empty($nomeProduto))) {
 	echo "<script>window.location.href = 'logout.php'</script>";

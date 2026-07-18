@@ -1,32 +1,26 @@
 <?php include "session.php"; ?>
 
-<form action="index.php?id=7.1.1" enctype="multipart/form-data" method="POST">
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
+<form action="index.php?id=7.1.1" enctype="multipart/form-data" method="POST">
 
 	<label>Título:</label>
 	<input name="titulo" required type="text" class="campo_m" />
 
 	<label>Site:</label>
 	<input name="site" type="text" required class="campo_m" value="" />
-	<div class="boxAviso">Caso não tenha Site, use: #</div>
+	<div class="boxAviso w-m">Caso não tenha Site, use: #</div>
 	<label>Anexo:</label>
-	<input name="arquivo" id="anexo" required type="file" accept="image/*" class="campo_m" onchange="abreAnexo(this)" />
-	<div class="boxAviso">*Imagem deve ter 300 x 155px</div>
+	<input name="arquivo" id="anexo" required type="file" accept="image/*" class="campo_m" onchange="validaTamMarca(this)" />
+	<div class="boxAviso w-m">Permitido: png, jpg, jpeg, gif, webp, svg | Medidas: 300 x 155px</div>
 
 	<!-- Visualização do anexo no upload-->
 	<span id="box-anexo" class="box-anexo" style="display: none;">
-		<img src="imgs/btn-excluir-axeno.png" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
-		<img id="view" class="anexo-noticia" />
+		<img src="imgs/btn-excluir-anexo.jpg" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
+		<img id="view" class="anexo-preview" />
 	</span>
-
-	<!-- <label>Status:</label>
-	<select name="status" class="campo_p">
-		<option value="0">Inativo</option>
-		<option value="1">Ativo</option>
-	</select> -->
 
 	<div class="box-botons">
 		<input type="submit" value="Cadastrar" class="btn-submit" />
@@ -35,4 +29,5 @@
 
 </form>
 
+<script src="js/validaTamAnexo.js"></script>
 <script src="js/previewFile.js"></script>

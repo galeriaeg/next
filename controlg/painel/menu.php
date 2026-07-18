@@ -38,6 +38,10 @@
 		<a href="index.php?id=9" class="txtmenu">
 			<span>Linhas</span>
 		</a>
+		<br />
+		<a href="index.php?id=12" class="txtmenu">
+			<span>Cards das Linhas</span>
+		</a>
 	</li>
 	<li>
 		<a href="index.php?id=10" class="txtmenu">
@@ -54,7 +58,7 @@
 	<li>
 		<a href="index.php?id=4" class="txtmenu">
 			<i class="fa fa-file-image-o" aria-hidden="true"></i>
-			Files
+			Arquivos
 		</a>
 	</li>
 </ul>

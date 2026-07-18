@@ -9,7 +9,7 @@ if (!file_exists($arquivo_conteudo)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -30,7 +30,7 @@ if (!file_exists($arquivo_conteudo)) {
 
   <header><?php require_once "includes/header.php" ?></header>
   <nav><?php require_once "includes/menu.php" ?></nav>
-  <main><?php include($arquivo_conteudo); ?></main>
+  <main><?php include_once $arquivo_conteudo; ?></main>
   <footer><?php require_once "includes/footer.php" ?></footer>
 
 </body>

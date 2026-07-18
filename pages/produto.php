@@ -2,6 +2,7 @@
 @$id_produto = $_GET['p'];
 
 $path_files = "controlg/painel/files/";
+$path_erro = "controlg/painel/imgs/";
 
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
@@ -22,7 +23,7 @@ while ($row = mysqli_fetch_array($res)) {
   $id = $row['id'];
   $titulo = $row['titulo'];
   $descricao = $row['descricao'];
-  $foto = $row['foto'];
+  $foto = $row['file'];
   $idmarca = $row['idmarca'];
   $idlinha = $row['idlinha'];
   $status = $row['status'];
@@ -35,6 +36,22 @@ if ($qtd < 1) {
   echo "<script>window.location.href='home'</script>";
   exit();
 }
+
+// define o caminha da imagem
+if (!$foto) {
+  $foto = $path_erro . "sem-anexo.jpg";
+} else {
+  $foto = $path_files . $foto;
+}
+
+// Define o número do whatsapp
+$numCel = '';
+$sql = "SELECT celular FROM tb_contatos WHERE status = 1 LIMIT 1 ";
+$res = mysqli_query($conexao, $sql);
+$qtdCel = mysqli_num_rows($res);
+while ($row = mysqli_fetch_array($res)) {
+  $numCel = str_replace('-', '', $row['celular']);
+}
 ?>
 
 <!-- filtro -->
@@ -45,7 +62,7 @@ if ($qtd < 1) {
 
   <div class="box-conteudo">
     <article class="col3" id="article" style="transition:0.3s;">
-      <img src="<?php echo $path_files . $foto; ?>" alt="foto do produto" class="img-produto" />
+      <img src="<?php echo $foto; ?>" alt="foto do produto" class="img-produto" />
       <span id="btnMais" onclick="ampliarImagem();"><img src="public/imgs/btn-mais-off.png" class="btn-zoom-mais" alt="Ampliar foto" /></span>
       <span id="btnMenos" style="display: none;" onclick="reduzirImagem();"><img src="public/imgs/btn-menos-off.png" class="btn-zoom-menos" alt="Reduzir foto" /></span>
     </article>
@@ -58,7 +75,7 @@ if ($qtd < 1) {
       <p class="text-page col12 p">
         <?php echo $descricao; ?>
       </p>
-      <button class="btn-whatsapp">
+      <button id="btn-wapp" class="btn-whatsapp" onclick="window.open('https://wa.me/<?php echo $numCel; ?>', '_blank')">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Solicitar orçamento
       </button>
@@ -69,10 +86,15 @@ if ($qtd < 1) {
         </a>
       </p>
     </div>
-
   </div>
-
 </section>
+
+<?php
+// Remove botão WhatsApp se status == 0
+if ($qtdCel == 0) {
+  echo "<script>document.getElementById('btn-wapp').remove();</script>";
+}
+?>
 
 <script src="public/js/produtos.js"></script>
 <script src="public/js/global.js"></script>

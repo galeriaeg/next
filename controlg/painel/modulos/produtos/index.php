@@ -14,12 +14,12 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 <script>
 	function envia_marca(v) {
 		let valor = v;
-		window.location = 'index.php?id=6&m=' + valor;
+		window.location.href = 'index.php?id=6&m=' + valor;
 	}
 
 	function envia_chave() {
 		let valor = document.getElementById('chave').value;
-		window.location = 'index.php?id=6&chave=' + valor;
+		window.location.href = 'index.php?id=6&chave=' + valor;
 	}
 </script>
 
@@ -28,7 +28,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 	<img src="imgs/novo.png" class="btnovo" border="0" alt="Novo" />
 </a>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <section class="box-topo-busca">
 	<select class="campo-simples" onchange='envia_marca(this.value);' name="marca">
@@ -69,13 +71,13 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 			while ($row = $cons->fetch_array()) {
 				$idProd		= 	$row['id'];
 				$tituloFonte	=	$row['titulo'];
-				$fotoProduto	=	$row['foto'];
+				$fotoProduto	=	$row['file'];
 				$idmarca	=	$row['idmarca'];
 				$idlinha	=	$row['idlinha'];
 				$status	=	$row['status'];
 
 				if (empty($fotoProduto))
-					$logomarca_Fonte = "imgs/sem-produto.jpg";
+					$logomarca_Fonte = "imgs/sem-anexo.jpg";
 				else
 					$logomarca_Fonte = "files/" . $fotoProduto;
 
@@ -85,7 +87,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 					$btstatus = "<img src='imgs/fleg-inativo.png' class='center' />";
 				}
 
-				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
+				$btedita = "<a href='index.php?id=6.2&idp=$idProd'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
 				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&idm=$idmarca&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='btn-action bt-excluir' /></a>";
 
 				echo "<tr class='tupla'>";
@@ -111,13 +113,13 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 			while ($row = $cons->fetch_array()) {
 				$idProd		= 	$row['id'];
 				$tituloFonte	=	$row['titulo'];
-				$fotoProduto	=	$row['foto'];
+				$fotoProduto	=	$row['file'];
 				$idmarca	=	$row['idmarca'];
 				$idlinha	=	$row['idlinha'];
 				$status	=	$row['status'];
 
 				if (empty($fotoProduto))
-					$logomarca_Fonte = "imgs/sem_produto.jpg";
+					$logomarca_Fonte = "imgs/sem-anexo.jpg";
 				else
 					$logomarca_Fonte = "files/" . $fotoProduto;
 
@@ -127,8 +129,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 					$btstatus = "<img src='imgs/fleg-inativo.png'  class='center' />";
 				}
 
-
-				$btedita = "<a href='index.php?id=6.2&idp=$idProd&idm=$idmarca&idl=$idlinha&st=$status'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
+				$btedita = "<a href='index.php?id=6.2&idp=$idProd'><img src='imgs/btn-editar.png' border='0' class='bt-editar btn-action' /></a>";
 				$btexclui = "<a href='index.php?id=6.3&idp=$idProd&nome=$fotoProduto&nomep=$tituloFonte&conf=0'><img  src='imgs/btn-excluir.png' border='0' class='bt-excluir btn-action' /></a>";
 
 				echo "<tr class='tupla'>";
@@ -171,3 +172,10 @@ if ((!empty($marca)) && (empty($chave)) && ($totalMarca < 1)) {
 				</span>";
 }
 ?>
+
+<nav class="box-paginacao">
+	<button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
+	<span class="txtsimples" id="label">1</span>
+	<button id="next" onclick="mudarPagina(1)">&#129034;</button>
+</nav>
+<script src="./js/paginacao.js"></script>

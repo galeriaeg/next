@@ -1,62 +1,42 @@
 <?php
 include "session.php";
 
-$titulo =	$_POST['titulo'];
-$site =	$_POST['site'];
-$nome_arquivo = basename($_FILES['arquivo']['name']);
-$arquivo_tmp = $_FILES['arquivo']['tmp_name'];
+$titulo =	strtolower($_POST['titulo']); // converte para minusculo
+$imagem_cropada = $_POST['imagem_cropada'] ?? '';
 
-if ((empty($titulo)) || (empty($nome_arquivo)) || (empty($site))) {
-	echo "<script>window.location = 'logout.php';</script>";
+// Define data e hora atual
+date_default_timezone_set('America/Sao_Paulo');
+$dataHoraAtual = date('d/m/Y H:i:s');
+
+
+if ((empty($titulo)) || (empty($imagem_cropada))) {
+	echo "<script>window.location.href = 'logout.php';</script>";
 	exit();
 } else {
 
-	// valida altura e largura
-	$dimensoes = getimagesize($arquivo_tmp);
-	$largura = $dimensoes[0];
-	$altura = $dimensoes[1];
-	if (($largura != '300') || ($altura != '155')) {
-		echo "
-			<script>
-			alert('Imagem com tamanho fora do padrão.');
-			window.history.back();
-			</script>
-			";
-		echo "Imagem com tamanho fora do padrão.<br />";
-		echo "Padrão: Lagura:300px - altura:155px";
-		exit();
-	}
+	$base64 = preg_replace('/^data:image\/\w+;base64,/', '', $imagem_cropada);
+	$dados = base64_decode($base64);
 
-	$ran = rand(1000, 99999);
-	$nome_arquivo = $ran . "-" . $nome_arquivo;
-	$valida = substr($nome_arquivo, -4);
-	if (($valida != ".jpg") and ($valida != ".gif") and ($valida != ".png")) {
-		echo "
-			<script>
-			alert('Erro! O tipo de arquivo não é permitido! ');
-			window.history.back();
-			</script>
-			";
-		exit();
-	}
+	$titulo_limpo = preg_replace('/[^a-zA-Z0-9_-]/', '-', $titulo);
+	$titulo_limpo = preg_replace('/-+/', '-', $titulo_limpo);
 
-	$uploaddir = 'files/';
-	$uploadfile = $uploaddir . $nome_arquivo;
+	$nome_arquivo = rand(10000, 99999) . '-' . strtolower($titulo_limpo)  . '.jpg';
 
-	if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
+	if (file_put_contents('files/' . $nome_arquivo, $dados)) {
 
 		include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-		$sql = "INSERT INTO tb_marca (nome,logomarca,site,status)
-			VALUES ('$titulo','$nome_arquivo','$site',1)";
-		$conf = $conexao->query($sql) or die($conexao->error);
+		$sql = "INSERT INTO tb_files
+                (imagem,nome,data_cadastro)
+                VALUES
+                ('$nome_arquivo','$titulo','$dataHoraAtual')";
 
+		$conexao->query($sql);
 
-		echo "
-			<script type='text/javascript'>
-			alert('Cadastro realizado com sucesso!');
-			window.location = 'index.php?id=7';
-			</script>";
+		echo "<script>
+                alert('Cadastro realizado com sucesso!');
+                window.location.href='index.php?id=4';
+              </script>";
 	}
 }
 mysqli_close($conexao);

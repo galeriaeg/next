@@ -33,6 +33,7 @@
 }
 .card-first {
   margin-right: 6.6%;
+  margin-bottom: 25px;
   float: left;
 }
 .card-last {
@@ -112,7 +113,7 @@
   border-radius: 5px;
   font-size: 1rem;
   box-shadow: 0 3px 8px #ccc;
-  background: linear-gradient(to left, #777 50%, #1fb8a1 50%);
+  background: linear-gradient(to left, #777 50%, #00c291 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: background-position 0.3s ease-out;

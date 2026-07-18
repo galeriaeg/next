@@ -5,7 +5,7 @@ gitignore_with_db = """# =======================================================
 
 # --- Arquivos de Conexão e Dados Sensíveis ---
 public/assets
-config/conecta.php
+controlg/config/conecta.php
 .env
 .env.local
 config.local.php

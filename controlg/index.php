@@ -24,18 +24,15 @@
 			<input name="senha" id="senha" type="password" class="campo" placeholder="Senha" />
 			<img src="imgs/icon-senha-off.png" id="iconpass" alt="senhaOff" onclick="mostraEsconde(this);" class="icone-senha" />
 			<input type="submit" name="btnLogin" value="ENTRAR" class="botao" />
-			<div style="text-align:center"><a href="recuperar-senha" class="m-t" target="_blank">Esqueci minha senha</a></div>
+			<div style="text-align:center"><a href="recuperar-senha.php" class="m-t" target="_top">Esqueci minha senha</a></div>
 
 			<?php
-			if ($aut == "erro") {
+			if ($aut == "false") {
 				echo "<div class='box-erro'>&#10006; Dados incorretos</div>";
 			}
 			?>
 
-			<footer>
-				2026 &copy; CtrlG CMS<br />
-				<a href="http://www.galeriadesigneweb.com.br/" target="_blank">Galeria Design & Web</a>
-			</footer>
+			<footer>2026 &copy; ControlG CMS</footer>
 
 		</div>
 	</form>

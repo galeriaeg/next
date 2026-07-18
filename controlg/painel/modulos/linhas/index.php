@@ -3,7 +3,9 @@ require "session.php";
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 ?>
 
-<h3><?php echo $titulo; ?></h3>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <!-- Bloco Cadastro -->
 <div class="box-topo-busca">
@@ -21,7 +23,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 			}
 			?>
 		</select>
-		<input type="text" required class="campo-simples" placeholder="Linha" name="linha">
+		<input type="text" required class="campo-simples" placeholder="Nova linha" name="linha">
 		<input type="submit" value="Cadastrar" class="btn-simples" />
 	</form>
 </div>

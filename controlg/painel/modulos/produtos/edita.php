@@ -1,29 +1,24 @@
 <?php
 include "session.php";
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 $idproduto = $_GET['idp'];
-$idmarca = $_GET['idm'];
-$idlinha = $_GET['idl'];
-$status = $_GET['st'];
+$idmarca_get = $_GET['m'];
+$idlinha_get = $_GET['l'];
 
-if (
-	(empty($idproduto)) ||
-	(empty($idmarca)) ||
-	(empty($idlinha))
-) {
-	echo "<script>window.location = 'index.php'</script>";
+if (empty($idproduto)) {
+	echo "<script>window.location.href = 'index.php'</script>";
 	exit();
 } else {
 
-	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
-
+	// Pega dados do produto
 	$sql = "SELECT * FROM tb_produto WHERE id='$idproduto'";
 	$cons = $conexao->query($sql) or die($conexao->error);
 	while ($row = $cons->fetch_array()) {
 		$idp = $row['id'];
 		$titulop	= $row['titulo'];
 		$descricaop	=	$row['descricao'];
-		echo $fotop	=	$row['foto'];
+		$fotop	=	$row['file'];
 		$idmarcap	=	$row['idmarca'];
 		$idlinhap	=	$row['idlinha'];
 		$status	=	$row['status'];
@@ -31,42 +26,58 @@ if (
 }
 ?>
 
-
+<!-- CSS MODULO FILES -->
+<link rel="stylesheet" href="modulos/files/css/files.css" />
 
 <script type="text/javascript" src="js/global.js"></script>
 
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
+
+<span class="txt"><?php echo "ID:" . $idproduto; ?></span><br /><br />
+
 <form action="index.php?id=6.2.1" enctype="multipart/form-data" method="POST" name="formFonte" onSubmit="return fonte(this)">
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
-
-	<span class="txt"><?php echo "ID:" . $idproduto; ?></span><br /><br />
-
 	<label>Marca:</label>
-	<?php
-	$sql = "SELECT * FROM tb_marca WHERE id='$idmarca' ";
-	$res = mysqli_query($conexao, $sql);
-	while ($row = mysqli_fetch_array($res)) {
-		$id_marca = $row['id'];
-		$nome_marca = $row['nome'];
-		$logomarca_marca = $row['logomarca'];
-	}
-	?>
+	<select class="campo_p" required name="marca" onChange="MM_jumpMenu('parent',this,1)">
+		<option value="" selected disabled>Selecione uma marca...</option>
+		<?php
+		$sql = "SELECT id,nome FROM tb_marca ";
+		$res = mysqli_query($conexao, $sql);
+		while ($row = mysqli_fetch_array($res)) {
+			$id_marca = $row['id'];
+			$nome_marca = $row['nome'];
 
-	<input name="marca" type="text" readonly="true" class="campo_p" value="<?php echo $nome_marca; ?>" />
+			if ($idmarca_get > 0) {
+				if ($idmarca_get == $id_marca)
+					echo "<option selected value='$id_marca'>$nome_marca</option>";
+				else
+					echo "<option value='$id_marca'>$nome_marca</option>";
+			} else {
+				if ($idmarcap == $id_marca)
+					echo "<option selected value='$id_marca'>$nome_marca</option>";
+				else
+					echo "<option value='$id_marca'>$nome_marca</option>";
+			}
+		}
+		?>
+	</select>
 
 	<label>Linha:</label>
-	<select class="campo_p" name="linha">
+	<select class="campo_p" required name="linha">
 		<?php
-		$q = "SELECT * FROM tb_linha WHERE idmarca='$idmarca' ";
+		if ($idmarca_get > 0) {
+			$idmarcap = $idmarca_get;
+		}
+		$q = "SELECT * FROM tb_linha WHERE idmarca='$idmarcap' ";
 		$r = mysqli_query($conexao, $q);
 		while ($row = mysqli_fetch_array($r)) {
 			$id_linha = $row['id'];
 			$titulo_linha = $row['titulo'];
 			$idmarca_linha = $row['idmarca'];
 
-			if ($idlinha == $id_linha)
+			if ($idlinhap == $id_linha)
 				echo "<option selected value='$id_linha'>$titulo_linha</option>";
 			else
 				echo "<option value='$id_linha'>$titulo_linha</option>";
@@ -75,13 +86,13 @@ if (
 	</select>
 
 
-
-
 	<label>Título:</label>
-	<input name="titulo" type="text" class="campo_m" value="<?php echo $titulop; ?>" />
+	<input name="titulo" type="text" required class="campo_m" value="<?php echo $titulop; ?>" />
 
 	<label>Descrição:</label>
-	<textarea name="descricao" class="campo_m" rows="15"><?php echo $descricaop; ?></textarea>
+	<span id="btn-br" class="btn-break">Quebrar Linha</span>
+	<textarea name="descricao" required class="campo_m" id="texto" rows="15"><?php echo $descricaop; ?></textarea>
+	<div class="boxAviso w-m">Aperte a tecla <b>Enter</b> ou use o botão acima para quebrar a linha do texto.</div>
 
 	<label>Anexo:</label>
 	<div class="col12" id="box-input-anexo">
@@ -92,15 +103,14 @@ if (
 			(<i id="legenda"></i>)
 			<div class="btn-remove" onclick='removerAnexo();'>&#10006;</div>
 		</div>
-		<input type="file" name="arquivo" id="arquivo" style="display:none" />
+		<!-- input upload -->
+		<input type="hidden" name="id_arquivo" id="id_arquivo" />
 	</div>
 	<?php
-	if (empty($fotop)) {
-		echo "<input name='arquivo' type='file' class='campo_m' accept='image/*'  />";
-	} else {
-		echo "<div id='box-anexo' class='box-anexo' style='display: flex;'>";
-		echo "<a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$id_marca' title='Excluir'><img src='imgs/btn-excluir-axeno.jpg' class='btDelAnexo' /></a>";
-		echo "<img src='files/$fotop' width='250' style='border:1px solid #CCC;' />";
+	if (!empty($fotop)) {
+		echo "<div id='box-anexo' class='box-anexo' style='display: block;'>";
+		echo "<a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$id_marca' title='Remover anexo'><img src='imgs/btn-excluir-anexo.jpg' style='position:absolute;cursor:pointer;' /></a>";
+		echo "<img src='files/$fotop' width='250' style='border:1px solid #CCC;margin:0 auto;' />";
 		echo "</div>";
 	}
 	?>
@@ -123,7 +133,6 @@ if (
 		<input type="submit" value="Cadastrar" class="btn-submit" />
 		<input type="button" value="Voltar" onClick="location.href='index.php?id=6'" class="btn-back" />
 		<input type="hidden" value="<?php echo $idproduto; ?>" name="idp" />
-		<input type="hidden" value="<?php echo $idmarca; ?>" name="idmarca" />
 	</div>
 
 </form>
@@ -136,10 +145,24 @@ if (!empty($fotop)) {
 }
 ?>
 
-<!--importa modulo Files -->
+<script src="js/quebraLinha.js"></script>
+
+<!-- IMPORT MODULO FILES -->
 <?php include_once "modulos/files/modal-files.php"; ?>
-<script src="modulos/files/files.js"></script>
-<link rel="stylesheet" href="modulos/files/files.css" />
-<!--importa modulo Files -->
+<script src="modulos/files/js/files.js"></script>
 
 <?php mysqli_close($conexao); ?>
+
+<script language="JavaScript">
+	function MM_jumpMenu(targ, selObj, restore) {
+		const valorSelecionado = selObj.options[selObj.selectedIndex].value;
+		if (!valorSelecionado) return;
+		const novaUrl = "index.php?id=6.2&m=" + valorSelecionado + "&idp=<?php echo $idproduto ?>";
+		if (targ === 'parent') {
+			window.parent.location.href = novaUrl;
+		} else {
+			window.location.href = novaUrl;
+		}
+		if (restore) selObj.selectedIndex = 0;
+	}
+</script>

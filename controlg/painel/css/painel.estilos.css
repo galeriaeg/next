@@ -13,6 +13,8 @@ body {
 }
 
 form {
+  width: 100%;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -42,7 +44,7 @@ form {
 
 #box-menu {
   width: 15%;
-  background: #e5e5e5;
+  background: #eee;
   border-bottom: 6px solid #0e7ec2;
   border-radius: 6px;
   float: left;
@@ -84,10 +86,11 @@ form {
   display: flex;
   float: left;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  background-color: #e5e5e5;
+  border: 0 solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
   padding: 1%;
-  align-items: center;
+  align-items: normal;
 }
 
 /****** ICONES *******/
@@ -116,6 +119,14 @@ img.icon-senha:hover {
 }
 
 /******* ALERTAS ******/
+.w-p {
+  width: 30% !important;
+}
+
+.w-m {
+  width: 60% !important;
+}
+
 .alerta-erro {
   font:
     normal 16px "Trebuchet MS",
@@ -156,8 +167,8 @@ img.icon-senha:hover {
   box-sizing: border-box;
 }
 
-.anexo-noticia {
-  width: 200px;
+.anexo-preview {
+  width: 160px;
   position: static;
   margin: 0 auto;
 }
@@ -169,7 +180,7 @@ img.icon-senha:hover {
   padding: 10px;
   box-sizing: border-box;
   width: 60%;
-  display: flex;
+  display: block;
   justify-content: center;
 }
 
@@ -392,6 +403,24 @@ input.btn-simples:hover {
   padding: 4px 8px;
 }
 
+.btn-break {
+  background: #c4dcff;
+  background: linear-gradient(
+    0deg,
+    rgba(196, 220, 255, 1) 0%,
+    rgba(211, 227, 253, 1) 33%,
+    rgba(240, 245, 255, 1) 100%
+  );
+  color: #5592b8;
+  padding: 3px 8px;
+  margin-left: 44%;
+  font-size: 13px;
+  cursor: pointer;
+}
+span.btn-break:hover {
+  color: #015f99;
+}
+
 /***** GRID *****/
 
 table {
@@ -486,11 +515,6 @@ li i {
   cursor: pointer;
   /* border-radius: 5px;
   margin: 0 5px;*/
-}
-.box-paginacao button:hover {
-  /* background-color: #3c6eba;
-  border: 1px solid #3c6eba;
-  color: #fff;*/
 }
 
 /**** DROPDOWN ******/

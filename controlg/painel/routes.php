@@ -95,40 +95,19 @@ function cont()
 
 
 		case "4":
-			$titulo = "Files";
+			$titulo = "Arquivos";
 			include("modulos/files/index.php");
 			break;
 
-		// case "4.1":
-		// 	$titulo = "Cadastrar Fonte";
-		// 	include("modulos/noticias-fontes/cadastra.php");
-		// 	break;
+		case "4.1":
+			$titulo = "Cadastrar Arquivo";
+			include("modulos/files/resp_cadastra.php");
+			break;
 
-		// case "4.1.1":
-		// 	$titulo = "Cadastrar Fonte";
-		// 	include("modulos/noticias-fontes/resp_cadastra.php");
-		// 	break;
-
-		// case "4.2":
-		// 	$tit = "Editar Fonte";
-		// 	include("modulos/noticias-fontes/edita.php");
-		// 	break;
-
-		// case "4.2.1":
-		// 	$titulo = "Editar Fonte";
-		// 	include("modulos/noticias-fontes/resp_edita.php");
-		// 	break;
-
-		// case "4.3":
-		// 	$titulo = "Excluir Fonte";
-		// 	include("modulos/noticias-fontes/resp_deleta.php");
-		// 	break;
-
-		// case "4.4":
-		// 	$titulo = "Fonte/Excluir Anexo";
-		// 	include("modulos/noticias-fontes/resp_deleta_upload.php");
-		// 	break;
-
+		case "4.2":
+			$titulo = "Excluir Arquivo";
+			include("modulos/files/resp_deleta_arquivo.php");
+			break;
 
 
 
@@ -148,7 +127,7 @@ function cont()
 			break;
 
 		case "5.2":
-			$tit = "Editar Slide";
+			$titulo = "Editar Slide";
 			include("modulos/slide/edita.php");
 			break;
 
@@ -163,11 +142,14 @@ function cont()
 			break;
 
 		case "5.4":
-			$titulo = "Slide/Excluir Anexo";
+			$titulo = "Excluir Anexo";
 			include("modulos/slide/resp_upload.php");
 			break;
 
-
+		case "5.5":
+			$titulo = "Excluir Anexo";
+			include("modulos/slide/resp_remove_anexo.php");
+			break;
 
 
 
@@ -205,9 +187,6 @@ function cont()
 			$titulo = "Excluir Produto";
 			include("modulos/produtos/resp_deleta.php");
 			break;
-
-
-
 
 
 
@@ -288,6 +267,10 @@ function cont()
 			include("modulos/linhas/index.php");
 			break;
 
+		case "9.1":
+			$titulo = "Cadastrar Linhas";
+			include("modulos/linhas/cadastra.php");
+			break;
 
 		case "9.1.1":
 			$titulo = "Cadastrar Linha";
@@ -317,7 +300,7 @@ function cont()
 			break;
 
 		case "10.1":
-			$titulo = "Cadastrar  Área de atuação";
+			$titulo = "Cadastrar Área de atuação";
 			include("modulos/area-atuacao/cadastra.php");
 			break;
 
@@ -338,7 +321,7 @@ function cont()
 
 		case "10.2.2":
 			$titulo = " Área de atuação/Excluir Anexo";
-			include("modulos/area-atuacao/resp_deleta_upload.php");
+			include("modulos/area-atuacao/resp_deleta_anexo.php");
 			break;
 
 		case "10.3":
@@ -360,6 +343,41 @@ function cont()
 			break;
 
 
+
+		case "12":
+			$titulo = "Cards das Linhas";
+			include("modulos/linhas-cards/index.php");
+			break;
+
+		case "12.1":
+			$titulo = "Cadastrar Card Linha";
+			include("modulos/linhas-cards/cadastra.php");
+			break;
+
+		case "12.1.1":
+			$titulo = "Cadastrar Card Linha";
+			include("modulos/linhas-cards/resp_cadastra.php");
+			break;
+
+		case "12.2":
+			$titulo = "Editar Card Linha";
+			include("modulos/linhas-cards/edita.php");
+			break;
+
+		case "12.2.1":
+			$titulo = "Editar Card Linha";
+			include("modulos/linhas-cards/resp_edita.php");
+			break;
+
+		case "12.2.2":
+			$titulo = "Remove Anexo Card Linha";
+			include("modulos/linhas-cards/resp_deleta_anexo.php");
+			break;
+
+		case "12.3":
+			$titulo = "Excluir Card Linha";
+			include("modulos/linhas-cards/resp_deleta.php");
+			break;
 
 
 		default:

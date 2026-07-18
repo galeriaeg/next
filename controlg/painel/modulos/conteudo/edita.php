@@ -10,7 +10,7 @@ if (
 	(empty($tipoCont)) ||
 	(empty($pagina))
 ) {
-	echo "<script>window.location = 'index.php'</script>";
+	echo "<script>window.location.href = 'index.php'</script>";
 	exit();
 } else {
 
@@ -61,20 +61,21 @@ if (
 <!-- TEXTAREA EDITOR -->
 
 
-<form action="index.php?id=8.2.1" method="post" name="formc" name="formConteudo" onSubmit="return conteudo(this)">
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
-	<legend>
-		<h3><?php echo $tit; ?></h3>
-	</legend>
+<form action="index.php?id=8.2.1" method="post" name="formc" name="formConteudo" onSubmit="return conteudo(this)">
 
 	<span class="txt">Tipo: <?php echo $tipo . " - <b>" . $pagina; ?></b></span><br /><br />
 
 	<label>T&iacute;tulo:</label>
-	<input name="titulo" type="text" class="campo_m" value="<?php echo $titulo; ?>" />
+	<input name="titulo" type="text" required class="campo_m" value="<?php echo $titulo; ?>" />
 
 
 	<label>Texto:</label>
-	<textarea id="textarea-1" name="texto" cols="50" rows="25"><?php echo $texto; ?></textarea>
+	<textarea id="textarea-1" name="texto" required cols="50" rows="25"><?php echo $texto; ?></textarea>
+	<div class="boxAviso w-m" style="margin-top:7px">Crie container com: class="box-gen"</div>
 
 	<?php
 	if ($tipo == 1) {

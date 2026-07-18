@@ -12,12 +12,11 @@ $qtde =  mysqli_num_rows($resultado);
 while ($row = $cons->fetch_array()) {
 	$idNoticia	= 	$row['id'];
 	$tituloNoticia	=	$row['titulo'];
-	$fotoNoticia	=	$row['foto'];
+	$fotoNoticia	=	$row['file'];
 	$descricao	=	$row['descricao'];
 	$data	=	$row['data'];
 	$status	=	$row['status'];
 }
-
 
 if (empty($fotoNoticia)) {
 	//echo "nao tem foto";
@@ -29,11 +28,7 @@ if (empty($fotoNoticia)) {
 	$displayImagem = "block";
 }
 
-// $dateObj = DateTime::createFromFormat('d/m/Y', $data);
-// $data_formatada = $dateObj ? $dateObj->format('Y-m-d') : '';
-
 $data_formatada = date('Y-m-d', strtotime($data));
-
 ?>
 
 <!-- TEXTAREA EDITOR -->
@@ -66,35 +61,40 @@ $data_formatada = date('Y-m-d', strtotime($data));
 </script>
 <!-- TEXTAREA EDITOR -->
 
+<!-- CSS MODULO FILES -->
+<link rel="stylesheet" href="modulos/files/css/files.css" />
 
 <script type="text/javascript" src="js/global.js"></script>
 
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
+
 <form action="index.php?id=3.2.1" enctype="multipart/form-data" method="post" name="formNoticias" onSubmit="return noticias(this)">
 
-	<legend>
-		<h3><?php echo $titulo; ?></h3>
-	</legend>
-
-	<input name="data" type="date" class="campo_p" value="<?php echo $data_formatada; ?>" />
+	<input name="data" required type="date" class="campo_p" value="<?php echo $data_formatada; ?>" />
 
 	<label>Título:</label>
-	<input name="titulo" value="<?php echo $tituloNoticia; ?>" type="text" maxlength="100" class="campo_m" />
+	<input name="titulo" required value="<?php echo $tituloNoticia; ?>" type="text" maxlength="100" class="campo_m" />
 
 	<label>Texto:</label>
 	<textarea id="textarea-1" name="texto" class="campo_m" rows="8"><?php echo $descricao; ?></textarea>
 	<br />
+
 	<label>Anexo:</label>
-	<input type="file" name="arquivo" class="campo_m" accept="image/*" <?php echo $ativaInput; ?> onchange="abreAnexo(this)" />
+	<div class="col12" id="box-input-anexo">
+		<a id="btn-anexar" class="btn-anexar" onclick="abreFechaModalFiles(1)"><i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp; Anexar Imagem</a>
+		<div class="box-file" id="box-file" style="display:none;">
+			<i class="fa fa-check" aria-hidden="true"></i>Imagem anexada (<i id="legenda"></i>)
+			<div class="btn-remove" onclick='removerAnexo();'>&#10006;</div>
+		</div>
+		<input type="hidden" name="id_arquivo" id="id_arquivo" />
+	</div>
+
 	<!-- Visualização do anexo na base-->
 	<span class="box-anexo" style="display:<?php echo $displayImagem; ?>">
-		<a href="index.php?id=3.4&idn=<?php echo $idNoticia; ?>"><img src="imgs/btn-excluir-axeno.png" title="Excluir anexo" alt="anexo" style="position:absolute;cursor:pointer;" /></a>
+		<a href="index.php?id=3.4&idn=<?php echo $idNoticia; ?>"><img src="imgs/btn-excluir-anexo.jpg" title="Remover anexo" alt="anexo" style="position:absolute;cursor:pointer;" /></a>
 		<img src="files/<?php echo $fotoNoticia; ?>" alt="anexo" class="anexo-noticia" />
-	</span>
-
-	<!-- Visualização do anexo no upload-->
-	<span id="box-anexo" class="box-anexo" style="display: none;">
-		<img src="imgs/btn-excluir-axeno.png" alt="anexo" onclick="fechaAnexo();" style="position:absolute;cursor:pointer;" />
-		<img id="view" class="anexo-noticia" />
 	</span>
 
 
@@ -120,6 +120,19 @@ $data_formatada = date('Y-m-d', strtotime($data));
 	</div>
 
 </form>
+
+<?php
+// Remove botão Upload se existir anexo cadastrado
+if (!empty($fotoNoticia)) {
+	echo "<script>document.getElementById('box-input-anexo').remove();</script>";
+}
+?>
+
+<!-- IMPORT MODULO FILES -->
+<script src="modulos/files/js/files.js"></script>
+<?php include_once "modulos/files/modal-files.php"; ?>
+
+
 
 <?php mysqli_close($conexao); ?>
 

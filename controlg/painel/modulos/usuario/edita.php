@@ -21,12 +21,14 @@ while ($row = $cons->fetch_array()) {
 // Bloqueia acesso indevido
 if (($tipoUserSession != 1) && ($idUserSetado != $idUserSession)) {
 	echo "Sem acesso";
-	echo "<script type='text/javascript'>window.location = 'logout.php'</script>";
+	echo "<script type='text/javascript'>window.location.href = 'logout.php'</script>";
 	exit();
 }
 ?>
 
-<?php echo "<h3>$titulo</h3>"; ?>
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
 
 <form action="index.php?id=2.2.1" method="POST">
 	<?php

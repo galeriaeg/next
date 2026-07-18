@@ -11,6 +11,7 @@ function logon(formLogin) {
     formLogin.senha.focus();
     return false;
   }
+  return true;
 }
 
 function mostraEsconde() {
@@ -26,4 +27,20 @@ function mostraEsconde() {
     img.src = "imgs/icon-senha-off.png";
     inputSenha.type = "password";
   }
+}
+
+//VALIDA RESETE DE SENHA
+function resetaSenha(formReset) {
+  var email = formReset.email.value;
+  if (email == "") {
+    alert("Informe seu e-mail!");
+    formReset.email.focus();
+    return false;
+  }
+  if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+    alert("Por favor, informe um e-mail válido!");
+    formReset.email.focus();
+    return false;
+  }
+  return true;
 }

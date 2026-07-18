@@ -1,4 +1,4 @@
-const linhasPorPagina = 7; // <--- AJUSTE A QUANTIDADE AQUI
+const linhasPorPagina = 10; // <--- AJUSTE A QUANTIDADE AQUI
 let paginaAtual = 0;
 const linhas = document.querySelectorAll("#corpoTabela tr");
 

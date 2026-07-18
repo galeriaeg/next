@@ -18,6 +18,13 @@ form {
   margin: 0;
 }
 
+label {
+  color: #0e7ec2;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 1.2rem;
+}
+
 a {
   color: #777;
   text-decoration: none;
@@ -29,7 +36,7 @@ a:hover {
 
 footer {
   color: #888;
-  margin-top: 25px;
+  margin-top: 47px;
   text-align: center;
   font-size: 13px !important;
 }
@@ -46,10 +53,10 @@ footer a {
 
 /**** IMAGEM *****/
 .logomarca {
-  width: 200px;
-  margin: 0 auto;
-  float: left;
-  margin: 10px 50px 30px 50px;
+  width: auto;
+  height: 42px;
+  display: block;
+  margin: 10px auto 30px auto;
 }
 
 /**** FORMULARIO *****/
@@ -66,7 +73,7 @@ footer a {
 }
 
 .botao {
-  background: #999;
+  background: #666;
   color: #fff;
   padding: 12px 20px;
   border: 0;
@@ -85,7 +92,7 @@ input.botao:hover {
 /**** ESTRUTURA *****/
 .box-center {
   width: 300px;
-  min-height: 313px;
+  min-height: 308px;
   position: absolute;
   top: 50%;
   left: 50%;

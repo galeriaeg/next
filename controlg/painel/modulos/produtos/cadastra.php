@@ -4,9 +4,8 @@ $idmarca = $_GET['m'];
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 ?>
 
-
 <legend>
-	<h3><?php echo $titulo; ?></h3>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
 </legend>
 
 <form action="index.php?id=6.1.1" enctype="multipart/form-data" method="POST" name="formFonte" onSubmit="return fonte(this)">
@@ -46,18 +45,19 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 	<input name="titulo" required type="text" class="campo_m" />
 
 	<label>Descrição:</label>
-	<textarea name="descricao" required class="campo_m" rows="15"></textarea>
+	<span id="btn-br" class="btn-break">Quebrar Linha</span>
+	<textarea name="descricao" required class="campo_m" id="texto" rows="15"></textarea>
+	<div class="boxAviso w-m">Aperte a tecla <b>Enter</b> ou use o botão acima para quebrar a linha do texto.</div>
 
 	<label>Anexo:</label>
 	<div class="col12">
 		<a id="btn-anexar" class="btn-anexar" onclick="abreFechaModalFiles(1)"><i class="fa fa-paperclip" aria-hidden="true"></i>&nbsp; Anexar Imagem</a>
 		<div class="box-file" id="box-file" style="display:none;">
 			<i class="fa fa-check" aria-hidden="true"></i>
-			Imagem anexada
-			(<i id="legenda"></i>)
+			Imagem anexada (<i id="legenda"></i>)
 			<div class="btn-remove" onclick='removerAnexo();'>&#10006;</div>
 		</div>
-		<input type="file" name="arquivo" id="arquivo" style="display:none" />
+		<input type="hidden" name="id_arquivo" id="id_arquivo" />
 	</div>
 
 	<div class="col12">
@@ -76,14 +76,14 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 </form>
 
 
+<script src="js/quebraLinha.js"></script>
+
 <!--importa modulo Files -->
+<script src="modulos/files/js/files.js"></script>
+<link rel="stylesheet" href="modulos/files/css/files.css" />
 <?php include_once "modulos/files/modal-files.php"; ?>
-<script src="modulos/files/files.js"></script>
-<link rel="stylesheet" href="modulos/files/files.css" />
 <!--importa modulo Files -->
 
-
-<script src="js/cropper.js"></script>
 <script language="JavaScript">
 	function MM_jumpMenu(targ, selObj, restore) {
 		const valorSelecionado = selObj.options[selObj.selectedIndex].value;

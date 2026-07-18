@@ -1,41 +1,26 @@
 <?php
-	include "session.php";
-	
-	$celular =	$_POST['celular'];
-	$email =	$_POST['email'];
-	$senha =	$_POST['senha'];
-	
-	//echo $senha = base64_decode($senha); 
-	
-	if( (empty($celular)) || (empty($email)) ) {
-		echo "<script>window.location = 'logout.php';</script>";
-		exit();
-	}
-	else{
-		echo "foi";
-		include "../conecta.php"; 
-		
-		if(empty($senha)){
-		
-			$sql = "UPDATE contatos SET celular='$celular', email='$email' WHERE tipo = 'default' ";
-			$update = mysqli_query($conexao, $sql);			
-			
-		}
-		else{
-			
-			$senha = base64_encode($senha);
-		
-			$sql = "UPDATE contatos SET celular='$celular', email='$email', senha_email='$senha' WHERE tipo = 'default' ";
-			$update = mysqli_query($conexao, $sql);			
-			
-		}
-		
+include "session.php";
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-		echo"<script>
-		alert('Cadastro realizado com sucesso!');
-		window.location = 'index.php?id=11';
-		</script>";
+$celular	= mysqli_real_escape_string($conexao, $_POST['celular'] ?? '');
+$email 	=	mysqli_real_escape_string($conexao, $_POST['email'] ?? '');
+$email = mb_strtolower($email, 'UTF-8');
+$status 	=	isset($_POST['status']) ? $_POST['status'] : '0';
 
+
+if ((empty($celular)) || (empty($email))) {
+	echo "<script>window.location.herf = 'logout.php';</script>";
+	exit();
+} else {
+
+	$sql = "UPDATE tb_contatos SET celular='$celular', email='$email', status='$status' WHERE dados_default = 'SIM' ";
+	$update = mysqli_query($conexao, $sql);
+
+	if ($update > 0) {
+		echo "<script>
+			alert('Cadastro realizado com sucesso!');
+			window.location.href = 'index.php?id=11';
+			</script>";
 	}
-	mysqli_close($conexao);
-?>				
+}
+mysqli_close($conexao);

@@ -9,7 +9,7 @@ $nome_arquivo = basename($_FILES['arquivo']['name']);
 $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
 if ((empty($idMarca)) || (empty($nome))) {
-	echo "<script>window.location = 'logout.php'</script>";
+	echo "<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 
@@ -58,7 +58,7 @@ if ((empty($idMarca)) || (empty($nome))) {
 	echo "
 		<script>
 		alert('Cadastro realizado com sucesso!');
-		window.location = 'index.php?id=7';
+		window.location.href = 'index.php?id=7';
 		</script>";
 }
 

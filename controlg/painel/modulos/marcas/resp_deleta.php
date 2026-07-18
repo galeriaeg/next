@@ -1,15 +1,17 @@
+<?php include "session.php"; ?>
+
+<legend>
+	<h3><?php echo isset($titulo) ? $titulo : ''; ?></h3>
+</legend>
+
 <?php
-include "session.php";
-
-echo "<h3>$titulo</h3>";
-
 $idMarca = $_GET['idMarca'];
 $nome = $_GET['nome'];
 $nomeArquivo = $_GET['nome_arquivo'];
 $conf = $_GET['conf'];
 
 if ((empty($idMarca)) || (empty($nome))) {
-	echo "<script>window.location = 'logout';</script>";
+	echo "<script>window.location.href = 'logout';</script>";
 	exit();
 } else {
 
@@ -20,7 +22,7 @@ if ((empty($idMarca)) || (empty($nome))) {
 	$total = mysqli_num_rows($cons);
 	if ($total > 0) {
 		echo "<script>alert('Não é possível excluir a marca $nome. Há $total produto(s) relacionado(s) à ela.');</script>";
-		echo "<script>window.location='index.php?id=7'</script>";
+		echo "<script>window.location.href='index.php?id=7'</script>";
 		exit();
 	}
 

@@ -2,12 +2,12 @@
 include "session.php";
 
 $idproduto = $_POST['idp'];
-$marca = $_POST['idmarca'];
+$marca = $_POST['marca'];
 $linha = $_POST['linha'];
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
 $status = $_POST['status'];
-$nome_arquivo = basename($_FILES['arquivo']['name']);
+$idarquivo = $_POST['id_arquivo'];
 
 if (
 	(empty($idproduto)) ||
@@ -17,60 +17,41 @@ if (
 	(empty($descricao))
 ) {
 	echo "
-		<script>window.location = 'logout.php'</script>";
+		<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 
 	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-	if (empty($nome_arquivo)) {
+	if (empty($idarquivo)) {
 		//Atualiza sem anexo
 		$sql = "UPDATE tb_produto SET titulo='$titulo',descricao='$descricao',idmarca='$marca',idlinha='$linha',status='$status' WHERE id = '$idproduto' ";
 		$update = mysqli_query($conexao, $sql);
 		echo "<script>
     		alert('Cadastro realizado com sucesso!');
-    		window.location = 'index.php?id=6&m=$marca';
+    		window.location.href = 'index.php?id=6&m=$marca';
     		</script>";
 	} else {
+		//Atualiza com anexo
 
-		$sql = "UPDATE tb_produto SET titulo='$titulo',descricao='$descricao',foto='$nome_arquivo',idmarca='$marca',idlinha='$linha',status='$status' WHERE id = '$idproduto' ";
+		// pega nome do arquivo
+		$sql = "SELECT imagem FROM tb_files WHERE id='$idarquivo' ";
+		$res = mysqli_query($conexao, $sql);
+		while ($row = mysqli_fetch_array($res)) {
+			$file = $row['imagem'];
+		}
+
+		// atualiza com novo arquivo
+		$sql = "UPDATE tb_produto SET titulo='$titulo',descricao='$descricao',file='$file',idfile='$idarquivo',idmarca='$marca',idlinha='$linha',status='$status' WHERE id = '$idproduto' ";
 		$update = mysqli_query($conexao, $sql);
-		echo "
-				<script type='text/javascript'>
-				alert('Cadastro realizado com sucesso!');
-				window.location = 'index.php?id=6&m=$marca';
-				</script>";
 
-		/*
-		$ran = rand();
-		$nome_arquivo = $ran . $nome_arquivo;
-
-		//verifica o tipo de arquivo
-		$valida = substr($nome_arquivo, -4);
-		if (($valida <> ".jpg") and ($valida <> ".gif") and ($valida <> ".png")) {
+		if ($file > 0) {
 			echo "
-				<script type='text/javascript'>
-				alert('Erro! O tipo de arquivo não é permitido! ');
-				window.history.back();
-				</script>
-				";
-			exit;
+					<script type='text/javascript'>
+					alert('Cadastro realizado com sucesso!');
+					window.location.href = 'index.php?id=6&m=$marca';
+					</script>";
 		}
-
-		$uploaddir = 'files/';
-		$uploadfile = $uploaddir . $nome_arquivo;
-
-		if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
-
-			$sql = "UPDATE tb_produto SET titulo='$titulo',descricao='$descricao',foto='$nome_arquivo',idmarca='$marca',idlinha='$linha',status='$status' WHERE id = '$idproduto' ";
-			$update = mysqli_query($conexao, $sql);
-			echo "
-				<script type='text/javascript'>
-				alert('Cadastro realizado com sucesso!');
-				window.location = 'index.php?id=6&m=$marca';
-				</script>";
-		}
-		*/
 	}
 }
 mysqli_close($conexao);

@@ -33,8 +33,8 @@ if ($qtd < 1) {
 
   <?php
   if ($mapa) {
-    echo "<h3 style='margin-bottom: 20px;'>
-    <i class='fa fa-map-marker' aria-hidden='true'></i>
+    echo "<h3 style='margin-bottom: 20px;' class='verde'>
+    <i class='fa fa-map-marker verde' aria-hidden='true'></i>
       &nbsp;Onde estamos
     </h3>";
     echo "<iframe class='imapa' src='$mapa' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>";

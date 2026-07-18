@@ -8,7 +8,7 @@ $senha = $_POST['senha'];
 $senha_crip = md5($senha);
 
 if ((empty($idUserAtual)) || (empty($senha))) {
-	echo "<script>window.location = 'logout.php'</script>";
+	echo "<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
 	$tamanho = mb_strlen($senha);
@@ -26,7 +26,7 @@ if ((empty($idUserAtual)) || (empty($senha))) {
 	if ($update > 0) {
 		echo "<script>alert('Senha alterada com sucesso! Faça login novamente.');</script>";
 		//echo "<script>window.location.href = 'index.php?id=2.2&u=$idUserAtual'</script>";
-		echo "<script>window.location = 'logout.php'</script>";
+		echo "<script>window.location.href = 'logout.php'</script>";
 		exit();
 	}
 }
