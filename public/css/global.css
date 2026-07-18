@@ -243,7 +243,7 @@ main {
   width: 80%;
   display: block;
   margin: 0 auto;
-  margin-bottom: 80px;
+  margin-bottom: 180px;
 }
 
 footer {
@@ -445,9 +445,9 @@ a:hover {
 }
 
 /******** MOBILE *********/
-@media (min-width: 325px) and (max-width: 614px) {
+@media (max-width: 614px) {
   header {
-    padding: 25px 4%;
+    padding: 25px 5%;
   }
 
   nav {
@@ -455,5 +455,13 @@ a:hover {
     padding: 0; /*ajusta largura do site*/
     box-sizing: border-box;
     color: #b4e9e3;
+  }
+
+  main {
+    border: 0 solid #ccc;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 180px;
   }
 }

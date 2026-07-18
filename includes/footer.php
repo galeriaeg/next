@@ -7,8 +7,7 @@
   <a href="produtos">Produtos</a> ▪
   <a href="atuacao">Área de atuação</a> ▪
   <a href="contato">Contato</a> ▪
-  <a href="#">Webmail</a> ▪
-  <a href="controlg">Admin</a>
+  <a href="#">Webmail</a>
   <br />
   Dev: <a href="#">Galeria Design & Web</a>
 </h5>

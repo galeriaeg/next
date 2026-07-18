@@ -1,8 +1,7 @@
-<?php
-require_once "includes/slide.php";
+<?php require_once "includes/slide.php"; ?>
+<img src='public/imgs/sombra-slide.png' class="sombra-slide" alt='sombra' />
 
-include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
-?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php'); ?>
 
 <section class="col12 grupo-cards">
 
@@ -12,7 +11,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
       <img src="public/imgs/ico-news.png" alt="icone" class="icon-card" />
     </div>
     <?php
-    $sql = "SELECT id, titulo, descricao, data FROM tb_noticiaS WHERE status =1 ORDER BY ID DESC LIMIT 1 ";
+    $sql = "SELECT id, titulo, descricao, data FROM tb_noticias WHERE status =1 ORDER BY ID DESC LIMIT 1 ";
     $res = mysqli_query($conexao, $sql);
     $qtd = mysqli_num_rows($res);
     while ($row = mysqli_fetch_array($res)) {
@@ -34,8 +33,8 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
       <div class="hero">Soluções</div>
       <img src="public/imgs/ico-solucoes.png" alt="icone" class="icon-card" />
     </div>
-    <h2>Estamos sempre atentos às novas tecnologias e às necessidades dos nossos clientes.</h2>
-    <a href="#" class="aw">
+    <h2>Trabalhamos com tecnologia de ponta e foco total nas necessidades dos nossos clientes.</h2>
+    <a href="produtos" class="aw">
       Nossas parcerias com grandes marcas do mercado garantem seriedade, segurança e tecnologia de ponta.</a>
   </div>
 
@@ -44,9 +43,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
       <div class="hero">Área de atuação</div>
       <img src="public/imgs/ico-mapa.png" alt="icone" class="icon-card" />
     </div>
-    <h2>Estamos sempre atentos às novas tecnologias e às necessidades dos nossos clientes.</h2>
-    <a href="#" class="a">
-      Nossas parcerias com grandes marcas do mercado garantem seriedade, segurança e tecnologia de ponta.</a>
+    <h2>A NextMed expande sua atuação comercial para ir mais longe e otimizar o seu atendimento.</h2>
+    <a href="area-atuacao" class="a">
+      Descubra onde estamos e fale agora com um de nossos consultores comerciais.</a>
   </div>
 
 </section>

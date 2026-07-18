@@ -67,7 +67,7 @@
 }
 
 /******** MOBILE *********/
-@media (min-width: 325px) and (max-width: 614px) {
+@media (max-width: 614px) {
   ul {
     display: block;
   }

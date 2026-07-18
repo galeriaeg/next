@@ -1,56 +1,185 @@
-#box-slide {
-  width: 100%; /* Ocupa toda a largura disponível */
-  aspect-ratio: 16 / 4; /* Mantém a proporção exata de 16:4 */
-  display: flex;
-  flex-direction: row;
+/******** DESKTOP *********/
+@media (min-width: 867px) {
+  #box-slide {
+    width: 100%; /* Ocupa toda a largura disponível */
+    aspect-ratio: 16 / 4; /* Mantém a proporção exata de 16:4 */
+    flex-direction: row;
+    display: flex;
 
-  /* Ativa a rolagem horizontal e esconde a vertical */
-  overflow-x: auto;
-  overflow-y: hidden;
+    /* Ativa a rolagem horizontal e esconde a vertical */
+    overflow-x: auto;
+    overflow-y: hidden;
 
-  /* Efeito de rolagem suave e "imã" (Snap) */
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  border: 0;
+    /* Efeito de rolagem suave e "imã" (Snap) */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    border: 0;
 
-  /* --- CODIGO PARA ESCONDER A BARRA DE ROLAGEM --- */
-  scrollbar-width: none; /* Para Firefox */
-  -ms-overflow-style: none; /* Para Internet Explorer/Edge antigo */
+    /* --- CODIGO PARA ESCONDER A BARRA DE ROLAGEM --- */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer/Edge antigo */
+  }
+  /* Para Chrome, Safari e novas versões do Edge */
+  #box-slide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slide-desk {
+    display: block !important;
+  }
+  .slide-mob {
+    display: none !important;
+  }
+
+  .sombra-slide {
+    width: 100%;
+    height: 8px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1px;
+    float: inline-end;
+  }
+
+  .card {
+    /* Garante que cada card ocupe exatamente o tamanho do box-slide */
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background-size: cover;
+
+    /* Faz o card "grudar" nas bordas ao rolar */
+    scroll-snap-align: start;
+
+    /* Estilização opcional dos cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: rgb(183, 219, 168);
+    background-color: #eee;
+  }
 }
-/* Para Chrome, Safari e novas versões do Edge */
-#box-slide::-webkit-scrollbar {
-  display: none;
+
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  #box-slide {
+    width: 100%; /* Ocupa toda a largura disponível */
+    aspect-ratio: 16 / 4; /* Mantém a proporção exata de 16:4 */
+    flex-direction: row;
+    display: flex;
+
+    /* Ativa a rolagem horizontal e esconde a vertical */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* Efeito de rolagem suave e "imã" (Snap) */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    border: 0;
+
+    /* --- CODIGO PARA ESCONDER A BARRA DE ROLAGEM --- */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer/Edge antigo */
+  }
+  /* Para Chrome, Safari e novas versões do Edge */
+  #box-slide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slide-desk {
+    display: block !important;
+  }
+  .slide-mob {
+    display: none !important;
+  }
+
+  .sombra-slide {
+    width: 100%;
+    height: 8px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 14px;
+  }
+
+  .card {
+    /* Garante que cada card ocupe exatamente o tamanho do box-slide */
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background-size: cover;
+
+    /* Faz o card "grudar" nas bordas ao rolar */
+    scroll-snap-align: start;
+
+    /* Estilização opcional dos cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: rgb(183, 219, 168);
+    background-color: #eee;
+  }
 }
 
-.card {
-  /* Garante que cada card ocupe exatamente o tamanho do box-slide */
-  min-width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  background-size: cover;
+/******** MOBILE *********/
+@media (max-width: 614px) {
+  #box-slide {
+    width: 100%; /* Ocupa toda a largura disponível */
+    aspect-ratio: 4 / 3; /* Mantém a proporção */
+    flex-direction: row;
+    display: flex;
 
-  /* Faz o card "grudar" nas bordas ao rolar */
-  scroll-snap-align: start;
+    /* Ativa a rolagem horizontal e esconde a vertical */
+    overflow-x: auto;
+    overflow-y: hidden;
 
-  /* Estilização opcional dos cards */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: rgb(183, 219, 168);
-  background-color: #eee;
-}
+    /* Efeito de rolagem suave e "imã" (Snap) */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    border: 0;
 
-/* Cores dos cards apenas para diferenciação */
-/* #card1 {
-  background-color: #3498db;
+    /* --- CODIGO PARA ESCONDER A BARRA DE ROLAGEM --- */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer/Edge antigo */
+  }
+  /* Para Chrome, Safari e novas versões do Edge */
+  #box-slide::-webkit-scrollbar {
+    display: none;
+  }
+  .slide-desk {
+    display: none !important;
+  }
+  .slide-mob {
+    display: block !important;
+  }
+  .card {
+    /* Garante que cada card ocupe exatamente o tamanho do box-slide */
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    background-size: cover;
+
+    /* Faz o card "grudar" nas bordas ao rolar */
+    scroll-snap-align: start;
+
+    /* Estilização opcional dos cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: rgb(183, 219, 168);
+    background-color: #eee;
+  }
+  .sombra-slide {
+    width: 100%;
+    height: 8px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 14px;
+    margin-top: 1px;
+    float: inline-end;
+  }
 }
-#card2 {
-  background-color: #e74c3c;
-}
-#card3 {
-  background-color: #2ecc71;
-} */
 
 /* Estilização básica dos botões */
 .navegacao {
@@ -79,10 +208,4 @@
   background-color: #000 !important; /* Cor verde para o botão ativo */
   color: white;
   font-weight: normal;
-}
-
-.sombra-slide {
-  display: block;
-  margin: 0 auto;
-  margin-top: 14px;
 }
