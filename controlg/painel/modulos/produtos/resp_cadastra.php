@@ -1,9 +1,12 @@
 <?php
 include "session.php";
+
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 $titulo =	$_POST['titulo'];
 $descricao = $_POST['descricao'];
+$descricao = mysqli_real_escape_string($conexao, $descricao);
+
 $idarquivo = $_POST['id_arquivo'];
 $idmarca =	$_POST['marca'];
 $idlinha =	$_POST['linha'];

@@ -1,11 +1,15 @@
 <?php
 include "session.php";
 
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
+
 $idproduto = $_POST['idp'];
 $marca = $_POST['marca'];
 $linha = $_POST['linha'];
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
+$descricao = mysqli_real_escape_string($conexao, $descricao);
+
 $status = $_POST['status'];
 $idarquivo = $_POST['id_arquivo'];
 
@@ -20,8 +24,6 @@ if (
 		<script>window.location.href = 'logout.php'</script>";
 	exit();
 } else {
-
-	include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 	if (empty($idarquivo)) {
 		//Atualiza sem anexo

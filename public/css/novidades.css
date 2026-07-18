@@ -1,5 +1,5 @@
-/* DESK */
-@media (min-width: 769px) {
+/******** DESKTOP *********/
+@media (min-width: 867px) {
   .foto-novidade {
     width: 450px;
     float: left;
@@ -8,11 +8,26 @@
     padding: 3px;
     border: 1px solid #ccc;
   }
+  .conteudo {
+    margin-top: 40px;
+    display: inline-block;
+  }
 }
 
-.conteudo {
-  margin-top: 40px;
-  display: inline-block;
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  .foto-novidade {
+    width: 260px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 4px;
+    padding: 3px;
+    border: 1px solid #ccc;
+  }
+  .conteudo {
+    margin-top: 40px;
+    display: inline-block;
+  }
 }
 
 .tag-data {

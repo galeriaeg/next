@@ -19,7 +19,8 @@ if ($qtd < 1) {
 }
 ?>
 
-<script src="public/js/area-atuacao.js"></script>
+<script src="public/js/area-atuacao.js" defer></script>
+
 <section>
   <div class="label-page">
     <h3><?php echo $pagina; ?></h3>

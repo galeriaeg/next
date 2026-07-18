@@ -93,19 +93,61 @@
   button.btn-whatsapp:hover {
     background-position: left bottom;
   }
+
+  .info-produto {
+    width: 75%;
+    padding-left: 5%;
+    box-sizing: border-box;
+    margin-bottom: 125px;
+  }
+
+  .img-produto {
+    width: 100%;
+    float: left;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 0;
+  }
 }
 
 /******** TABLET *********/
 @media (min-width: 615px) and (max-width: 866px) {
-  .select {
-    margin: 0 8px;
+  .box-filtro {
+    background-color: #eee;
+    padding: 12px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px #ddd;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #777;
+    border: 1px solid #ccc;
   }
+  .select {
+    margin: 0 12px;
+  }
+  .logo-produto {
+    width: 135px;
+    border: 1px solid #e2e2e2;
+    margin-bottom: 35px;
+    border-radius: 5px;
+  }
+
+  .card-grupo {
+    border: 0 solid green;
+    display: flex;
+    margin-bottom: 40px;
+    flex-flow: wrap;
+  }
+
   .card-produto {
-    width: 20%;
+    width: 22.15%;
   }
 
   .card-first {
-    margin-right: 6.6%;
+    margin-right: 3.6%;
     margin-bottom: 25px;
     float: left;
   }
@@ -146,6 +188,37 @@
   }
   .card-produto:hover img {
     transform: scale(1.1);
+  }
+  .btn-whatsapp {
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    padding: 15px 22px;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 3px 8px #ccc;
+    background: linear-gradient(to left, #777 50%, #00c291 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: background-position 0.3s ease-out;
+  }
+  button.btn-whatsapp:hover {
+    background-position: left bottom;
+  }
+
+  .info-produto {
+    width: 75%;
+    padding-left: 5%;
+    box-sizing: border-box;
+    margin-bottom: 125px;
+  }
+
+  .img-produto {
+    width: 100%;
+    float: left;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 0;
   }
 }
 
@@ -255,6 +328,19 @@
   button.btn-whatsapp:hover {
     background-position: left bottom;
   }
+  .img-produto {
+    width: 100%;
+    float: left;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 40px;
+  }
+  .info-produto {
+    width: 100% !important;
+    padding-left: 0 !important;
+    box-sizing: border-box;
+    margin-bottom: 125px;
+  }
 }
 
 .hr {
@@ -265,24 +351,10 @@
 
 /** DETALHES DO PRODUTO **/
 
-.img-produto {
-  width: 100%;
-  float: left;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 40px;
-}
 .img-logo-produto {
   width: 120px;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
-
-.info-produto {
-  width: 100%;
-  padding: 0;
-  box-sizing: border-box;
-  margin-bottom: 125px;
 }
 
 .marca-linha-produto {

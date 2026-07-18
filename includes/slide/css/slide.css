@@ -1,5 +1,5 @@
-/* DESK */
-@media (min-width: 769px) {
+/* DESKTOP */
+@media (min-width: 867px) {
   #box-nav {
     position: relative;
     z-index: 100;
@@ -73,13 +73,13 @@
 }
 
 /* TAB */
-@media (min-width: 600px) and (max-width: 768px) {
+@media (min-width: 615px) and (max-width: 768px) {
   #box-nav {
     position: relative;
     z-index: 100;
     width: 96%;
     margin: 0 2%;
-    margin-top: -16%;
+    margin-top: -15%;
     float: left;
   }
 
