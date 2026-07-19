@@ -65,7 +65,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 		<?php
 		if ((!empty($marca)) && (empty($chave))) {
 			//Busca por marca
-			$sql = "SELECT * FROM tb_produto WHERE idmarca='$marca' ORDER BY idmarca ASC";
+			$sql = "SELECT * FROM tb_produto WHERE idmarca='$marca' ORDER BY id DESC";
 			$cons = $conexao->query($sql) or die($conexao->error);
 			$totalMarca = mysqli_num_rows($cons);
 			while ($row = $cons->fetch_array()) {

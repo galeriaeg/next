@@ -109,7 +109,7 @@ if (empty($idproduto)) {
 	<?php
 	if (!empty($fotop)) {
 		echo "<div id='box-anexo' class='box-anexo' style='display: block;'>";
-		echo "<a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$id_marca' title='Remover anexo'><img src='imgs/btn-excluir-anexo.jpg' style='position:absolute;cursor:pointer;' /></a>";
+		echo "<a href='index.php?id=6.2.2&idp=$idproduto&nfile=$fotop&idm=$idmarcap' title='Remover anexo'><img src='imgs/btn-excluir-anexo.jpg' style='position:absolute;cursor:pointer;' /></a>";
 		echo "<img src='files/$fotop' width='250' style='border:1px solid #CCC;margin:0 auto;' />";
 		echo "</div>";
 	}
