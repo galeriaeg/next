@@ -38,6 +38,7 @@ if ($qtd < 1) {
   </p>
 
   <!-- filtro -->
+  <a name="focus"></a>
   <div class="box-filtro col12">
     <h3>
       <i class="fa fa-filter" aria-hidden="true"></i>

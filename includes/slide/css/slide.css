@@ -1,4 +1,4 @@
-/* DESKTOP */
+/******** DESKTOP *********/
 @media (min-width: 867px) {
   #box-nav {
     position: relative;
@@ -73,8 +73,8 @@
   }
 }
 
-/* TAB */
-@media (min-width: 615px) and (max-width: 768px) {
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
   #box-nav {
     position: relative;
     z-index: 100;
@@ -85,7 +85,7 @@
   }
 
   .box-nav-desk {
-    border: 1px solid green;
+    border: 0 solid green;
   }
 
   .box-slide-all {
@@ -109,10 +109,11 @@
   }
 
   .bt-back {
-    width: 18px;
+    width: 25px;
     cursor: pointer;
     opacity: 0.4;
     transition: 0.3s;
+    display: block;
   }
   img.bt-back:hover {
     cursor: pointer;
@@ -122,10 +123,11 @@
   }
 
   .bt-go {
-    width: 18px;
+    width: 25px;
     cursor: pointer;
     opacity: 0.4;
     transition: 0.3s;
+    display: block;
   }
   img.bt-go:hover {
     cursor: pointer;
@@ -135,7 +137,7 @@
   }
 }
 
-/* MOB */
+/******** MOBILE *********/
 @media (max-width: 599px) {
   #box-nav {
     position: relative;

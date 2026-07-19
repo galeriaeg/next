@@ -130,6 +130,132 @@
 
 /******** TABLET *********/
 @media (min-width: 615px) and (max-width: 866px) {
+  .grupo-cards {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    float: inline-end;
+  }
+
+  .card-light {
+    background-color: #ededed;
+    width: 30.33%;
+    padding: 2.8%;
+    height: auto;
+    border-radius: 6px;
+    border-bottom: 6px solid #b7d5df; /*#dbdbdb;*/
+  }
+
+  .icon-card {
+    float: right;
+    height: 30px;
+  }
+
+  .card-light .hero {
+    color: #5fbcb0;
+    border-left: 4px solid #b2d9c6;
+    padding-left: 6px;
+    border-radius: 0 5px 5px 0;
+    display: inline-block;
+  }
+
+  .card-light h2 {
+    color: #2f655f;
+    line-height: 27px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 20px 0;
+  }
+
+  .card-light .data {
+    color: #888;
+    font-size: 13px;
+    display: block;
+    margin: 20px 0 0 0;
+  }
+
+  .card-light a {
+    color: #888;
+    font-size: 15px;
+    display: block;
+    margin: 20px 0 0 0;
+  }
+  .card-light a:hover {
+    color: #555;
+  }
+
+  /** CARD MAPA **/
+
+  .card-solid {
+    background-color: #ededed;
+    width: 30.33%;
+    padding: 2.8%;
+    height: auto;
+    border-radius: 6px;
+    border-bottom: 6px solid #47a19e;
+    background-image: url("../imgs/bg-mapa.jpg");
+    background-size: cover;
+  }
+
+  .card-solid .hero {
+    color: #fff;
+    border-left: 4px solid #8ee3e0;
+    padding-left: 6px;
+    border-radius: 0 5px 5px 0;
+    display: inline-block;
+  }
+
+  .card-solid h2 {
+    color: #b4f8ff;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 500;
+    margin: 20px 0;
+  }
+
+  .card-solid .data {
+    color: #fff;
+    font-size: 14px;
+    display: block;
+    margin: 20px 0 0 0;
+  }
+
+  .card-solid a {
+    color: #fff;
+    font-size: 15px;
+    display: block;
+    margin: 20px 0 0 0;
+  }
+  .card-solid a:hover {
+    text-decoration: underline;
+  }
+
+  .line-full {
+    width: 100%;
+    float: left;
+    background-image: url("../imgs/bg-fio.png");
+    color: #60bdb2 !important;
+    text-align: center;
+    margin: 35px 0;
+  }
+
+  .box-marcas {
+    border: 0 solid red;
+    display: flex;
+    justify-content: center;
+  }
+  .box-marcas img {
+    border: #eee 1px solid;
+    max-width: 150px;
+    margin: 0 10px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .box-marcas img:hover {
+    scale: calc(106%);
+    border: #e2e2e2 1px solid;
+  }
 }
 
 /******** MOBILE *********/
