@@ -138,7 +138,7 @@
 }
 
 /******** MOBILE *********/
-@media (max-width: 599px) {
+@media (max-width: 614px) {
   #box-nav {
     position: relative;
     z-index: 100;

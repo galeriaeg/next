@@ -64,8 +64,8 @@
   margin: 80px 0;
 }
 
-/* MOB */
-@media (max-width: 599px) {
+/******** MOBILE *********/
+@media (max-width: 614px) {
   .foto-novidade {
     width: 100%;
     float: left;
