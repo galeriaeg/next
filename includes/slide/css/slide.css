@@ -27,6 +27,7 @@
     background: #eee;
     float: left;
     width: 100%;
+    cursor: pointer;
   }
 
   .box-slide-mob {

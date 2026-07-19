@@ -44,6 +44,9 @@
 		<option value="3:Área de atuação">Área de atuação</option>
 		<option value="4:Contato">Contato</option>
 		<option value="5:Busca">Busca</option>
+		<option value="6:Novidades">Novidades</option>
+		<option value="7:Home - Card Solucoes">Home - Card Soluções</option>
+		<option value="8:Home - Card Área de atuacao">Home - Card Área de atuação</option>
 	</select>
 
 	<label>Título:</label>

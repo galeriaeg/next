@@ -75,7 +75,7 @@ while ($row = mysqli_fetch_array($res)) {
       <p class="text-page col12 p">
         <?php echo $descricao; ?>
       </p>
-      <button id="btn-wapp" class="btn-whatsapp" onclick="window.open('https://wa.me/<?php echo $numCel; ?>', '_blank')">
+      <button id="btn-wapp" class="btn-whatsapp" onclick="window.open('https://wa.me/<?php echo "55" . $numCel; ?>', '_blank')">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Solicitar orçamento
       </button>

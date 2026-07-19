@@ -94,7 +94,7 @@ $data_formatada = date('Y-m-d', strtotime($data));
 	<!-- Visualização do anexo na base-->
 	<span class="box-anexo" style="display:<?php echo $displayImagem; ?>">
 		<a href="index.php?id=3.4&idn=<?php echo $idNoticia; ?>"><img src="imgs/btn-excluir-anexo.jpg" title="Remover anexo" alt="anexo" style="position:absolute;cursor:pointer;" /></a>
-		<img src="files/<?php echo $fotoNoticia; ?>" alt="anexo" class="anexo-noticia" />
+		<img src="files/<?php echo $fotoNoticia; ?>" alt="anexo" class="anexo-preview" />
 	</span>
 
 

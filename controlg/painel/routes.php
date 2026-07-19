@@ -381,6 +381,8 @@ function cont()
 
 
 		default:
-			echo "<img src='imgs/aviso.png' style='margin-left:5px; margin-top:20px;'>";
+			$titulo = "Painel";
+			include("modulos/home/index.php");
+			break;
 	}
 }

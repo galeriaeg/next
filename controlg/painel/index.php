@@ -43,20 +43,16 @@ include_once "routes.php";
 			</div>
 		</section>
 
-
 		<section id="box-menu">
 			<?php include("menu.php"); ?>
 			<?php include("i_footer.php"); ?>
 		</section>
-
 
 		<section id="box-modulo">
 			<?php cont(); ?>
 		</section>
 
 	</div>
-
-
 
 </body>
 
