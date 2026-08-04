@@ -116,15 +116,15 @@
     justify-content: center;
   }
   .box-marcas img {
-    border: #eee 1px solid;
-    max-width: 150px;
+    border: #eee 0 solid;
+    max-width: 190px;
     margin: 0 10px;
     transition: 0.3s;
     cursor: pointer;
   }
   .box-marcas img:hover {
     scale: calc(106%);
-    border: #e2e2e2 1px solid;
+    border: #e2e2e2 0 solid;
   }
 }
 

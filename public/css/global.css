@@ -136,7 +136,7 @@ h5 {
   font-size: 0.8rem;
 }
 h4 {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 h3 {
   font-size: 1rem;
@@ -383,7 +383,7 @@ a:hover {
 }
 
 .logo {
-  width: 160px;
+  width: 195px;
   display: block;
 }
 
@@ -407,7 +407,7 @@ a:hover {
   border: 0 solid blue;
   color: #555;
   display: inline-block;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 .legenda {
@@ -499,7 +499,7 @@ a:hover {
   border-radius: 5px;
   margin-bottom: 25px;
   border: 1px solid #b6d8e3;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 /******** MOBILE *********/
