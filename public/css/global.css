@@ -426,6 +426,7 @@ a:hover {
 
 .alerta {
   margin: 2px 0;
+  box-sizing: border-box;
 }
 
 .alert-info {

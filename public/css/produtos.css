@@ -1,7 +1,7 @@
 /******** DESKTOP *********/
 @media (min-width: 867px) {
   .box-filtro {
-    background-color: #eee;
+    background-color: #d6ece1;
     padding: 12px;
     border-radius: 5px;
     box-sizing: border-box;
@@ -10,8 +10,8 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    color: #777;
-    border: 1px solid #ccc;
+    color: #72817a;
+    border: 1px solid #bdd6ca;
   }
   .select {
     margin: 0 8px;
@@ -113,7 +113,7 @@
 /******** TABLET *********/
 @media (min-width: 615px) and (max-width: 866px) {
   .box-filtro {
-    background-color: #eee;
+    background-color: #d6ece1;
     padding: 12px;
     border-radius: 5px;
     box-sizing: border-box;
@@ -122,8 +122,8 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    color: #777;
-    border: 1px solid #ccc;
+    color: #72817a;
+    border: 1px solid #bdd6ca;
   }
   .select {
     margin: 0 12px;
@@ -225,7 +225,7 @@
 /******** MOBILE *********/
 @media (max-width: 614px) {
   .box-filtro {
-    background-color: #eee;
+    background-color: #d6ece1;
     padding: 18px;
     border-radius: 5px;
     box-sizing: border-box;
@@ -234,8 +234,8 @@
     display: block;
     justify-content: start;
     align-items: center;
-    color: #777;
-    border: 1px solid #ccc;
+    color: #72817a;
+    border: 1px solid #bdd6ca;
   }
   .select {
     padding: 12px;

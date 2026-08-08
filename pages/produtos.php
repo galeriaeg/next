@@ -122,7 +122,8 @@ if ($qtd < 1) {
       AND tp.idmarca = tm.id
       AND tp.idlinha = tl.id
       AND tm.status = 1
-      AND tp.status = 1;";
+      AND tp.status = 1
+      ORDER BY tl.titulo ASC, tp.titulo ASC";
       $re = mysqli_query($conexao, $sql);
       $qtdProduto = mysqli_num_rows($re);
       while ($row = mysqli_fetch_array($re)) {
