@@ -8,7 +8,7 @@
 <section id="slideDesk" class="box-slide-all">
 	<div class="cycle-slideshow s-d" data-cycle-timeout="9000" data-cycle-prev="#prev" data-cycle-next="#next">
 		<?php
-		$sql = "SELECT * FROM tb_slider WHERE status ='1' ";
+		$sql = "SELECT * FROM tb_slider WHERE status ='1' ORDER BY id DESC";
 		$res = mysqli_query($conexao, $sql);
 		$qtde = mysqli_num_rows($res);
 		while ($row = mysqli_fetch_array($res)) {

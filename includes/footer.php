@@ -1,7 +1,7 @@
 <h5 class="box-footer">
 
   <div class="box-footer-pri">
-    <img src="public/imgs/logo-footer.png" alt="logo rodapé" class="logo-footer" />
+    <img src="public/imgs/logo.png" alt="logo rodapé" class="logo-footer" />
     R. Barão de São Borja, 62 - Room 501. 50070-325 <br />
     Boa Vista, Recife - PE, 50070-325<br />
     NextMed Soluções em Saúde © Copyright 2026

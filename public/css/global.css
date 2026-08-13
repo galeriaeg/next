@@ -213,6 +213,9 @@ header {
   background-position: right;
   padding: 25px 10%; /*ajusta largura do site*/
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 101;
 }
 
 /******** DESKTOP *********/
@@ -223,14 +226,20 @@ header {
     display: block;
     margin: 0 auto;
     margin-bottom: 80px;
+    margin-top: 176px;
     border: 0 solid #1fb8a1;
   }
 
   nav {
+    width: 100%;
+    height: 48px;
+    position: fixed;
     background-color: #60bdb2;
     padding: 12px 10%; /*ajusta largura do site*/
     box-sizing: border-box;
     color: #b4e9e3;
+    z-index: 102;
+    top: 88px;
   }
   .a-voltar {
     padding: 8px 10px;
@@ -375,6 +384,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: -2px;
 }
 
 .box-conteudo {
@@ -536,7 +546,7 @@ a:hover {
   }
 
   .new {
-    line-height: 30px;
+    line-height: 26px;
     border-bottom: 1px solid #e3e3e3;
     padding: 12px 0;
   }
