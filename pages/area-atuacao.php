@@ -22,6 +22,7 @@ if ($qtd < 1) {
 <script src="public/js/area-atuacao.js" defer></script>
 
 <section>
+
   <div class="label-page">
     <h3><?php echo $pagina; ?></h3>
   </div>
@@ -34,7 +35,6 @@ if ($qtd < 1) {
     <?php echo $texto; ?>
   </p>
 
-  <a name="result"></a>
   <!-- filtro -->
   <div class="box-filtro col12">
     <h3>
@@ -111,11 +111,17 @@ if ($qtd < 1) {
 
 </section>
 
-
 <script>
   window.onload = function() {
     carregaMapa();
   };
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const m = new URLSearchParams(window.location.search).get('m');
+    if (parseInt(m) > 0) window.scrollTo(0, 255);
+  });
 </script>
 
 <?php

@@ -221,13 +221,12 @@ header {
 /******** DESKTOP *********/
 @media (min-width: 867px) {
   main {
-    border: 0 solid #ccc;
+    border: 1px solid #fff;
     width: 80%;
     display: block;
     margin: 0 auto;
     margin-bottom: 80px;
-    margin-top: 176px;
-    border: 0 solid #1fb8a1;
+    margin-top: 136px;
   }
 
   nav {
@@ -299,17 +298,23 @@ header {
     padding: 25px 5%;
   }
   main {
-    border: 0 solid blue;
+    border: 1px solid #fff;
     width: 90%;
     display: block;
     margin: 0 auto;
     margin-bottom: 80px;
+    margin-top: 136px;
   }
   nav {
+    width: 100%;
+    height: 48px;
+    position: fixed;
     background-color: #60bdb2;
     padding: 12px 5%; /*ajusta largura do site*/
     box-sizing: border-box;
     color: #b4e9e3;
+    z-index: 102;
+    top: 88px;
   }
   .a-voltar {
     padding: 8px 10px;
@@ -384,7 +389,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -2px;
+  margin-top: 0;
 }
 
 .box-conteudo {
@@ -517,7 +522,7 @@ a:hover {
 @media (max-width: 614px) {
   header {
     padding: 25px 5%;
-    border-bottom: 1px solid #e1e1e1 !important;
+    border-bottom: 4px solid #80c8b9 !important;
   }
 
   nav {
@@ -528,11 +533,12 @@ a:hover {
   }
 
   main {
-    border: 0 solid #ccc;
+    border: 1px solid #fff;
     width: 90%;
     display: block;
     margin: 0 auto;
     margin-bottom: 80px;
+    margin-top: 88px;
   }
 
   .logo {

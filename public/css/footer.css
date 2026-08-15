@@ -108,7 +108,7 @@
 
   .logo-footer {
     width: 145px;
-    opacity: 0.6;
+    opacity: 1;
     margin-bottom: 20px;
   }
 
@@ -124,23 +124,24 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    margin: auto 5%;
+    margin: auto 0;
     margin-bottom: 25px;
   }
 
   .box-footer-sec {
-    width: 90%;
-    margin: auto 5%;
+    width: 48%;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     border: 0 solid red;
     line-height: 25px;
     margin-bottom: 25px;
+    float: left;
   }
 
   .box-footer-ter {
-    width: 90%;
-    margin: auto 5%;
+    width: 48%;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     border: 0 solid #444;
