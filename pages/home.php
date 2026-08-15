@@ -1,18 +1,18 @@
-<?php
-require_once "includes/slide.php";
+<?php require_once "includes/slide.php"; ?>
+<img src='public/imgs/sombra-slide.png' class="sombra-slide" alt='sombra' />
 
-include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
-?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php'); ?>
 
 <section class="col12 grupo-cards">
 
+  <!-- CARD NOVIDADES -->
   <div class="card-light ">
     <div class="col12">
       <div class="hero">Novidades</div>
       <img src="public/imgs/ico-news.png" alt="icone" class="icon-card" />
     </div>
     <?php
-    $sql = "SELECT id, titulo, descricao, data FROM tb_noticiaS WHERE status =1 ORDER BY ID DESC LIMIT 1 ";
+    $sql = "SELECT id, titulo, descricao, data FROM tb_noticias WHERE status =1 ORDER BY ID DESC LIMIT 1 ";
     $res = mysqli_query($conexao, $sql);
     $qtd = mysqli_num_rows($res);
     while ($row = mysqli_fetch_array($res)) {
@@ -22,31 +22,55 @@ include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
       $data = $row['data'];
     }
     ?>
-    <span class="data"><?php echo $data; ?></span>
-    <h2><?php echo $titulo; ?></h2>
+    <span class="data"><?php echo (new DateTime($data))->format('d/m/Y'); ?></span>
+    <h2><?php echo mb_strimwidth($titulo, 0, 68, "..."); ?></h2>
     <a href="novidade?n=<?php echo $id; ?>" class="a">
-      <?php echo mb_strimwidth($descricao, 0, 88, "..."); ?>
+      <?php
+      // 1. Remove todas as tags HTML do texto
+      $texto_puro = strip_tags($descricao);
+      // 2. Corta o texto limpo com segurança
+      echo mb_strimwidth($texto_puro, 0, 100, "...");
+      ?>
     </a>
   </div>
 
+  <!-- CARD SOLUÇÕES -->
   <div class="card-light">
     <div class="col12">
       <div class="hero">Soluções</div>
       <img src="public/imgs/ico-solucoes.png" alt="icone" class="icon-card" />
     </div>
-    <h2>Estamos sempre atentos às novas tecnologias e às necessidades dos nossos clientes.</h2>
-    <a href="#" class="aw">
-      Nossas parcerias com grandes marcas do mercado garantem seriedade, segurança e tecnologia de ponta.</a>
+    <?php
+    $sql = "SELECT titulo, texto FROM tb_conteudo WHERE tipo='7' LIMIT 1 ";
+    $res = mysqli_query($conexao, $sql);
+    $qtd = mysqli_num_rows($res);
+    while ($row = mysqli_fetch_array($res)) {
+      $titulo_s = $row['titulo'];
+      $texto_s = $row['texto'];
+    }
+    ?>
+    <h2><?php echo mb_strimwidth($titulo_s, 0, 88, "..."); ?></h2>
+    <a href="produtos" class="aw"><?php echo mb_strimwidth($texto_s, 0, 120, "..."); ?></a>
   </div>
 
+
+  <!-- CARD AREA DE ATUAÇÃO -->
   <div class="card-solid">
     <div class="col12">
       <div class="hero">Área de atuação</div>
       <img src="public/imgs/ico-mapa.png" alt="icone" class="icon-card" />
     </div>
-    <h2>Estamos sempre atentos às novas tecnologias e às necessidades dos nossos clientes.</h2>
-    <a href="#" class="a">
-      Nossas parcerias com grandes marcas do mercado garantem seriedade, segurança e tecnologia de ponta.</a>
+    <?php
+    $sql = "SELECT titulo, texto FROM tb_conteudo WHERE tipo='8' LIMIT 1 ";
+    $res = mysqli_query($conexao, $sql);
+    $qtd = mysqli_num_rows($res);
+    while ($row = mysqli_fetch_array($res)) {
+      $titulo_aa = $row['titulo'];
+      $texto_aa = $row['texto'];
+    }
+    ?>
+    <h2><?php echo mb_strimwidth($titulo_aa, 0, 88, "..."); ?></h2>
+    <a href="produtos" class="aw"><?php echo mb_strimwidth($texto_aa, 0, 120, "..."); ?></a>
   </div>
 
 </section>

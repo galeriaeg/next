@@ -16,23 +16,34 @@
   opacity: 0;
 }
 
-.box-bg-mapa {
-  opacity: 0;
-  transition: 0.5s;
-  width: 200px;
-  aspect-ratio: 1 / 1;
-  float: left;
-  background-image: url("../imgs/bg-circulo.png");
-  background-size: cover;
-  background-position: center;
-}
-
-.box-texto-mapa {
-  width: auto;
-  border-left: 1px solid #d1d1d1;
-  margin-left: 50px;
-  padding-left: 50px;
-  font-size: 15px;
+/******** DESKTOP *********/
+@media (min-width: 867px) {
+  .box-bg-mapa {
+    opacity: 0;
+    transition: 0.5s;
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    float: left;
+    background-image: url("../imgs/bg-circulo.png");
+    background-size: cover;
+    background-position: center;
+    /* Aplica a animação ao carregar */
+    animation: crescerMapa 0.5s ease-out forwards;
+  }
+  /* Criando o efeito de crescimento e revelação */
+  @keyframes crescerMapa {
+    to {
+      width: 400px; /* Tamanho final */
+      opacity: 1; /* Já aproveita e faz o mapa aparecer */
+    }
+  }
+  .box-texto-mapa {
+    width: auto;
+    border-left: 1px solid #d1d1d1;
+    margin-left: 50px;
+    padding-left: 50px;
+    font-size: 15px;
+  }
 }
 
 .img-logo {
@@ -53,4 +64,78 @@
 .box-uf {
   border: 0 solid #df0;
   margin-bottom: 15px;
+}
+
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  .box-bg-mapa {
+    opacity: 0;
+    transition: 0.5s;
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    float: left;
+    background-image: url("../imgs/bg-circulo.png");
+    background-size: cover;
+    background-position: center;
+    /* Aplica a animação ao carregar */
+    animation: crescerMapa 0.5s ease-out forwards;
+  }
+  /* Criando o efeito de crescimento e revelação */
+  @keyframes crescerMapa {
+    to {
+      width: 300px; /* Tamanho final */
+      opacity: 1; /* Já aproveita e faz o mapa aparecer */
+    }
+  }
+  .box-texto-mapa {
+    width: auto;
+    border-left: 1px solid #d1d1d1;
+    margin-left: 50px;
+    padding-left: 50px;
+    font-size: 15px;
+  }
+}
+
+/******** MOBILE *********/
+@media (max-width: 614px) {
+  .box-area {
+    display: block;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    justify-content: center;
+    padding-top: 15px;
+    border: 0 solid blue;
+  }
+  .box-bg-mapa {
+    opacity: 0;
+    transition: 0.5s;
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    display: block;
+    background-image: url("../imgs/bg-circulo.png");
+    background-size: cover;
+    background-position: center;
+    border: 0 solid green;
+
+    /* Aplica a animação ao carregar */
+    animation: crescerMapa 0.5s ease-out forwards;
+  }
+  /* Criando o efeito de crescimento e revelação */
+  @keyframes crescerMapa {
+    to {
+      width: 300px; /* Tamanho final */
+      opacity: 1; /* Já aproveita e faz o mapa aparecer */
+    }
+  }
+
+  .box-texto-mapa {
+    width: 80%;
+    margin: 0 10%;
+    padding-left: 0;
+    font-size: 15px;
+    border: 0 solid #000;
+    margin-top: 30px;
+  }
 }

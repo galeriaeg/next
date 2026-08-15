@@ -19,7 +19,8 @@ if ($qtd < 1) {
 }
 ?>
 
-<script src="public/js/area-atuacao.js"></script>
+<script src="public/js/area-atuacao.js" defer></script>
+
 <section>
   <div class="label-page">
     <h3><?php echo $pagina; ?></h3>
@@ -78,6 +79,11 @@ if ($qtd < 1) {
 
   if (!empty($mapa)) {
     $mapa = "controlg/painel/files/" . $mapa;
+  }
+
+
+  if ($qtd < 1) {
+    echo "<h4 class='alerta alert-info'><i class='fa fa-exclamation-circle' aria-hidden='true'></i>&nbsp;&nbsp;Selecione uma Marca</h4>";
   }
   ?>
 

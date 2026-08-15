@@ -60,6 +60,29 @@ form {
   padding: 5%;
 }
 
+.box-cards {
+  width: 250px;
+  border: 0 solid red;
+  float: right;
+}
+
+.card-home {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  display: grid;
+  margin: 6px 0;
+  color: #555;
+  background-color: #eee;
+}
+.card-home a {
+  color: #015f99;
+  width: 100%;
+}
+.card-home a:hover {
+  color: #3e74ff;
+}
+
 .col12 {
   width: 100%;
   border: 0 solid red;
@@ -413,7 +436,7 @@ input.btn-simples:hover {
   );
   color: #5592b8;
   padding: 3px 8px;
-  margin-left: 44%;
+  margin-left: 46%;
   font-size: 13px;
   cursor: pointer;
 }

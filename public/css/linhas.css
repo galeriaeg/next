@@ -7,6 +7,7 @@
   box-sizing: border-box;
   border-left: 10px solid #eee;
   border-right: 10px solid #eee;
+  margin-bottom: 20px;
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -52,16 +53,16 @@
   z-index: 2;
 
   /* texto */
-  background-color: rgba(255, 255, 236, 0.8);
-  color: #555;
+  background-color: #fff;
+  color: #444;
   padding: 10px 20px;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   pointer-events: none; /* Evita que o texto bloqueie o mouse ao passar por cima */
 
   /* Estado Inicial: Escondido e levemente menor */
-  opacity: 1;
+  opacity: 0.8;
   transform: scale(0.8);
 
   /* Transição suave para a opacidade e para o leve ganho de tamanho */
@@ -70,7 +71,7 @@
     transform 0.3s ease;
 }
 .card-linha:hover .nome-linha {
-  opacity: 1;
+  opacity: 0.8;
   transform: scale(1); /* Volta ao tamanho normal criando um efeito lindo */
 }
 
@@ -103,10 +104,9 @@
 }
 
 .btn-next {
-  margin-top: 10px;
-  width: 35px;
+  width: auto;
   cursor: pointer;
-  margin-right: 5px;
+  margin-left: 10px;
 }
 img.btn-next:hover {
   content: url("../imgs/btn-next-on.png");
@@ -114,10 +114,9 @@ img.btn-next:hover {
 }
 
 .btn-prev {
-  margin-top: 10px;
-  width: 35px;
+  width: auto;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 img.btn-prev:hover {
   content: url("../imgs/btn-prev-on.png");

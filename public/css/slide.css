@@ -1,88 +1,33 @@
-#box-slide {
-  width: 100%; /* Ocupa toda a largura disponível */
-  aspect-ratio: 16 / 4; /* Mantém a proporção exata de 16:4 */
-  display: flex;
-  flex-direction: row;
-
-  /* Ativa a rolagem horizontal e esconde a vertical */
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  /* Efeito de rolagem suave e "imã" (Snap) */
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  border: 0;
-
-  /* --- CODIGO PARA ESCONDER A BARRA DE ROLAGEM --- */
-  scrollbar-width: none; /* Para Firefox */
-  -ms-overflow-style: none; /* Para Internet Explorer/Edge antigo */
-}
-/* Para Chrome, Safari e novas versões do Edge */
-#box-slide::-webkit-scrollbar {
-  display: none;
+/******** DESKTOP *********/
+@media (min-width: 867px) {
+  .sombra-slide {
+    width: 100%;
+    display: block;
+    float: inline-start;
+    margin: 0 auto;
+    margin-top: 1px;
+  }
 }
 
-.card {
-  /* Garante que cada card ocupe exatamente o tamanho do box-slide */
-  min-width: 100%;
-  height: 100%;
-  flex-shrink: 0;
-  background-size: cover;
-
-  /* Faz o card "grudar" nas bordas ao rolar */
-  scroll-snap-align: start;
-
-  /* Estilização opcional dos cards */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: rgb(183, 219, 168);
-  background-color: #eee;
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  .sombra-slide {
+    width: 100%;
+    display: block;
+    float: inline-start;
+    margin: 0 auto;
+    margin-top: 1px;
+  }
 }
 
-/* Cores dos cards apenas para diferenciação */
-/* #card1 {
-  background-color: #3498db;
-}
-#card2 {
-  background-color: #e74c3c;
-}
-#card3 {
-  background-color: #2ecc71;
-} */
-
-/* Estilização básica dos botões */
-.navegacao {
-  margin-top: -35px;
-  text-align: center;
-  border: 0 solid red;
-  position: relative;
-}
-.navegacao a {
-  display: inline-block;
-  padding: 3px 14px;
-  background: #fff;
-  opacity: 0.4;
-  color: #fff;
-  text-decoration: none;
-  margin: 0 4px 0 4px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.navegacao a:hover {
-  background: #000;
-}
-
-/* Adicione isso ao final do seu CSS */
-.navegacao a.active {
-  background-color: #000 !important; /* Cor verde para o botão ativo */
-  color: white;
-  font-weight: normal;
-}
-
-.sombra-slide {
-  display: block;
-  margin: 0 auto;
-  margin-top: 14px;
+/******** MOBILE *********/
+@media (max-width: 614px) {
+  .sombra-slide {
+    width: 100%;
+    height: 6px;
+    display: block;
+    float: inline-start;
+    margin: 0 auto;
+    margin-top: 1px;
+  }
 }

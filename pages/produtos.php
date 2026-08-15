@@ -38,6 +38,7 @@ if ($qtd < 1) {
   </p>
 
   <!-- filtro -->
+  <a name="focus"></a>
   <div class="box-filtro col12">
     <h3>
       <i class="fa fa-filter" aria-hidden="true"></i>
@@ -121,7 +122,8 @@ if ($qtd < 1) {
       AND tp.idmarca = tm.id
       AND tp.idlinha = tl.id
       AND tm.status = 1
-      AND tp.status = 1;";
+      AND tp.status = 1
+      ORDER BY tl.titulo ASC, tp.titulo ASC";
       $re = mysqli_query($conexao, $sql);
       $qtdProduto = mysqli_num_rows($re);
       while ($row = mysqli_fetch_array($re)) {
@@ -141,7 +143,7 @@ if ($qtd < 1) {
         if ($i % 4 == 0) {
           echo "<div class='card-produto card-last'>
         <a href='produto?p=$idProduto'>
-          <div class='box-imagem'>*
+          <div class='box-imagem'>
             <img src='$fotoProduto' alt='produto' />
           </div>
          </a>
@@ -191,7 +193,7 @@ if ($qtd < 1) {
         if ($j % 4 == 0) {
           echo "<div class='card-produto card-last'>
         <a href='produto?p=$idProduto'>
-          <div class='box-imagem'>**
+          <div class='box-imagem'>
             <img src='$fotoProduto' alt='produto' />
           </div>
          </a>

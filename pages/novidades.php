@@ -57,9 +57,9 @@ if ($qtd < 1) {
   </div>
 </section>
 
-<nav class="box-paginacao">
-  <button id="prev" onclick="mudarPagina(-1)">&#129032;</button>
+<div class="box-paginacao">
+  <button id="prev" onclick="mudarPagina(-1)"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></button>
   <span id="label" class="legenda">Página 1</span>
-  <button id="next" onclick="mudarPagina(1)">&#129034;</button>
-</nav>
+  <button id="next" onclick="mudarPagina(1)"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+</div>
 <script src="public/js/pagination.js"></script>

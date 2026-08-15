@@ -1,18 +1,37 @@
-.foto-novidade {
-  width: 450px;
-  float: left;
-  margin-right: 25px;
-  margin-bottom: 4px;
-  padding: 3px;
-  border: 1px solid #ccc;
+/******** DESKTOP *********/
+@media (min-width: 867px) {
+  .foto-novidade {
+    width: 450px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 4px;
+    padding: 3px;
+    border: 1px solid #ccc;
+  }
+  .conteudo {
+    margin-top: 40px;
+    display: inline-block;
+  }
 }
 
-.conteudo {
-  margin-top: 40px;
-  display: inline-block;
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  .foto-novidade {
+    width: 260px;
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 4px;
+    padding: 3px;
+    border: 1px solid #ccc;
+  }
+  .conteudo {
+    margin-top: 40px;
+    display: inline-block;
+  }
 }
 
 .tag-data {
+  font-size: 14px;
   background-color: #e8e8e8;
   color: #888;
   width: fit-content;
@@ -24,7 +43,7 @@
 .box-paginacao {
   background-color: transparent;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
 }
 .box-paginacao span {
@@ -44,4 +63,16 @@
 
 .p-voltar {
   margin: 80px 0;
+}
+
+/******** MOBILE *********/
+@media (max-width: 614px) {
+  .foto-novidade {
+    width: 100%;
+    float: left;
+    margin: 40px 0;
+    padding: 3px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
 }

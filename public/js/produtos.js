@@ -25,7 +25,7 @@ function setarMarca() {
   const marca = document.getElementById("marca").value;
   if (marca) {
     console.log("ID Marca:", marca);
-    window.location.href = "produtos?m=" + marca;
+    window.location.href = "produtos?m=" + marca + "#focus";
   }
 }
 function setarLinha() {
@@ -34,6 +34,6 @@ function setarLinha() {
     const [idMarca, idLinha] = linha.split("-");
     console.log("ID da Marca:", idMarca);
     console.log("ID da Linha:", idLinha);
-    window.location.href = "produtos?m=" + idMarca + "&l=" + idLinha;
+    window.location.href = "produtos?m=" + idMarca + "&l=" + idLinha + "#focus";
   }
 }

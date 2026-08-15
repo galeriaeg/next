@@ -61,7 +61,7 @@ while ($row = mysqli_fetch_array($res)) {
   </div>
 
   <div class="box-conteudo">
-    <article class="col3" id="article" style="transition:0.3s;">
+    <article class="col3 box-img-item" id="article" style="transition:0.3s;">
       <img src="<?php echo $foto; ?>" alt="foto do produto" class="img-produto" />
       <span id="btnMais" onclick="ampliarImagem();"><img src="public/imgs/btn-mais-off.png" class="btn-zoom-mais" alt="Ampliar foto" /></span>
       <span id="btnMenos" style="display: none;" onclick="reduzirImagem();"><img src="public/imgs/btn-menos-off.png" class="btn-zoom-menos" alt="Reduzir foto" /></span>
@@ -75,7 +75,7 @@ while ($row = mysqli_fetch_array($res)) {
       <p class="text-page col12 p">
         <?php echo $descricao; ?>
       </p>
-      <button id="btn-wapp" class="btn-whatsapp" onclick="window.open('https://wa.me/<?php echo $numCel; ?>', '_blank')">
+      <button id="btn-wapp" class="btn-whatsapp" onclick="window.open('https://wa.me/<?php echo "55" . $numCel; ?>', '_blank')">
         <i class="fa fa-whatsapp" aria-hidden="true"></i>
         Solicitar orçamento
       </button>

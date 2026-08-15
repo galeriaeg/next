@@ -1,0 +1,208 @@
+/******** DESKTOP *********/
+@media (min-width: 867px) {
+  #box-nav {
+    position: relative;
+    z-index: 100;
+    width: 96%;
+    margin: 0 2%;
+    margin-top: -14%;
+    float: left;
+  }
+
+  .s-d {
+    width: 100%;
+    float: left !important;
+    z-index: 10;
+    aspect-ratio: 4 / 1;
+  }
+
+  .box-nav-desk {
+    border: 0 solid red;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .box-slide-all {
+    display: block !important;
+    background: #eee;
+    float: left;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .box-slide-mob {
+    display: none !important;
+  }
+
+  .imgSlideDesk {
+    width: 100% !important;
+    float: left;
+    margin: 0 0 0 0;
+    object-fit: cover;
+  }
+  .imgSlideMob {
+    display: none !important;
+  }
+
+  .bt-back {
+    width: 35px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+    display: block;
+  }
+  img.bt-back:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+
+  .bt-go {
+    width: 35px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+    display: block;
+  }
+  img.bt-go:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}
+
+/******** TABLET *********/
+@media (min-width: 615px) and (max-width: 866px) {
+  #box-nav {
+    position: relative;
+    z-index: 100;
+    width: 96%;
+    margin: 0 2%;
+    margin-top: -15%;
+    float: left;
+  }
+
+  .box-nav-desk {
+    border: 0 solid green;
+  }
+
+  .box-slide-all {
+    display: block !important;
+    background: #eee;
+    float: left;
+    width: 100%;
+  }
+
+  .box-slide-mob {
+    display: none !important;
+  }
+
+  .imgSlideDesk {
+    width: 100% !important;
+    float: left;
+    margin: 0;
+  }
+  .imgSlideMob {
+    display: none !important;
+  }
+
+  .bt-back {
+    width: 25px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+    display: block;
+  }
+  img.bt-back:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+
+  .bt-go {
+    width: 25px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+    display: block;
+  }
+  img.bt-go:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}
+
+/******** MOBILE *********/
+@media (max-width: 614px) {
+  #box-nav {
+    position: relative;
+    z-index: 100;
+    width: 94%;
+    margin: 0 3%;
+    margin-top: -42%;
+    float: left;
+  }
+
+  .s-m {
+    width: 100%;
+    float: left !important;
+    aspect-ratio: 4 / 1;
+  }
+
+  /* .box-nav-mob {
+    /*background:red;
+  }*/
+
+  .box-slide-all {
+    display: none !important;
+    background: #eee;
+    float: left;
+    width: 100%;
+  }
+
+  .imgSlideDesk {
+    display: none !important;
+  }
+  .imgSlideMob {
+    width: 100%;
+    display: block !important;
+    box-sizing: border-box;
+  }
+
+  .box-slide-mob {
+    display: block !important;
+  }
+
+  .bt-back {
+    width: 25px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+    display: block;
+  }
+  img.bt-back:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+
+  .bt-go {
+    width: 25px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+    display: block;
+  }
+  img.bt-go:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
+}

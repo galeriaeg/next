@@ -33,6 +33,8 @@
 			$data	=	$row['data'];
 			$status	=	$row['status'];
 
+			$dataFormatada = (new DateTime($data))->format('d/m/Y');
+
 			// Define Fleg Status
 			if ($status > 0)
 				$labelStatus = "<img src='imgs/fleg-ativo.png' class='center' />";
@@ -43,7 +45,7 @@
 			$btexclui = "<a href='index.php?id=3.3&idCont=$idNoticia&titulo=$titulo&conf=0'><img  src='imgs/btn-excluir.png' alt='Excluir' title='Excluir' border='0' class='bt-excluir btn-action' /></a>";
 
 			echo "<tr class='tupla'>";
-			echo "<td width='10%' align='left'>$data</td>";
+			echo "<td width='10%' align='left'>$dataFormatada</td>";
 			echo "<td width='73%' align='left'>$titulo</td>";
 			echo "<td width='8%' align='left'>$labelStatus</td>";
 			echo "<td width='9%' align='left'>$btedita $btexclui</td>";
