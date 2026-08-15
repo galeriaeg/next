@@ -47,14 +47,6 @@
   .btn_busca:hover {
     background-color: #444;
   }
-
-  .alert-modal-info {
-    width: 250px;
-    padding: 8px;
-    position: absolute;
-    z-index: 110;
-    background-color: #999;
-  }
 }
 
 /******** TABLET *********/
@@ -101,14 +93,6 @@
   }
   .btn_busca:hover {
     background-color: #444;
-  }
-
-  .alert-modal-info {
-    width: 250px;
-    padding: 8px;
-    position: absolute;
-    z-index: 110;
-    background-color: #ff0;
   }
 }
 
@@ -164,12 +148,5 @@
   }
   .btn_busca:hover {
     background-color: #444;
-  }
-  .alert-modal-info {
-    width: 250px;
-    padding: 8px;
-    position: absolute;
-    z-index: 140;
-    background-color: #900;
   }
 }

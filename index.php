@@ -1,7 +1,7 @@
 <?php
+//=========== CONTROLA ROTAS ================
 // Captura a página atual pela query string (alterado de 'p' para 'url')
 $pagina = isset($_GET['url']) ? $_GET['url'] : 'home';
-
 // Define o arquivo que será incluído na main
 $arquivo_conteudo = "pages/" . $pagina . ".php";
 if (!file_exists($arquivo_conteudo)) {
@@ -10,9 +10,9 @@ if (!file_exists($arquivo_conteudo)) {
 ?>
 
 <?php
-/*
-//=========== PRODUÇÃO ================
 // CONTROLA EXIBIÇÃO DO SLIDE NA HOME
+//=========== PRODUÇÃO ================
+/*
 $uri = $_SERVER['REQUEST_URI'] ?? '';
 $path = parse_url($uri, PHP_URL_PATH);
 
@@ -30,11 +30,9 @@ if ($slug === '' || $slug === 'home') {
 */
 ?>
 
-
 <?php
 //=========== LOCALHOST ================
 // CONTROLA EXIBIÇÃO DO SLIDE NA HOME
-
 $uri = $_SERVER['REQUEST_URI'] ?? '';
 $path = parse_url($uri, PHP_URL_PATH);
 
@@ -79,6 +77,12 @@ if ($slug === '' || $slug === 'home') {
 </head>
 
 <body>
+
+  <div id="alerta-modal" class="alert-modal" style="display:none">
+    <i>Alerta</i>
+    <span onclick="fechaAlerta(0);">&#10006;</span>
+    <div style="width:100%">Informe uma palavra-chave.</div>
+  </div>
 
   <header><?php require_once "includes/header.php" ?></header>
   <nav><?php require_once "includes/menu.php" ?></nav>

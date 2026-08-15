@@ -18,7 +18,4 @@
   </div>
 </section>
 
-
-<!--div id="alerta" class="alert-modal-info">Alerta busca desk</div-->
-
 <script src="public/js/header.js"></script>
