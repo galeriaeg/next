@@ -234,7 +234,7 @@ header {
     height: 48px;
     position: fixed;
     background-color: #60bdb2;
-    padding: 12px 10%; /*ajusta largura do site*/
+    padding: 14px 10%; /*ajusta largura do site*/
     box-sizing: border-box;
     color: #b4e9e3;
     z-index: 102;

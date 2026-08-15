@@ -47,6 +47,14 @@
   .btn_busca:hover {
     background-color: #444;
   }
+
+  .alert-modal-info {
+    width: 250px;
+    padding: 8px;
+    position: absolute;
+    z-index: 110;
+    background-color: #999;
+  }
 }
 
 /******** TABLET *********/
@@ -94,6 +102,14 @@
   .btn_busca:hover {
     background-color: #444;
   }
+
+  .alert-modal-info {
+    width: 250px;
+    padding: 8px;
+    position: absolute;
+    z-index: 110;
+    background-color: #ff0;
+  }
 }
 
 /******** MOBILE *********/
@@ -105,7 +121,7 @@
   .input-busca-mob {
     padding: 10px 12px;
     width: 94%;
-    margin: 15px 3%;
+    margin: 0 3%;
     box-sizing: border-box;
     color: #555;
     border: #ccc 1px solid;
@@ -124,7 +140,7 @@
   }
 
   .box-menu-lupa-mob {
-    width: 75px;
+    width: 30px;
     justify-content: space-between;
     display: flex;
   }
@@ -148,5 +164,12 @@
   }
   .btn_busca:hover {
     background-color: #444;
+  }
+  .alert-modal-info {
+    width: 250px;
+    padding: 8px;
+    position: absolute;
+    z-index: 140;
+    background-color: #900;
   }
 }
