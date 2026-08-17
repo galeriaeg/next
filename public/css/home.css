@@ -246,7 +246,7 @@
     justify-content: center;
   }
   .box-marcas img {
-    border: #eee 1px solid;
+    border: #eee 0 solid;
     max-width: 150px;
     margin: 0 10px;
     transition: 0.3s;
@@ -254,7 +254,7 @@
   }
   .box-marcas img:hover {
     scale: calc(106%);
-    border: #e2e2e2 1px solid;
+    border: #e2e2e2 0 solid;
   }
 }
 
@@ -373,7 +373,7 @@
     justify-content: center;
   }
   .box-marcas img {
-    border: #eee 1px solid;
+    border: #eee 0 solid;
     max-width: 185px;
     margin: 10px 0;
     transition: 0.3s;
@@ -381,6 +381,6 @@
   }
   .box-marcas img:hover {
     scale: calc(106%);
-    border: #e2e2e2 1px solid;
+    border: #e2e2e2 0 solid;
   }
 }
