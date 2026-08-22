@@ -1,17 +1,35 @@
 function buscar() {
   const chave = document.getElementById("chave");
   if (chave.value == "") {
-    alert("Informe uma palavra-chave.");
+    document.getElementById("alerta-modal").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("alerta-modal").style.opacity = 1;
+    }, 300);
+    setTimeout(() => {
+      document.getElementById("alerta-modal").style.opacity = 0;
+      document.getElementById("alerta-modal").style.display = "none";
+    }, 3400);
   } else {
-    //alert(chave.value);
     window.location.href = "busca?key=" + chave.value;
   }
+}
+
+function fechaAlerta(el) {
+  document.getElementById("alerta-modal").style.display =
+    el == 0 ? "none" : "block";
 }
 
 function buscarMob() {
   const chave = document.getElementById("chave-mob");
   if (chave.value == "") {
-    alert("Informe uma palavra-chave.");
+    document.getElementById("alerta-modal").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("alerta-modal").style.opacity = 1;
+    }, 300);
+    setTimeout(() => {
+      document.getElementById("alerta-modal").style.opacity = 0;
+      document.getElementById("alerta-modal").style.display = "none";
+    }, 3400);
   } else {
     //alert(chave.value);
     window.location.href = "busca?key=" + chave.value;

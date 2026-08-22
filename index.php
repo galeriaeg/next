@@ -1,13 +1,63 @@
 <?php
+//=========== CONTROLA ROTAS ================
 // Captura a página atual pela query string (alterado de 'p' para 'url')
 $pagina = isset($_GET['url']) ? $_GET['url'] : 'home';
-
 // Define o arquivo que será incluído na main
 $arquivo_conteudo = "pages/" . $pagina . ".php";
 if (!file_exists($arquivo_conteudo)) {
   $arquivo_conteudo = "pages/erro404.php";
 }
 ?>
+
+<?php
+// CONTROLA EXIBIÇÃO DO SLIDE NA HOME
+//=========== PRODUÇÃO ================
+/*
+$uri = $_SERVER['REQUEST_URI'] ?? '';
+$path = parse_url($uri, PHP_URL_PATH);
+
+// Para dev.solucoesnext.com.br/home vira 'home'
+// Para dev.solucoesnext.com.br/ vira ''
+$slug = trim($path, '/');
+
+// Se for a raiz ('') ou se for 'home' -> $displaySlide = 0
+if ($slug === '' || $slug === 'home') {
+  $displaySlide = 1;
+} else {
+  $displaySlide = 0;
+}
+//echo "<script>alert($displaySlide)</script>";
+*/
+?>
+
+<?php
+//=========== LOCALHOST ================
+// CONTROLA EXIBIÇÃO DO SLIDE NA HOME
+$uri = $_SERVER['REQUEST_URI'] ?? '';
+$path = parse_url($uri, PHP_URL_PATH);
+
+// 1. Quebra o caminho em partes e remove elementos vazios
+// "/next/home" vira ["next", "home"] | "/next/" vira ["next"]
+$segments = array_values(array_filter(explode('/', trim($path, '/'))));
+
+// 2. Remove o primeiro elemento se for a pasta do projeto 'next'
+if (isset($segments[0]) && $segments[0] === 'next') {
+  array_shift($segments);
+}
+
+// 3. Pega a rota final (se não houver nada depois de /next/, fica '')
+$slug = $segments[0] ?? '';
+
+// 4. Se for a raiz do projeto ('') ou 'home' -> $displaySlide = 0
+if ($slug === '' || $slug === 'home') {
+  $displaySlide = 1;
+} else {
+  $displaySlide = 0;
+}
+//echo $displaySlide;
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -28,11 +78,21 @@ if (!file_exists($arquivo_conteudo)) {
 
 <body>
 
+  <div id="alerta-modal" class="alert-modal" style="display:none">
+    <i>Alerta</i>
+    <span onclick="fechaAlerta(0);">&#10006;</span>
+    <div style="width:100%">Informe uma palavra-chave.</div>
+  </div>
+
   <header><?php require_once "includes/header.php" ?></header>
   <nav><?php require_once "includes/menu.php" ?></nav>
+  <div><?php ($displaySlide == 1) ? require_once "includes/slide.php" : null; ?></div>
   <main><?php include_once $arquivo_conteudo; ?></main>
   <footer><?php require_once "includes/footer.php" ?></footer>
 
+  <script>
+    window.scrollTo(0, 0);
+  </script>
 </body>
 
 </html>

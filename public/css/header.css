@@ -105,7 +105,7 @@
   .input-busca-mob {
     padding: 10px 12px;
     width: 94%;
-    margin: 15px 3%;
+    margin: 0 3%;
     box-sizing: border-box;
     color: #555;
     border: #ccc 1px solid;
@@ -124,7 +124,7 @@
   }
 
   .box-menu-lupa-mob {
-    width: 75px;
+    width: 30px;
     justify-content: space-between;
     display: flex;
   }

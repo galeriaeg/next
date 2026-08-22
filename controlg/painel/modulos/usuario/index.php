@@ -69,7 +69,7 @@ if ($tipoUserSession != 1) {
 			if ($idUserSession == $id) {
 
 				if ($tipo == 1)
-					$tipoLabel = "[Master]";
+					$tipoLabel = "<b>[Master]</b>";
 				else
 					$tipoLabel = "";
 

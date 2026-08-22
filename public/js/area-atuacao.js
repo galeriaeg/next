@@ -4,7 +4,7 @@ function setarMarca() {
   if (marca) {
     console.log("ID Marca:", marca);
     // Redireciona o usuário para a página com o parâmetro e a âncora #result
-    window.location.href = "area-atuacao?m=" + marca + "#result";
+    window.location.href = "area-atuacao?m=" + marca;
   }
 }
 

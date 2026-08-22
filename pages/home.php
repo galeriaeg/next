@@ -1,5 +1,6 @@
-<?php require_once "includes/slide.php"; ?>
-<img src='public/imgs/sombra-slide.png' class="sombra-slide" alt='sombra' />
+<?php //require_once "includes/slide.php"; 
+?>
+<!-- img src='public/imgs/sombra-slide.png' class="sombra-slide" alt='sombra' /-->
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php'); ?>
 

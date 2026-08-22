@@ -5,13 +5,11 @@
     padding: 12px;
     border-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0 2px 8px #ddd;
     margin-bottom: 40px;
     display: flex;
     justify-content: start;
     align-items: center;
     color: #72817a;
-    border: 1px solid #bdd6ca;
   }
   .select {
     margin: 0 8px;
@@ -117,13 +115,12 @@
     padding: 12px;
     border-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0 2px 8px #ddd;
     margin-bottom: 40px;
     display: flex;
     justify-content: start;
     align-items: center;
     color: #72817a;
-    border: 1px solid #bdd6ca;
+    border: 0 solid #bdd6ca;
   }
   .select {
     margin: 0 12px;
@@ -229,13 +226,12 @@
     padding: 18px;
     border-radius: 5px;
     box-sizing: border-box;
-    box-shadow: 0 2px 8px #ddd;
     margin-bottom: 40px;
     display: block;
     justify-content: start;
     align-items: center;
     color: #72817a;
-    border: 1px solid #bdd6ca;
+    border: 0 solid #bdd6ca;
   }
   .select {
     padding: 12px;

@@ -9,9 +9,9 @@
     </button>
   </div>
   <div class="box-menu-lupa-mob">
-    <span class="icone-lupa-mob">
+    <!-- span class="icone-lupa-mob">
       <img src="public/imgs/btn-mob-busca.png" id="btnBusca" alt="buscaoff" onclick="controlaBuscaMob(this);" class="icone-lupa">
-    </span>
+    </span-->
     <span class="icone-lupa-mob">
       <img src="public/imgs/btn-bars-mob.png" id="btnMenu" alt="menuoff" class="icone-lupa" onclick="controlaMenuMob(this);">
     </span>

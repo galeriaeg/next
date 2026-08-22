@@ -221,13 +221,12 @@ header {
 /******** DESKTOP *********/
 @media (min-width: 867px) {
   main {
-    border: 0 solid #ccc;
+    border: 1px solid #fff;
     width: 80%;
     display: block;
     margin: 0 auto;
     margin-bottom: 80px;
-    margin-top: 176px;
-    border: 0 solid #1fb8a1;
+    margin-top: 136px;
   }
 
   nav {
@@ -235,7 +234,7 @@ header {
     height: 48px;
     position: fixed;
     background-color: #60bdb2;
-    padding: 12px 10%; /*ajusta largura do site*/
+    padding: 14px 10%; /*ajusta largura do site*/
     box-sizing: border-box;
     color: #b4e9e3;
     z-index: 102;
@@ -299,17 +298,23 @@ header {
     padding: 25px 5%;
   }
   main {
-    border: 0 solid blue;
+    border: 1px solid #fff;
     width: 90%;
     display: block;
     margin: 0 auto;
     margin-bottom: 80px;
+    margin-top: 136px;
   }
   nav {
+    width: 100%;
+    height: 48px;
+    position: fixed;
     background-color: #60bdb2;
     padding: 12px 5%; /*ajusta largura do site*/
     box-sizing: border-box;
     color: #b4e9e3;
+    z-index: 102;
+    top: 88px;
   }
   .a-voltar {
     padding: 8px 10px;
@@ -384,7 +389,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -2px;
+  margin-top: 0;
 }
 
 .box-conteudo {
@@ -465,6 +470,41 @@ a:hover {
   align-items: center;
 }
 
+.alert-modal {
+  width: 300px;
+  height: auto;
+  padding: 15px;
+  position: fixed;
+  top: 5rem;
+  opacity: 0;
+  right: 10%;
+  z-index: 110;
+  background-color: #ffef8b;
+  box-shadow: 0 5px 10px 0.8px #44444440;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.alert-modal i {
+  width: 248px;
+  text-align: left;
+  float: left;
+  color: #b4a64c;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.alert-modal span {
+  width: auto;
+  padding: 1px 4px;
+  text-align: right;
+  float: right;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
 /*** FORM **/
 
 .campo-g {
@@ -517,7 +557,7 @@ a:hover {
 @media (max-width: 614px) {
   header {
     padding: 25px 5%;
-    border-bottom: 1px solid #e1e1e1 !important;
+    border-bottom: 4px solid #80c8b9 !important;
   }
 
   nav {
@@ -528,11 +568,12 @@ a:hover {
   }
 
   main {
-    border: 0 solid #ccc;
+    border: 1px solid #fff;
     width: 90%;
     display: block;
     margin: 0 auto;
     margin-bottom: 80px;
+    margin-top: 88px;
   }
 
   .logo {
@@ -655,5 +696,39 @@ a:hover {
   }
   .m-t {
     margin-top: 30px;
+  }
+  .alert-modal {
+    width: 92%;
+    margin: 0 4%;
+    height: auto;
+    padding: 15px;
+    position: fixed;
+    top: 5rem;
+    opacity: 0;
+    right: 0;
+    z-index: 110;
+    background-color: #ffef8b;
+    box-shadow: 0 5px 10px 0.8px #44444440;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+  .alert-modal i {
+    width: inherit;
+    text-align: left;
+    float: left;
+    color: #b4a64c;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .alert-modal span {
+    width: auto;
+    padding: 1px 4px;
+    text-align: right;
+    float: right;
+    cursor: pointer;
+    margin-bottom: 5px;
   }
 }
