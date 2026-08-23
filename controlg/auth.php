@@ -62,6 +62,25 @@ if ((empty($login)) or (empty($senha))) {
 
   // Validação do Login
   if ($total > 0) {
+
+    //==== Verifica se usuario tem senha EXPIRADA ====/
+    $sql = "SELECT id 
+    FROM tb_cron 
+    WHERE email='$emailu' 
+    AND tipo_senha='EXPIRADA' 
+    AND senha_expirada = 'TRUE' ";
+    $cons = $conexao->query($sql) or die($conexao->error);
+    $totalCron = mysqli_num_rows($cons);
+    while ($row = $cons->fetch_array()) {
+      $id_usuario_bloqueado  =  $row['id'];
+    }
+    if ($totalCron > 0) {
+      //"Usuario expirado";
+      echo "<script>this.location.href='index.php?blocked=true';</script>";
+      exit();
+    }
+
+
     $_SESSION["idUsuarioLogado"]    = $idu;
     $_SESSION["nomeUsuarioLogado"]  = $nomeu;
     $_SESSION["loginUsuarioLogado"] = $loginu;

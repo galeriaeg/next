@@ -1,4 +1,7 @@
-<?php @$aut = $_GET['aut']; ?>
+<?php
+@$aut = $_GET['aut'];
+@$blocked = $_GET['blocked'];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,6 +32,9 @@
 			<?php
 			if ($aut == "false") {
 				echo "<div class='box-erro'>&#10006; Dados incorretos</div>";
+			}
+			if ($blocked == "true") {
+				echo "<div class='box-erro'>&#10006; Usuário bloqueado</div>";
 			}
 			?>
 

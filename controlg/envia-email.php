@@ -2,8 +2,8 @@
 $ip = $_SERVER["REMOTE_ADDR"];
 
 if ((empty($nomeUsuario)) || (empty($emailUsuario))) {
-  echo "<script>window.location.href='recuperar-senha.php?aut=false'</script>";
-  exit();
+	echo "<script>window.location.href='recuperar-senha.php?aut=false'</script>";
+	exit();
 }
 
 // Email cópia
@@ -25,7 +25,7 @@ $message = "
 				<td style='height:40px;color:#555;font:normal 18px calibri,verdana'>
           <br />
           Olá <strong>$nomeUsuario</strong>, sua nova senha de acesso ao <strong>Painel da Next</strong> está logo abaixo.
-          <br />(É recomendado que no seu próximo acesso você altere a sua senha.)
+          <br /><b>(Atenção: Esta é uma senha temporária com duração de 10 minutos. É necessário que no seu próximo acesso você altere a sua senha.)</b>
           <br /><br />
           <div style='font-size:25px;padding:5px 10px;background:#dcffb4;display:inline-table;'>$novaSenha</div>
 					<br /><br />
@@ -65,10 +65,10 @@ $msg->Body = $message;
 $enviado = $msg->Send();
 
 if ($enviado) {
-  echo "<script>alert('Email enviado com sucesso!')</script>";
-  echo "<script>window.location.href='index.php'</script>";
-  exit();
+	echo "<script>alert('Email enviado com sucesso!')</script>";
+	echo "<script>window.location.href='index.php'</script>";
+	exit();
 } else {
-  echo "Não foi possível enviar o e-mail.<br/>";
-  echo "<b>Informações do erro:</b> " . $msg->ErrorInfo;
+	echo "Não foi possível enviar o e-mail.<br/>";
+	echo "<b>Informações do erro:</b> " . $msg->ErrorInfo;
 }

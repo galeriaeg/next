@@ -8,9 +8,16 @@ if (!filter_var($emailLimpo, FILTER_VALIDATE_EMAIL)) {
   exit();
 }
 
+//===== PEGA DATA E HORA ATUAL =====//
+date_default_timezone_set('America/Sao_Paulo');
+$data_atual = date('d/m/Y');
+$hora_atual = date('H:i');
+
 include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-$sql = "SELECT nome, email FROM tb_usuarios WHERE email = ? AND status = 'ATIVO' AND tipo <> 0 LIMIT 1";
+//===== CONSULTA USUARIO NO BANCO =====//
+$sql = "SELECT nome, email 
+FROM tb_usuarios WHERE email = ? AND status = 'ATIVO' AND tipo <> 0 LIMIT 1";
 $stmt = $conexao->prepare($sql);
 
 if ($stmt) {
@@ -28,31 +35,43 @@ if ($stmt) {
     $indiceAleatorio = array_rand($arrLetras);
     $letraSorteada = $arrLetras[$indiceAleatorio];
     $novaSenha = $randNum . $letraSorteada;
-    //echo "<div style='font-size:17px;padding:5px 10px;background:#dcffb4;display:inline-table;'>$novaSenha</div>";
 
-    echo $nomeUsuario = htmlspecialchars($usuario['nome'], ENT_QUOTES, 'UTF-8');
+
+    $nomeUsuario = htmlspecialchars($usuario['nome'], ENT_QUOTES, 'UTF-8');
     $emailUsuario = htmlspecialchars($usuario['email'], ENT_QUOTES, 'UTF-8');
 
-    //Criptografa a senha
+    //Criptografa a nova senha
     $novaSenhaCript = md5($novaSenha);
 
-    // Grava a nova senha na base
-    $sql = "UPDATE tb_usuarios SET senha='$novaSenhaCript' 
+    //===== GRAVA SENHA TEMPORARIA NA BASE =====//
+    $sql = "UPDATE tb_usuarios 
+    SET senha='$novaSenhaCript' 
     WHERE tipo <> 0 
+    AND email = '$emailLimpo'
     AND status = 'ATIVO' ";
     $update = mysqli_query($conexao, $sql);
     if ($update > 0) {
-      echo "Usuário encontrado. Link de reset enviado! - " . $novaSenha . "-";
-      echo $novaSenhaCript;
-      // Envia email ao usuário com nova senha
-      require "envia-email.php";
+      echo "Usuário encontrado. Senha temporaria enviada!";
+      //===== GRAVA NA tb_cron =====//
+      //salva na t_cron: email, data atual, hora atual,tipo_senha
+      $sql = "INSERT INTO tb_cron (email,dt_senha_gerada,hr_senha_gerada,tipo_senha,dt_senha_alterada,hr_senha_alterada,senha_expirada)
+      VALUES ('$emailLimpo','$data_atual','$hora_atual','GERADA','NULL','NULL','FALSE')";
+      $conf = $conexao->query($sql) or die($conexao->error);
+
+      if ($conf) {
+        //===== ENVIA EMAIL AO USUARIO LOCALHOST =====//
+        require_once "send.php";
+
+        //===== ENVIA EMAIL AO USUARIO NA PRODUÇÃO =====//
+        //require "envia-email.php";
+      }
     } else {
       echo "Erro inesperado! Não foi possivel recuperar a senha.";
     }
   } else {
     echo "<script>window.location.href='recuperar-senha.php?send=false'</script>";
-    exit();
     echo "E-mail bloqueado ou não encontrado no sistema.";
+    exit();
   }
   $stmt->close();
 } else {

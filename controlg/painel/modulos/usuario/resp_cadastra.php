@@ -34,14 +34,16 @@ if ((empty($nome)) || (empty($email)) || (empty($login)) || (empty($senha))) {
 		email,
 		tipo,
 		login,
-		senha
+		senha,
+		status
 		)
 		VALUES (
 		'$nome',
 		'$email',
 		$tipo,
 		'$login',
-		'$senha_crip'
+		'$senha_crip',
+		'ATIVO'
 		)";
 		$conf = $conexao->query($sql) or die($conexao->error);
 
