@@ -23,7 +23,7 @@
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
-    $sql = "SELECT * FROM tb_linha ORDER by titulo ASC";
+    $sql = "SELECT * FROM tb_linha ORDER by id ASC";
     $res = mysqli_query($conexao, $sql);
     while ($row = mysqli_fetch_array($res)) {
       $idLinha = $row['id'];

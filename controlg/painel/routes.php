@@ -244,7 +244,7 @@ function cont()
 			break;
 
 		case "8.2":
-			$tit = "Editar Página";
+			$titulo = "Editar Página";
 			include("modulos/conteudo/edita.php");
 			break;
 
