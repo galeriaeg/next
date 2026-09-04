@@ -5,7 +5,7 @@
 $path_files = "controlg/painel/files/";
 $path_erro = "controlg/painel/imgs/";
 
-include($_SERVER['DOCUMENT_ROOT'] . '/controlg/config/conecta.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/next/controlg/config/conecta.php');
 
 $sql = "SELECT * FROM tb_conteudo WHERE tipo ='2' LIMIT 1 ";
 $res = mysqli_query($conexao, $sql);
@@ -132,7 +132,7 @@ if ($qtd < 1) {
         $fotoProduto = $row['file'];
         $nomeMarca = $row['nomeMarca'];
         $nomeLinha = $row['nomeLinha'];
-         $pos = $row['pos'];
+        $pos = $row['pos'];
 
 
         if (!$fotoProduto) {
