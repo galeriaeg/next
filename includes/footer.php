@@ -34,5 +34,19 @@
     ?>
   </div>
 
-
 </h5>
+
+
+<!-- Banner LGPD -->
+<div id="lgpd-banner" class="lgpd-banner" style="display: none;">
+  <div class="lgpd-content">
+    <p>
+      Usamos cookies para personalizar conteúdos e melhorar a sua experiência de acordo com a nossa.
+      <a href="public/docs/politica-de-privacidade-nextmed.pdf" target="_blank" rel="noopener noreferrer">Politica de Privacidade.</a> Ao continuar navegando, você concorda com estas condições.
+    </p>
+    <button id="lgpd-btn" class="lgpd-btn">Concordo</button>
+  </div>
+</div>
+
+
+<script src="./public/js/lgpd.js"></script>

@@ -1,0 +1,56 @@
+.lgpd-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Cor de fundo escura */
+  color: #ddd;
+  padding: 16px 24px;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  box-sizing: border-box;
+  text-align: left;
+  opacity: 0.9;
+}
+
+.lgpd-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lgpd-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.lgpd-content a {
+  color: #2dc4b2; /* Cor do link */
+  text-decoration: underline;
+}
+
+.lgpd-content a:hover {
+  color: #21ae9d;
+}
+
+.lgpd-btn {
+  background-color: #2dc4b2; /* Cor do botão */
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.lgpd-btn:hover {
+  background-color: #21ae9d;
+}
