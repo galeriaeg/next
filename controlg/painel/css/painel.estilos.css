@@ -33,6 +33,7 @@ form {
   width: 96%;
   margin: 1%;
   padding: 1%;
+  padding-top: 0;
   float: left;
 }
 
@@ -585,4 +586,19 @@ a.menuuser:hover {
 .center {
   text-align: center;
   margin: 0 auto;
+}
+
+.modal-cron {
+  width: 300px;
+  min-height: 118px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -133px 0 0 -170px;
+  background-color: #ffdada;
+  border-radius: 7px;
+  padding: 20px;
+  border: 1px solid #dfb9b9;
+  box-shadow: 0 5px 15px #bbb;
+  color: #555;
 }

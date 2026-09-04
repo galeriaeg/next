@@ -21,6 +21,49 @@ include_once "routes.php";
 </head>
 
 <body>
+
+	<!-- Elemento onde o parâmetro será exibido -->
+	<div id="modal" class="modal-cron" style="display: none;">
+		<span id="resultado" style="display: none;">
+			Aguardando dados do iframe...
+		</span>
+		<div style="margin-top:10px;color:#0F71F0;cursor:pointer;" onclick="fechaModal()">Fechar</div>
+	</div>
+
+	<iframe
+		src="cron/cron.php"
+		width="218"
+		height="2"
+		style="border: none; overflow: hidden;"
+		scrolling="no">
+	</iframe>
+
+
+	<script>
+		window.addEventListener('message', (event) => {
+			const elResultado = document.getElementById('resultado');
+			const elResultadoM = document.getElementById('modal');
+
+			// Valida se o objeto e a mensagem existem e não estão vazios
+			if (event.data && event.data.mensagem && event.data.mensagem.trim() !== "") {
+				elResultado.innerHTML = event.data.mensagem;
+				elResultado.style.display = 'block'; // Exibe a div apenas se houver conteúdo
+				elResultadoM.style.display = 'block';
+			} else {
+				elResultado.innerHTML = '';
+				elResultado.style.display = 'none'; // Esconde se for nulo, indefinido ou vazio
+				elResultadoM.style.display = 'block';
+			}
+		});
+
+
+		function fechaModal() {
+			document.getElementById('modal').style.display = 'none';
+		}
+	</script>
+
+
+
 	<div id="box-conteudo">
 
 		<section id="topo">

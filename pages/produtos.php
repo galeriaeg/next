@@ -116,14 +116,14 @@ if ($qtd < 1) {
       //Busca produtos pela marca
       $i = 1;
       $sql = "
-      SELECT tp.id,tp.file,tp.titulo,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
+      SELECT tp.id,tp.file,tp.titulo,tp.pos,tm.nome AS nomeMarca, tl.titulo AS nomeLinha
       FROM tb_produto tp, tb_marca tm, tb_linha tl
       WHERE tp.idmarca = $idMarca_selecionada
       AND tp.idmarca = tm.id
       AND tp.idlinha = tl.id
       AND tm.status = 1
       AND tp.status = 1
-      ORDER BY tl.titulo ASC, tp.titulo ASC";
+      ORDER BY pos ASC";
       $re = mysqli_query($conexao, $sql);
       $qtdProduto = mysqli_num_rows($re);
       while ($row = mysqli_fetch_array($re)) {
@@ -132,6 +132,7 @@ if ($qtd < 1) {
         $fotoProduto = $row['file'];
         $nomeMarca = $row['nomeMarca'];
         $nomeLinha = $row['nomeLinha'];
+        $pos = $row['pos'];
 
 
         if (!$fotoProduto) {
@@ -148,7 +149,7 @@ if ($qtd < 1) {
           </div>
          </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
-        <h4>$nomeMarca - $nomeLinha</h4>
+        <h4>$nomeMarca - $nomeLinha - $pos</h4>
         </div>";
         } else {
           echo "<div class='card-produto card-first'>
@@ -158,7 +159,7 @@ if ($qtd < 1) {
           </div>
         </a>
         <h2><i class='fa fa-arrow-circle-o-right' aria-hidden='true'></i> $tituloProduto</h2>
-        <h4>$nomeMarca - $nomeLinha</h4>
+        <h4>$nomeMarca - $nomeLinha - $pos</h4>
         </div>";
         }
         $i++;
@@ -175,7 +176,7 @@ if ($qtd < 1) {
       AND tp.idlinha = tl.id
       AND tm.status = 1
       AND tp.status = 1
-      ORDER BY pos ASC;;";
+      ORDER BY pos ASC;";
       $re = mysqli_query($conexao, $sql);
       $qtdProduto = mysqli_num_rows($re);
       while ($row = mysqli_fetch_array($re)) {

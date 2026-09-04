@@ -21,7 +21,7 @@ if (
 	while ($row = $cons->fetch_array()) {
 		$id		= 	$row['id'];
 		$pagina	=	$row['pagina'];
-		$titulo	=	$row['titulo'];
+		$titulo_bd	=	$row['titulo'];
 		$texto	=	$row['texto'];
 		$mapa	=	$row['plus'];
 		$tipo	=	$row['tipo'];
@@ -70,7 +70,7 @@ if (
 	<span class="txt">Tipo: <?php echo $tipo . " - <b>" . $pagina; ?></b></span><br /><br />
 
 	<label>T&iacute;tulo:</label>
-	<input name="titulo" type="text" required class="campo_m" value="<?php echo $titulo; ?>" />
+	<input name="titulo" type="text" required class="campo_m" value="<?php echo $titulo_bd; ?>" />
 
 
 	<label>Texto:</label>
